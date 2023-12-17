@@ -1,0 +1,23 @@
+{
+  "greeting": "成年啦",
+  "name": "杨春白雪",
+  "greetingText": "祝你生日快乐",
+  "wishText": "happy birthday ;)",
+  "imagePath": "img/image.png",
+  "text1": "今天是你生日!!! :D",
+  "textInChatBox": "Happy birthday to you!! Many many happy blah...",
+  "sendButtonLabel": "发送",
+  "text2": "接下来我们将看到",
+  "text3": "等等，先停一下.",
+  "text4": "今天不是个普通的生日 ",
+  "text4Adjective": "特别的",
+  "text5Entry": "因为,",
+  "text5Content": "你成年啦",
+  "smiley": ":)",
+  "bigTextPart1": "S",
+  "bigTextPart2": "O",
+  "wishHeading": "Happy Birthday!",
+  "outroText": "现在可以哭了（bushi",
+  "replayText": "如果想再看一下，请单击",
+  "outroSmiley": ":)"
+}
