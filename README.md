@@ -1,32 +1,34 @@
 # Hou Bohan's Resume
-
+## I have a strong interest in multimedia information retrieval
 ## Basic Information
 - **Name**: Hou Bohan
 - **Ethnicity**: Han
-- **Phone**: 18505381908
+-
 - **Email**: 896295138@qq.com
 - **Github**: hbhalpha
 - **Grade**: Freshman
 
 ## Education Background
 - **Date of Birth**: May 2004
-- **Height**: 179cm
+- **Height**: 181cm
 - **Political Affiliation**: Communist Youth League member
 - **College**: Taishan College / School of Computer Science and Technology
 - **Major**: Computer Science and Technology (Taishan College)
 
 ### Academic Timeline
 - 09/2022 - 10/2022: Electronic Information Class, Shandong University
-- 10/2022 - 06/2023: Computer Science and Technology (Taishan), Shandong University
+- 10/2022 - now: Computer Science and Technology (Taishan), Shandong University
+- 7/2023 - now: ilearn,Shandong University
 
 ### Major Courses
-- Discrete Mathematics (93), Linear Algebra (91), Mathematical Analysis (I) (85), etc.
-
+- Discrete Mathematics (95,93), Linear Algebra (91), Mathematical Analysis (I) (90,85), Advanced Programming(90) etc.
+- GPA(87.4/100) ,6/22
 ## Skills
 ### Programming Fundamentals
 - Programming education since high school; familiar with data structures and algorithms.
 - Second prize in NOIP2020.
 - Proficient in Python, C/C++, Java, JS, MySQL.
+- Understand the knowledge of deep learning
 
 ### Mathematics
 - Passionate about mathematics, consistently top 15% in grade.
