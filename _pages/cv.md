@@ -1,3 +1,14 @@
+---
+layout: archive
+title: "CV"
+permalink: /cv/
+author_profile: true
+redirect_from:
+  - /resume
+---
+
+{% include base_path %}
+
 # Education
 
 ## Shandong University, Jinan, China  
@@ -84,9 +95,9 @@
 ---
 
   # Patents and Publications
-**[On Submession]** **Bohan Hou**, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu and Xiangyu Zhao (2025). *Fine-grained modeling enhancement  for MLLM for Complex image retrieval* . 
-**[On Submession]** Xuemeng Song, Haoqiang Lin, Haokun Wen, **Bohan Hou**, Mingzhu Xu and Liqiang Nie (2024). *A Comprehensive Survey on Composed lmage Retrieval*. \[[Arxiv]()\]
-**[On Submession]** **Bohan Hou**, Haoqiang Lin, Haokun Wen, Meng Liu, and Xuemeng Song (2024). *Pseudo-triplet Guided Few-shot Composed Image Retrieval*. \[[Arxiv](https://arxiv.org/abs/2407.06001)\]
+**[On Submession.3]** **Bohan Hou**, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu and Xiangyu Zhao (2025). *Fine-grained modeling enhancement  for MLLM for Complex image retrieval* . 
+**[On Submession.2]** Xuemeng Song, Haoqiang Lin, Haokun Wen, **Bohan Hou**, Mingzhu Xu and Liqiang Nie (2024). *A Comprehensive Survey on Composed lmage Retrieval*. \[[Arxiv]()\]
+**[On Submession.1]** **Bohan Hou**, Haoqiang Lin, Haokun Wen, Meng Liu, and Xuemeng Song (2024). *Pseudo-triplet Guided Few-shot Composed Image Retrieval*. \[[Arxiv](https://arxiv.org/abs/2407.06001)\]
 
 ---
 
