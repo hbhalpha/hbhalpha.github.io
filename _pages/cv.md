@@ -32,12 +32,12 @@ redirect_from:
   - Under the guidance of Associate Professor [Xuemeng Song (宋雪萌)](mailto:bohanhou@foxmail.com)
   - Have a certain understanding of multimodal large models.
   - Currently working on applying large models to retrieval.
+  - Research on **Composed Image Retrieval** aims to allow users to retrieve target images by referencing images and modification text.
   - Very familiar with a series of CIR models, which has also given a good understanding of multimodality.
 
 - ### 人机智能中心 
   **Intern**  
   *May. 2024 - Now*
-  - Research on **Composed Image Retrieval** aims to allow users to retrieve target images by referencing images and modification text.
   - Serving as an assistant in the research of Pickball sports robots.
   - Participated in explainable Go AI, aiming to enable models to explain every step of Go. Proposed the core algorithm, which was adopted by the team.
   - Under the guidance of Professor [Dong Xuan (宣东)](https://www.cs.sdu.edu.cn/info/1070/5799.htm), an IEEE Fellow.
