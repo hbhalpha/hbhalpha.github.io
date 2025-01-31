@@ -9,7 +9,7 @@ redirect_from:
 ---
 Short Bio
 ---   
-My name is Bohan Hou(侯博涵), and I am currently an undergraduate student of the class of 2022 at Shandong University(山东大学), under the guidance of Associate Professor Xuemeng Song(宋雪萌). I am studying computer science at Taishan College(泰山学堂，山东大学荣誉本科生计划，珠峰计划，基础学科拔尖人才培养计划）. I am currently a research assistant in the Intelligent Media Research Center(iLearn) led by Professor Liqiang Nie(聂礼强) in Harbin Institute of Technology(Shenzhen).  I am interested in **multimodal models**, **information retrieval**, **embodied intelligence**, deep learning, and other fields.
+My name is Bohan Hou(侯博涵), and I am currently an undergraduate student of the class of 2022 at [Shandong University(山东大学)](sdu.edu.cn), under the guidance of Associate Professor [Xuemeng Song(宋雪萌)](https://xuemengsong.github.io/). I am studying computer science at [Taishan College(泰山学堂，山东大学荣誉本科生计划，珠峰计划，基础学科拔尖人才培养计划）](tsxt.sdu.edu.cn). I am currently a research assistant in the [Intelligent Media Research Center(iLearn)](https://ilearn.qd.sdu.edu.cn) led by Professor [Liqiang Nie(聂礼强)](liqiangnie.github.io) at [Harbin Institute of Technology(Shenzhen)](hitsz.edu.cn).  I am interested in **multimodal models**, **information retrieval**, **embodied intelligence**, deep learning, and other fields.
 
 Education
 ---
