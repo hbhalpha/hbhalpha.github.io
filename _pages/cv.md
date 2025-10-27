@@ -150,6 +150,7 @@ S = In Submission, J = Journal, C = Conference, R = Technical Report
   - **Shandong University Innovation and Entrepreneurship Scholarship**, 2023
   - **Shandong University Outstanding Student Scholarship**, 2024
   - **Shandong University Outstanding Student Scholarship**, 2025
+  - **Shandong University  Academic Innovation Scholarship**，2025
   - **Second Prize** in National Undergraduate Mathematics Competition, Chinese Mathematical Society, 2024
   - **Second Prize** in Asia-Pacific Mathematical Modeling Competition, Asia-Pacific Mathematical Modeling Competition Committee, 2024
   - **National First Prize** in the "Shu Wei Cup" Mathematical Modeling Competition, "Shu Wei Cup" Organizing Committee, 2024
