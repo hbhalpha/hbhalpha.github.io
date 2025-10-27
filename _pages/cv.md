@@ -146,7 +146,6 @@ S = In Submission, J = Journal, C = Conference, R = Technical Report
   - **Mathematical & Statistical Tools:** Mathematical analysis, linear algebra, mathematical statistics, probability theory
   - **Research Skills:** Paper reading, experimentation, paper writing, presentation
 
----
 
 
 
