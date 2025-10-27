@@ -18,7 +18,7 @@ Education
           </a>     
   </div>  
   
-- **Harbin Institute of Technology (Shenzhen)** Jan.2025 — Present    
+- **Harbin Institute of Technology (Shenzhen)** Jan.2025 — Apr.2025    
   Visiting Student in the School of Computer Science and Technology, iLearn Lab  
   Supervisor: Prof. [Xiang Deng](https://faculty.hitsz.edu.cn/dengxiang).  
 
