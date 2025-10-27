@@ -68,6 +68,7 @@ S = In Submission, J = Journal, C = Conference, R = Technical Report
   - **Second Prize** in Asia-Pacific Mathematical Modeling Competition, Asia-Pacific Mathematical Modeling Competition Committee, 2024
   - **National First Prize** in the "Shu Wei Cup" Mathematical Modeling Competition, "Shu Wei Cup" Organizing Committee, 2024
   - **Seventh Place** in the National Finals of the "Shu Wei Cup" Mathematics Competition, "Shu Wei Cup" Organizing Committee, 2024
+
 ---
 
 
