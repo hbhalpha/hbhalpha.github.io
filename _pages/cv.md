@@ -10,22 +10,14 @@ redirect_from:
 {% include base_path %}
 
 ## Education
-
-- ### Shandong University, Jinan, China  
+- ### Computer Science, Taishan Colledge(First Honors Class Program), Shandong University, Jinan, China  
   *Sep. 2022 - Jul. 2023*
-
-- ### Shandong University, Qingdao, China  
+- ### Computer Science, Taishan Colledge(First Honors Class Program), Shandong University, Qingdao, China  
   *Jul. 2023 - Now*  
   - **GPA:** 88.5/100  
   - **Rank:** 5/22
 
-- ### Xintai No.1 Middle School, Taian, China  
-  *Secondary Education, Jun. 2022*  
-  - Within the top 1%
-
-
 ## Experience
-
 - ### iLearn [Qingdao, Shandong University & Shenzhen, Harbin Institute of Technology](https://ilearn.qd.sdu.edu.cn/index.htm)
   **Research Assistant**  
   *Jul. 2023 - Now*
@@ -46,6 +38,38 @@ redirect_from:
   - Under the guidance of Professor [Dong Xuan (宣东)](https://www.cs.sdu.edu.cn/info/1070/5799.htm), an IEEE Fellow.
 
 ---
+
+## Patents and Publications
+S = In Submission, J = Journal, C = Conference, R = Technical Report  
+
+**[C.1]** **Bohan Hou**, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu, and Xiangyu Zhao (2025). *FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval.* SIGIR ’25. CCF-A / CORE-A Conference.
+
+**[C.2]** **Bohan Hou**, Haoqiang Lin, Haokun Wen, Meng Liu, Mingzhu Xu, and Xuemeng Song (2024). *Pseudo-triplet Guided Few-shot Composed Image Retrieval.* IJCNN ’25. CORE-A Conference.
+
+**[R.1]** **Bohan Hou**, Haokun Wen, Haoqiang Lin, Xuemeng Song and Liqiang Nie (2025). *Visual Anchor Point for Multimodal Document Retrieval.* WWW ’25 Multimodal Document Retrieval Challenge (Oral). CCF-A Conference.
+
+**[C.3]** Yang Ye, … , **Bohan Hou**, et al. (2025). *ImgEdit: A Unified Image Editing Dataset and Benchmark.* NeurIPS ’25. CCF-A Conference.
+
+**[J.1]** Xuemeng Song, Haoqiang Lin, Haokun Wen, **Bohan Hou**, Mingzhu Xu, and Liqiang Nie (2025). *A Comprehensive Survey on Composed Image Retrieval.* Conditionally accepted for publication in TOIS. CCF-A Journal.
+
+---
+## Honors and Awards
+  - **Championship！！** in WWW’25 Multimodal Document Retrieval Challenge, as First Author and Primary Contributor (>90% system design & implementation), Apr. 2025
+  - **Second Prize** in National Olympiad in Informatics (NOIP 2020) Advanced Group, Chinese Computer Federation (CCF), Nov. 2020
+  - **Second Prize** in Shandong Province High School Mathematics Competition, Shandong Provincial Mathematical Society, Oct. 2020
+  - **Best Speed Award** and **Best Functionality Award** in the First Intelligent Vehicle Competition, Taishan College, 2023
+  - **Third Prize** in Shandong Province Electronic Design Competition, Shandong Provincial Department of Education, 2023
+  - **Shandong University Outstanding Student Scholarship**, 2023
+  - **Shandong University Innovation and Entrepreneurship Scholarship**, 2023
+  - **Shandong University Outstanding Student Scholarship**, 2024
+  - **Shandong University Outstanding Student Scholarship**, 2025
+  - **Shandong University  Academic Innovation Scholarship**，2025
+  - **Second Prize** in National Undergraduate Mathematics Competition, Chinese Mathematical Society, 2024
+  - **Second Prize** in Asia-Pacific Mathematical Modeling Competition, Asia-Pacific Mathematical Modeling Competition Committee, 2024
+  - **National First Prize** in the "Shu Wei Cup" Mathematical Modeling Competition, "Shu Wei Cup" Organizing Committee, 2024
+  - **Seventh Place** in the National Finals of the "Shu Wei Cup" Mathematics Competition, "Shu Wei Cup" Organizing Committee, 2024
+---
+
 
 ## Highlight Projects
 - ### ImgEdit: Open Reproduction of GPT-4o–Level Image Editing
@@ -113,22 +137,6 @@ redirect_from:
 
 ---
 
-## Patents and Publications
-S = In Submission, J = Journal, C = Conference, R = Technical Report  
-
-**[C.1]** **Bohan Hou**, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu, and Xiangyu Zhao (2025). *FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval.* SIGIR ’25. CCF-A / CORE-A Conference.
-
-**[C.2]** **Bohan Hou**, Haoqiang Lin, Haokun Wen, Meng Liu, Mingzhu Xu, and Xuemeng Song (2024). *Pseudo-triplet Guided Few-shot Composed Image Retrieval.* IJCNN ’25. CORE-A Conference.
-
-**[R.1]** **Bohan Hou**, Haokun Wen, Haoqiang Lin, Xuemeng Song and Liqiang Nie (2025). *Visual Anchor Point for Multimodal Document Retrieval.* WWW ’25 Multimodal Document Retrieval Challenge (Oral). CCF-A Conference.
-
-**[C.3]** Yang Ye, … , **Bohan Hou**, et al. (2025). *ImgEdit: A Unified Image Editing Dataset and Benchmark.* NeurIPS ’25. CCF-A Conference.
-
-**[J.1]** Xuemeng Song, Haoqiang Lin, Haokun Wen, **Bohan Hou**, Mingzhu Xu, and Liqiang Nie (2025). *A Comprehensive Survey on Composed Image Retrieval.* Conditionally accepted for publication in TOIS. CCF-A Journal.
-
-
----
-
 ## Skills
 
   - **Programming Languages:** Python, C++, C, Java, JavaScript
@@ -140,21 +148,7 @@ S = In Submission, J = Journal, C = Conference, R = Technical Report
 
 ---
 
-## Honors and Awards
-  - **Championship！！** in WWW’25 Multimodal Document Retrieval Challenge, as First Author and Primary Contributor (>90% system design & implementation), Apr. 2025
-  - **Second Prize** in National Olympiad in Informatics (NOIP 2020) Advanced Group, Chinese Computer Federation (CCF), Nov. 2020
-  - **Second Prize** in Shandong Province High School Mathematics Competition, Shandong Provincial Mathematical Society, Oct. 2020
-  - **Best Speed Award** and **Best Functionality Award** in the First Intelligent Vehicle Competition, Taishan College, 2023
-  - **Third Prize** in Shandong Province Electronic Design Competition, Shandong Provincial Department of Education, 2023
-  - **Shandong University Outstanding Student Scholarship**, 2023
-  - **Shandong University Innovation and Entrepreneurship Scholarship**, 2023
-  - **Shandong University Outstanding Student Scholarship**, 2024
-  - **Shandong University Outstanding Student Scholarship**, 2025
-  - **Shandong University  Academic Innovation Scholarship**，2025
-  - **Second Prize** in National Undergraduate Mathematics Competition, Chinese Mathematical Society, 2024
-  - **Second Prize** in Asia-Pacific Mathematical Modeling Competition, Asia-Pacific Mathematical Modeling Competition Committee, 2024
-  - **National First Prize** in the "Shu Wei Cup" Mathematical Modeling Competition, "Shu Wei Cup" Organizing Committee, 2024
-  - **Seventh Place** in the National Finals of the "Shu Wei Cup" Mathematics Competition, "Shu Wei Cup" Organizing Committee, 2024
+
 
 ---
 
