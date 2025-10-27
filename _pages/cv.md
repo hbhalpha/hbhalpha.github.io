@@ -16,8 +16,8 @@ redirect_from:
 
 - ### Shandong University, Qingdao, China  
   *Jul. 2023 - Now*  
-  - **GPA:** 88.4/100  
-  - **Rank:** 6/20
+  - **GPA:** 88.5/100  
+  - **Rank:** 5/22
 
 - ### Xintai No.1 Middle School, Taian, China  
   *Secondary Education, Jun. 2022*  
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Experience
 
-- ### iLearn [Qingdao, Shandong University](https://ilearn.qd.sdu.edu.cn/index.htm)
+- ### iLearn [Qingdao, Shandong University & Shenzhen, Harbin Institute of Technology](https://ilearn.qd.sdu.edu.cn/index.htm)
   **Research Assistant**  
   *Jul. 2023 - Now*
   - Under the guidance of Associate Professor [Xuemeng Song (宋雪萌)](mailto:bohanhou@foxmail.com)
@@ -34,7 +34,10 @@ redirect_from:
   - Currently working on applying large models to retrieval.
   - Research on **Composed Image Retrieval** aims to allow users to retrieve target images by referencing images and modification text.
   - Very familiar with a series of CIR models, which has also given a good understanding of multimodality.
-
+  **Visiting Student**  
+  *Jan. 2025 - Apr. 2025*
+  - Under the guidance of Associate Professor Xiang Deng (邓翔)
+  - Embodied AI and Robotics.
 - ### 人机智能中心 
   **Intern**  
   *May. 2024 - Now*
@@ -44,7 +47,22 @@ redirect_from:
 
 ---
 
-## Projects
+## Highlight Projects
+- ### ImgEdit: Open Reproduction of GPT-4o–Level Image Editing
+    [Github](https://github.com/PKU-YuanGroup/ImgEdit)
+  - Contributed to an open-source framework that aims to replicate GPT-4o–style instruction-based image editing, and to standardize evaluation for controllable visual editing quality and instruction faithfulness.
+  - I participated in building the benchmarking and evaluation pipeline and helped construct part of the dataset.
+- ### Multimodal Document Retrieval System (WWW’25 Challenge Winner, 1st Place)
+  [Github](https://github.com/hbhalpha/MDR)
+  - I design an industrial-grade multimodal document retrieval system that fuses visual cues (figures, tables, headers) with text-only retrievers to handle noisy, partially visible, or OCR-imperfect inputs. The system won 1st place in the WWW’25 Multimodal Document Retrieval Challenge.
+  - I introduce a visual anchor mechanism and an ensemble retrieval pipeline that aligns semantic regions from document images with large-text retrievers, improving cross-modal relevance and robustness under real-world conditions.
+- ### Embodied-AI-Guide: Practical Guide to Embodied Intelligence （Over 8k stars on github)
+  [Github](https://github.com/TianxingChen/Embodied-AI-Guide)
+  - The project is an open-source guide to embodied AI, aiming to give newcomers a structured path into robot learning — from perception and control to policy learning with multimodal large models — with curated reading lists, conceptual overviews, and practical engineering notes.
+  - I contributed written sections on multimodal large models and LLM-for-robotics / VLA (Vision-Language-Action) policies, including how these models ground language instructions into executable actions on physical robots and how they interface with control stacks.
+- ### ReKep Deployment on a Physical Dobot Arm
+  - I deploy the ReKep manipulation policy on a real Dobot robotic arm, moving beyond purely simulated benchmarks and demonstrating reliable physical pick-and-place and pose adjustment behaviors in a real-world setting.
+  - I implement the full perception-to-control pipeline, including camera calibration, target pose estimation, coordinate frame alignment, and motion command generation for the Dobot controller, achieving stable sub-centimeter actuation ac
 - ### MLLM as a Universal Image Retriever
   - We introduce an automated pipeline designed to create detailed multimodal composition datasets and present a large-scale dataset, FiGMaQ, to advance research in fine-grained context learning with MLLMs (Multimodal Large Language Models).
   - We propose a two-phase fine-tuning strategy that enhances the MLLM's capabilities in complex context understanding and query-target alignment, improving its performance across a wide range of image retrieval tasks. With distinct fine-tuning goals, this method also reduces the computational load.
@@ -56,7 +74,13 @@ redirect_from:
   - Introduced a pseudo modification text-based sample challenging score estimation method and a top range-based random sampling strategy.  
   - First to highlight the quality of selected training triplets, maximizing the benefit of few annotated triplets.
   - Plug-and-play and compatible with various CIR models, achieving improvements of up to 22.2% across datasets.
-
+- ### Smart Car: Based on Raspberry Pi, Supporting Remote Control and Automatic Line Tracking
+  **Tools:** Raspberry Pi, Python  
+  [Video](https://www.bilibili.com/video/BV12g4y1578s)
+  - Developed a smart car with remote control and automatic line-tracking capabilities.
+  - Programmed car movements using Python and integrated sensors for autonomous navigation.
+    
+## Other Projects
 - ### Explainable Go AI
   **Tools:** Python, JavaScript  
   [GitHub](#)
@@ -78,11 +102,7 @@ redirect_from:
   - Enhanced AI decision-making using the Monte Carlo Tree Search algorithm.
   - Created a user-friendly interface and optimized algorithm performance.
 
-- ### Smart Car: Based on Raspberry Pi, Supporting Remote Control and Automatic Line Tracking
-  **Tools:** Raspberry Pi, Python  
-  [Video](https://www.bilibili.com/video/BV12g4y1578s)
-  - Developed a smart car with remote control and automatic line-tracking capabilities.
-  - Programmed car movements using Python and integrated sensors for autonomous navigation.
+
 
 - ### Mechanical Structure Analysis: Processing Structural Mechanics Problems Using Intel OneAPI
   **Tools:** Intel OneAPI, SYCL  
@@ -94,9 +114,18 @@ redirect_from:
 ---
 
 ## Patents and Publications
-**[On Submession.3]** **Bohan Hou**, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu and Xiangyu Zhao (2025). *Fine-grained modeling enhancement  for MLLM for Complex image retrieval* . 
-**[On Submession.2]** Xuemeng Song, Haoqiang Lin, Haokun Wen, **Bohan Hou**, Mingzhu Xu and Liqiang Nie (2024). *A Comprehensive Survey on Composed lmage Retrieval*. \[[Arxiv]()\]
-**[On Submession.1]** **Bohan Hou**, Haoqiang Lin, Haokun Wen, Meng Liu, and Xuemeng Song (2024). *Pseudo-triplet Guided Few-shot Composed Image Retrieval*. \[[Arxiv](https://arxiv.org/abs/2407.06001)\]
+S = In Submission, J = Journal, C = Conference, R = Technical Report  
+
+**[C.1]** **Bohan Hou**, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu, and Xiangyu Zhao (2025). *FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval.* SIGIR ’25. CCF-A / CORE-A Conference.
+
+**[C.2]** **Bohan Hou**, Haoqiang Lin, Haokun Wen, Meng Liu, Mingzhu Xu, and Xuemeng Song (2024). *Pseudo-triplet Guided Few-shot Composed Image Retrieval.* IJCNN ’25. CORE-A Conference.
+
+**[R.1]** **Bohan Hou**, Haokun Wen, Haoqiang Lin, Xuemeng Song and Liqiang Nie (2025). *Visual Anchor Point for Multimodal Document Retrieval.* WWW ’25 Multimodal Document Retrieval Challenge (Oral). CCF-A Conference.
+
+**[C.3]** Yang Ye, … , **Bohan Hou**, et al. (2025). *ImgEdit: A Unified Image Editing Dataset and Benchmark.* NeurIPS ’25. CCF-A Conference.
+
+**[J.1]** Xuemeng Song, Haoqiang Lin, Haokun Wen, **Bohan Hou**, Mingzhu Xu, and Liqiang Nie (2025). *A Comprehensive Survey on Composed Image Retrieval.* Conditionally accepted for publication in TOIS. CCF-A Journal.
+
 
 ---
 
@@ -112,7 +141,7 @@ redirect_from:
 ---
 
 ## Honors and Awards
-
+  - **Championship！！** in WWW’25 Multimodal Document Retrieval Challenge, as First Author and Primary Contributor (>90% system design & implementation), Apr. 2025
   - **Second Prize** in National Olympiad in Informatics (NOIP 2020) Advanced Group, Chinese Computer Federation (CCF), Nov. 2020
   - **Second Prize** in Shandong Province High School Mathematics Competition, Shandong Provincial Mathematical Society, Oct. 2020
   - **Best Speed Award** and **Best Functionality Award** in the First Intelligent Vehicle Competition, Taishan College, 2023
@@ -120,6 +149,7 @@ redirect_from:
   - **Shandong University Outstanding Student Scholarship**, 2023
   - **Shandong University Innovation and Entrepreneurship Scholarship**, 2023
   - **Shandong University Outstanding Student Scholarship**, 2024
+  - **Shandong University Outstanding Student Scholarship**, 2025
   - **Second Prize** in National Undergraduate Mathematics Competition, Chinese Mathematical Society, 2024
   - **Second Prize** in Asia-Pacific Mathematical Modeling Competition, Asia-Pacific Mathematical Modeling Competition Committee, 2024
   - **National First Prize** in the "Shu Wei Cup" Mathematical Modeling Competition, "Shu Wei Cup" Organizing Committee, 2024
