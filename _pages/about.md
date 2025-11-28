@@ -13,7 +13,7 @@ My name is Bohan Hou(侯博涵), and I am currently an undergraduate student of 
 
 <div align="left">
           <a target="_blank" rel="external">
-            <img border="0" src="https://github.com/hbhalpha/hbhalpha.github.io/tree/master/images/3011b2a2-20a6-4de8-ac0c-6f0c5c379987.png" align="right" width="120" height="54">
+            <img border="0" src="https://github.com/hbhalpha/hbhalpha.github.io/images/3011b2a2-20a6-4de8-ac0c-6f0c5c379987.png" align="right" width="120" height="54">
           </a>     
   </div>  
   
