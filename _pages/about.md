@@ -55,5 +55,5 @@ Education
 
 - **Shandong University** Sep.2022 — Jun.2026  
   Undergraduate in the School of Computer Science and Technology and Taishan College(Honor Project)  
-  Supervisor: Prof. [Xuemeng Song](https://xuemengsong.github.io/) and Prof. [Liqiang Nie(聂礼强)](https://liqiangnie.github.io)
+  Supervisor: Prof. [Xuemeng Song](https://xuemengsong.github.io/) 
 
