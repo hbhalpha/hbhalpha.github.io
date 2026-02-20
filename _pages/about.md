@@ -21,7 +21,7 @@ Internship
   
 - **Alibaba Damo Academy** Nov.2025-Now  
   Intern on Embodied Intelligence and World Model  
-  Mentor: Dr.[Jun Cen](https://cen-jun.com/) and Dr.[Xin Li](https://lixin4ever.github.io/)  
+  Mentor: Dr.[Jun Cen](https://cen-jun.com/) ,[Ronghao Dang](https://rh-dang.github.io/) and Dr.[Xin Li](https://lixin4ever.github.io/)  
   I also work closely with a number of talented colleagues, such as Dr.Jiayan Guo and Dr.Siteng Huang.  
   
 <div align="left">
