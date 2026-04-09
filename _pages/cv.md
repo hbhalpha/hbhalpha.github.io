@@ -18,10 +18,10 @@ redirect_from:
   - **Rank:** 5/22
 
 ## Experience
-- ### iLearn [Qingdao, Shandong University & Shenzhen, Harbin Institute of Technology](https://ilearn.qd.sdu.edu.cn/index.htm)
+- ### iLearn [Qingdao, Shandong University ](https://ilearn.qd.sdu.edu.cn/index.htm)
   **Research Assistant**  
   *Jul. 2023 - Now*
-  - Under the guidance of Associate Professor [Xuemeng Song (宋雪萌)](mailto:bohanhou@foxmail.com)
+  - Under the guidance of Associate Professor [Xuemeng Song (宋雪萌)]
   - Have a certain understanding of multimodal large models.
   - Currently working on applying large models to retrieval.
   - Research on **Composed Image Retrieval** aims to allow users to retrieve target images by referencing images and modification text.
