@@ -17,26 +17,6 @@ redirect_from:
   - **GPA:** 88.5/100  
   - **Rank:** 5/22
 
-## Experience
-- ### iLearn [Qingdao, Shandong University ](https://ilearn.qd.sdu.edu.cn/index.htm)
-  **Research Assistant**  
-  *Jul. 2023 - Now*
-  - Under the guidance of Associate Professor [Xuemeng Song (宋雪萌)]
-  - Have a certain understanding of multimodal large models.
-  - Currently working on applying large models to retrieval.
-  - Research on **Composed Image Retrieval** aims to allow users to retrieve target images by referencing images and modification text.
-  - Very familiar with a series of CIR models, which has also given a good understanding of multimodality.
-  **Visiting Student**  
-  *Jan. 2025 - Apr. 2025*
-  - Under the guidance of Associate Professor Xiang Deng (邓翔)
-  - Embodied AI and Robotics.
-- ### 人机智能中心 
-  **Intern**  
-  *May. 2024 - Now*
-  - Serving as an assistant in the research of Pickball sports robots.
-  - Participated in explainable Go AI, aiming to enable models to explain every step of Go. Proposed the core algorithm, which was adopted by the team.
-  - Under the guidance of Professor [Dong Xuan (宣东)](https://www.cs.sdu.edu.cn/info/1070/5799.htm), an IEEE Fellow.
-
 ---
 
 ## Patents and Publications
@@ -138,22 +118,3 @@ S = In Submission, J = Journal, C = Conference, R = Technical Report
   - Used SYCL for parallel computing to accelerate data processing.
   - Created simulation models to analyze stress conditions of structures.
 
----
-
-## Skills
-
-  - **Programming Languages:** Python, C++, C, Java, JavaScript
-  - **English:** CET-6 Score: 571
-  - **Data Science & Machine Learning:** Torch, Transformers, and other LLM platforms
-  - **Specialized Areas:** Information retrieval, Debug
-  - **Mathematical & Statistical Tools:** Mathematical analysis, linear algebra, mathematical statistics, probability theory
-  - **Research Skills:** Paper reading, experimentation, paper writing, presentation
-
-
-
-
----
-
-## Additional Information
-
-  **Interests:** Sports, Photography, Go, Violin
