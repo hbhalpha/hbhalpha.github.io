@@ -1,0 +1,551 @@
+---
+permalink: /
+title: "Bohan Hou"
+layout: single
+author_profile: false
+classes: wide
+---
+
+<style>
+  :root {
+    --ah-ink: #162033;
+    --ah-muted: #657084;
+    --ah-soft: #f6f7f9;
+    --ah-line: #e8ebf0;
+    --ah-accent: #2f5f9f;
+    --ah-accent-soft: #edf3fb;
+    --ah-card: #ffffff;
+    --ah-radius: 18px;
+    --ah-shadow: 0 18px 50px rgba(22, 32, 51, 0.08);
+  }
+
+  .page__title { display: none; }
+  .archive { width: 100%; }
+
+  .academic-home {
+    max-width: 1060px;
+    margin: 0 auto;
+    color: var(--ah-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+
+  .academic-home a {
+    color: var(--ah-accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(47, 95, 159, 0.25);
+  }
+
+  .academic-home a:hover { border-bottom-color: var(--ah-accent); }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid var(--ah-line);
+    margin: -1rem 0 2.2rem;
+  }
+
+  .topbar-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.92rem;
+  }
+
+  .brand a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: inherit;
+    border-bottom: none;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+
+  .brand-logo {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(22, 32, 51, 0.10);
+  }
+
+  .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .navlinks { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .navlinks a { color: inherit; border-bottom: none; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 2.2rem;
+    align-items: center;
+    padding: 2.6rem;
+    border: 1px solid var(--ah-line);
+    border-radius: 28px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 58%, #eef4fb 100%);
+    box-shadow: var(--ah-shadow);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.9rem;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid var(--ah-line);
+    border-radius: 999px;
+    color: var(--ah-muted);
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 0.82rem;
+  }
+
+  .hero h1 {
+    margin: 0 0 0.45rem;
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+  }
+
+  .cn-name { color: var(--ah-muted); font-weight: 500; letter-spacing: 0; }
+
+  .subtitle {
+    margin: 0 0 1.2rem;
+    color: var(--ah-muted);
+    font-size: 1.08rem;
+    max-width: 670px;
+  }
+
+  .research-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 1.1rem 0 1.4rem; }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    background: var(--ah-accent-soft);
+    color: #214d83;
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.15rem; }
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0.46rem 0.9rem;
+    border-radius: 11px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border: 1px solid var(--ah-line) !important;
+    background: #fff;
+    color: var(--ah-ink) !important;
+  }
+
+  .button.primary { background: var(--ah-ink); color: #fff !important; border-color: var(--ah-ink) !important; }
+
+  .portrait-card {
+    justify-self: end;
+    width: 250px;
+    padding: 0.85rem;
+    border-radius: 24px;
+    border: 1px solid var(--ah-line);
+    background: #fff;
+    box-shadow: 0 14px 35px rgba(22, 32, 51, 0.10);
+  }
+
+  .portrait-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1.12;
+    object-fit: cover;
+    border-radius: 18px;
+  }
+
+  .quick-meta { margin-top: 0.8rem; color: var(--ah-muted); font-size: 0.9rem; }
+  section { margin-top: 3rem; scroll-margin-top: 5rem; }
+
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--ah-line);
+  }
+
+  .section-head h2 { margin: 0; font-size: 1.45rem; letter-spacing: -0.02em; }
+  .section-note { margin: 0; color: var(--ah-muted); font-size: 0.92rem; }
+
+  .bio-card,
+  .simple-card {
+    padding: 1.35rem 1.45rem;
+    border: 1px solid var(--ah-line);
+    border-radius: var(--ah-radius);
+    background: var(--ah-card);
+  }
+
+  .bio-card p,
+  .simple-card p { margin: 0; }
+
+  .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .timeline-card {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1.1rem 1.15rem;
+    border: 1px solid var(--ah-line);
+    border-radius: var(--ah-radius);
+    background: #fff;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(47, 95, 159, 0.32);
+    box-shadow: 0 14px 32px rgba(22, 32, 51, 0.07);
+  }
+
+  .inst-logo {
+    width: 82px;
+    height: 82px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid var(--ah-line);
+    border-radius: 18px;
+    background: #fff;
+  }
+
+  .inst-logo img { width: 100%; height: 100%; object-fit: contain; padding: 0.45rem; }
+  .period { color: var(--ah-accent); font-size: 0.84rem; font-weight: 800; letter-spacing: 0.02em; }
+  .timeline-card h3 { margin: 0.28rem 0 0.32rem; font-size: 1.05rem; line-height: 1.35; }
+  .timeline-card p { margin: 0.2rem 0; color: var(--ah-muted); font-size: 0.94rem; }
+
+  .paper-list { display: grid; gap: 1rem; }
+  .paper-card {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: stretch;
+    padding: 1rem;
+    border: 1px solid var(--ah-line);
+    border-radius: var(--ah-radius);
+    background: #fff;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+
+  .paper-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(47, 95, 159, 0.35);
+    box-shadow: 0 16px 35px rgba(22, 32, 51, 0.08);
+  }
+
+  .paper-thumb {
+    overflow: hidden;
+    min-height: 150px;
+    border-radius: 14px;
+    border: 1px solid var(--ah-line);
+    background: #fff;
+  }
+
+  .paper-thumb img { display: block; width: 100%; height: 100%; min-height: 150px; object-fit: cover; }
+  .paper-meta { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.45rem; }
+
+  .venue,
+  .type-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .venue { background: #ecf2fb; color: #234b80; }
+  .type-label { background: #f1f2f4; color: #535c6c; }
+  .paper-card h3 { margin: 0.2rem 0 0.4rem; font-size: 1.08rem; line-height: 1.35; }
+  .authors { margin: 0; color: var(--ah-muted); font-size: 0.92rem; }
+  .paper-note { margin: 0.55rem 0 0; color: #41506a; font-size: 0.92rem; }
+  .paper-links { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.65rem; font-size: 0.9rem; }
+
+  .two-col { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 1rem; }
+  .compact-list { margin: 0; padding-left: 1.15rem; color: var(--ah-muted); }
+  .compact-list li + li { margin-top: 0.5rem; }
+
+  .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .project-card { padding: 1rem; border: 1px solid var(--ah-line); border-radius: var(--ah-radius); background: #fff; }
+  .project-card h3 { margin: 0 0 0.45rem; font-size: 1rem; }
+  .project-card p { margin: 0; color: var(--ah-muted); font-size: 0.92rem; }
+  .footer-note { margin: 3rem 0 1rem; padding-top: 1.2rem; border-top: 1px solid var(--ah-line); color: var(--ah-muted); font-size: 0.9rem; }
+
+  @media (max-width: 860px) {
+    .topbar-inner { padding-left: 1rem; padding-right: 1rem; }
+    .hero { grid-template-columns: 1fr; padding: 1.5rem; }
+    .portrait-card { justify-self: start; width: min(250px, 100%); }
+    .timeline-grid, .two-col, .project-grid { grid-template-columns: 1fr; }
+    .paper-card { grid-template-columns: 1fr; }
+    .paper-thumb { min-height: 180px; }
+  }
+
+  @media (max-width: 560px) {
+    .navlinks { gap: 0.65rem; font-size: 0.85rem; }
+    .hero h1 { font-size: 2.3rem; }
+    .section-head { align-items: start; flex-direction: column; }
+    .timeline-card { grid-template-columns: 64px minmax(0, 1fr); }
+    .inst-logo { width: 64px; height: 64px; border-radius: 15px; }
+  }
+</style>
+
+<div class="academic-home">
+  <header class="topbar" aria-label="Site navigation">
+    <div class="topbar-inner">
+      <div class="brand">
+        <a href="#top"><span class="brand-logo"><img src="/assets/site-logo.png" alt="Bohan Hou logo"></span><span>Bohan Hou</span></a>
+      </div>
+      <nav class="navlinks">
+        <a href="#bio">Bio</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#misc">Misc.</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Profile introduction">
+      <div>
+        <div class="eyebrow">Incoming PhD Student · Multimodal AI · Embodied Intelligence</div>
+        <h1>Bohan Hou <span class="cn-name">侯博涵</span></h1>
+        <p class="subtitle">I work on multimodal models, information retrieval, embodied intelligence, and robot learning.</p>
+        <div class="research-tags" aria-label="Research interests">
+          <span class="tag">Multimodal Models</span>
+          <span class="tag">Information Retrieval</span>
+          <span class="tag">Embodied Intelligence</span>
+          <span class="tag">Robot Learning</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:bohanhou@foxmail.com">Email</a>
+          <a class="button" href="/publications/">Publications</a>
+          <a class="button" href="/cv/">CV</a>
+          <a class="button" href="https://github.com/hbhalpha">GitHub</a>
+        </div>
+      </div>
+      <aside class="portrait-card" aria-label="Profile photo and affiliation">
+        <img src="/assets/profile.png" alt="Bohan Hou">
+        <div class="quick-meta">Qingdao, China<br>Shandong University · Taishan College<br>Incoming PhD Student, Nanyang Technological University</div>
+      </aside>
+    </section>
+
+    <section id="bio">
+      <div class="section-head">
+        <h2>Short Bio</h2>
+        <p class="section-note">A concise research-focused introduction.</p>
+      </div>
+      <div class="bio-card">
+        <p>I am an incoming PhD student at Nanyang Technological University (NTU). I received my undergraduate education at Shandong University, where I studied Computer Science at Taishan College under the guidance of Prof. Xuemeng Song. I have also been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. My research interests include multimodal models, information retrieval, embodied intelligence, robot learning, and related areas.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p class="section-note">Research appointments and internships.</p>
+      </div>
+      <div class="timeline-grid">
+        <article class="timeline-card">
+          <div class="inst-logo"><img src="/assets/logos/damo.png" alt="Alibaba DAMO Academy logo"></div>
+          <div>
+            <div class="period">Nov. 2025 — Present</div>
+            <h3>Alibaba DAMO Academy</h3>
+            <p>Research Intern · Embodied Intelligence and World Model</p>
+            <p>Mentors: Dr. Jun Cen, Ronghao Dang, and Dr. Xin Li.</p>
+          </div>
+        </article>
+        <article class="timeline-card">
+          <div class="inst-logo"><img src="/assets/logos/ilearn.png" alt="iLearn Lab logo"></div>
+          <div>
+            <div class="period">Sep. 2022 — Present</div>
+            <h3>iLearn Lab, Shandong University</h3>
+            <p>Research Assistant · Multimodal Large Language Models and Information Retrieval</p>
+            <p>Supervisors: Prof. Xuemeng Song and Prof. Liqiang Nie.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p class="section-note">Academic training and degree programs.</p>
+      </div>
+      <div class="timeline-grid">
+        <article class="timeline-card">
+          <div class="inst-logo"><img src="/assets/logos/ntu.png" alt="Nanyang Technological University logo"></div>
+          <div>
+            <div class="period">Incoming</div>
+            <h3>Nanyang Technological University</h3>
+            <p>Incoming PhD Student</p>
+            <p>Research direction: multimodal learning, retrieval, and embodied intelligence.</p>
+          </div>
+        </article>
+        <article class="timeline-card">
+          <div class="inst-logo"><img src="/assets/logos/sdu.png" alt="Shandong University logo"></div>
+          <div>
+            <div class="period">Sep. 2022 — Jun. 2026</div>
+            <h3>Shandong University</h3>
+            <p>B.Eng. in Computer Science and Technology</p>
+            <p>Taishan College, First-Honor Program. GPA: 88.5 / 100; Rank: 5 / 22.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-head">
+        <h2>Selected Publications</h2>
+        <p class="section-note">Left: visual preview. Right: paper information.</p>
+      </div>
+      <div class="paper-list">
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/interlv_search.png" alt="InterLV-Search preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Agentic Search</span></div>
+            <h3>InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search</h3>
+            <p class="authors"><strong>Bohan Hou</strong>, Jiuning Gu, Jiayan Guo, Ronghao Dang, Sicong Leng, Xin Li, Xuemeng Song, and Jianfei Yang.</p>
+            <p class="paper-note">A benchmark for interleaved language-vision agentic search with active visual evidence seeking and open-web multimodal search.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2605.07510">Paper</a><a href="https://github.com/hbhalpha/InterLV-Search-Bench">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/world_model_robot_learning.png" alt="World Model for Robot Learning preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Survey</span></div>
+            <h3>World Model for Robot Learning: A Comprehensive Survey</h3>
+            <p class="authors"><strong>Bohan Hou</strong>, Gen Li, Jindou Jia, Tuo An, Xinying Guo, Sicong Leng, Haoran Geng, Yanjie Ze, Tatsuya Harada, Philip Torr, Oier Mees, Marc Pollefeys, Zhuang Liu, Jiajun Wu, Pieter Abbeel, Jitendra Malik, Yilun Du, and Jianfei Yang.</p>
+            <p class="paper-note">A robotics-centered survey of world models for policy learning, planning, learned simulation, evaluation, and video generation.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2605.00080">Paper</a><a href="https://ntumars.github.io/wm-robot-survey/">Project</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/rynnbrain.png" alt="RynnBrain preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Foundation Models</span></div>
+            <h3>RynnBrain: Open Embodied Foundation Models</h3>
+            <p class="authors">Ronghao Dang, Jiayan Guo, <strong>Bohan Hou*</strong>, Sicong Leng*, Kehan Li, Xin Li, et al.</p>
+            <p class="paper-note">An open embodied foundation model family for egocentric understanding, spatiotemporal localization, physical reasoning, and planning.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2602.14979">Paper</a><a href="https://alibaba-damo-academy.github.io/RynnBrain.github.io/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnBrain">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/fire.png" alt="FiRE preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">SIGIR 2025</span><span class="type-label">Conference · CCF-A / CORE-A</span></div>
+            <h3>FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval</h3>
+            <p class="authors"><strong>Bohan Hou</strong>, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu, and Xiangyu Zhao.</p>
+            <p class="paper-note">Fine-grained context learning for complex image retrieval with multimodal large language models.</p>
+            <div class="paper-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3729979">Paper</a><a href="https://github.com/iLearn-Lab/SIGIR25-FIRE">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/ptg.png" alt="PTG-FSCIR preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">IJCNN 2025</span><span class="type-label">Conference · CORE-A</span></div>
+            <h3>Pseudo-triplet Guided Few-shot Composed Image Retrieval</h3>
+            <p class="authors"><strong>Bohan Hou</strong>, Haoqiang Lin, Haokun Wen, Meng Liu, Mingzhu Xu, and Xuemeng Song.</p>
+            <p class="paper-note">A pseudo-triplet guided scheme for improving few-shot composed image retrieval.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2407.06001">Paper</a><a href="https://github.com/hbhalpha/PTG-FSCIR">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/imgedit.png" alt="ImgEdit preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">NeurIPS 2025</span><span class="type-label">Conference · CCF-A</span></div>
+            <h3>ImgEdit: A Unified Image Editing Dataset and Benchmark</h3>
+            <p class="authors">Yang Ye, Xianyi He, Zongjian Li, Bin Lin, Shenghai Yuan, Zhiyuan Yan, <strong>Bohan Hou</strong>, and Li Yuan.</p>
+            <p class="paper-note">A unified image editing dataset, benchmark, and model for high-quality single-turn and multi-turn image editing.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2505.20275">Paper</a><a href="https://github.com/PKU-YuanGroup/ImgEdit">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/cir_survey.png" alt="Composed Image Retrieval survey preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">TOIS</span><span class="type-label">Journal · CCF-A</span></div>
+            <h3>A Comprehensive Survey on Composed Image Retrieval</h3>
+            <p class="authors">Xuemeng Song, Haoqiang Lin, Haokun Wen, <strong>Bohan Hou</strong>, Mingzhu Xu, and Liqiang Nie.</p>
+            <p class="paper-note">A comprehensive survey of composed image retrieval, covering supervised, zero-shot, and related multimodal retrieval settings.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2502.18495">Paper</a><a href="https://github.com/haokunwen/Awesome-Composed-Image-Retrieval">Resource</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="/assets/papers/mdr.png" alt="Multimodal Document Retrieval preview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">WWW 2025 Challenge</span><span class="type-label">Oral · CCF-A</span></div>
+            <h3>Visual Anchor Point for Multimodal Document Retrieval</h3>
+            <p class="authors"><strong>Bohan Hou</strong>, Haokun Wen, Haoqiang Lin, Xuemeng Song, and Liqiang Nie.</p>
+            <p class="paper-note">Winner of the WWW’25 Multimodal Document Retrieval Challenge.</p>
+            <div class="paper-links"><a href="https://github.com/hbhalpha/MDR">Code</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-head"><h2>Selected Projects</h2><p class="section-note">Representative systems and open-source efforts.</p></div>
+      <div class="project-grid">
+        <article class="project-card"><h3>Multimodal Document Retrieval</h3><p>An industrial-grade retrieval system that combines visual cues with text retrieval for noisy document images.</p></article>
+        <article class="project-card"><h3>Embodied-AI-Guide</h3><p>A structured open-source guide for embodied intelligence, robot learning, and vision-language-action policy learning.</p></article>
+        <article class="project-card"><h3>ReKep on Physical Dobot Arm</h3><p>A physical robot deployment with perception-to-control implementation, including calibration, pose estimation, and control commands.</p></article>
+      </div>
+    </section>
+
+    <section id="misc">
+      <div class="section-head"><h2>Honors & Misc.</h2><p class="section-note">Compact highlights; link to CV for the full list.</p></div>
+      <div class="two-col">
+        <div class="simple-card">
+          <h3>Selected Honors</h3>
+          <ul class="compact-list">
+            <li>Champion, WWW’25 Multimodal Document Retrieval Challenge.</li>
+            <li>Shandong University Outstanding Student Scholarship, 2023–2025.</li>
+            <li>Shandong University Academic Innovation Scholarship, 2025.</li>
+            <li>Second Prize, National Undergraduate Mathematics Competition, 2024.</li>
+          </ul>
+        </div>
+        <div class="simple-card">
+          <h3>Links</h3>
+          <ul class="compact-list">
+            <li><a href="mailto:bohanhou@foxmail.com">Email</a></li>
+            <li><a href="https://github.com/hbhalpha">GitHub</a></li>
+            <li><a href="/publications/">Full Publication List</a></li>
+            <li><a href="/cv/">Full CV</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-note">© Bohan Hou. Last updated 2026. Built with GitHub Pages.</footer>
+  </main>
+</div>
