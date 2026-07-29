@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bohan Hou</title>
+<meta name="description" content="Bohan Hou is a PhD student at Nanyang Technological University researching multimodal foundation models, embodied intelligence, world models, and robot learning.">
+<meta name="theme-color" content="#f6f9fc">
+<title>Bohan Hou | Multimodal & Embodied Intelligence</title>
+<link rel="icon" href="./assets/site-logo.png">
 </head>
 <body>
 <style>
@@ -442,7 +445,9 @@
 
   .paper-thumb {
     overflow: hidden;
-    min-height: 150px;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    align-self: center;
     border-radius: 16px;
     border: 1px solid rgba(214, 225, 240, 0.95);
     background: #fff;
@@ -453,8 +458,9 @@
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 150px;
-    object-fit: cover;
+    min-height: 0;
+    object-fit: contain;
+    background: #fff;
   }
 
   .paper-meta {
@@ -511,6 +517,13 @@
     gap: 0.7rem;
     margin-top: 0.72rem;
     font-size: 0.92rem;
+  }
+
+  .link-pending {
+    color: #7a8494;
+    border-bottom: 1px dashed rgba(122, 132, 148, 0.5);
+    font-weight: 600;
+    cursor: not-allowed;
   }
 
   .project-grid {
@@ -651,9 +664,6 @@
       grid-template-columns: 1fr;
     }
 
-    .paper-thumb {
-      min-height: 180px;
-    }
   }
 
   @media (max-width: 560px) {
@@ -681,6 +691,818 @@
       border-radius: 15px;
     }
   }
+
+  /* Professional visual refresh */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --ah-ink: #17263a;
+    --ah-muted: #68798d;
+    --ah-soft: #f7f9fc;
+    --ah-line: #e2eaf2;
+    --ah-accent: #3577b5;
+    --ah-accent-2: #7772d9;
+    --ah-accent-3: #62bfd3;
+    --ah-accent-soft: #f0f7fc;
+    --ah-card: #ffffff;
+    --ah-radius: 22px;
+    --ah-shadow: 0 16px 38px rgba(37, 62, 88, 0.06);
+    --ah-shadow-strong: 0 24px 64px rgba(40, 72, 103, 0.11);
+  }
+
+  body {
+    min-width: 320px;
+    background:
+      radial-gradient(circle at 8% 4%, rgba(98, 191, 211, 0.09), transparent 24%),
+      radial-gradient(circle at 92% 22%, rgba(119, 114, 217, 0.07), transparent 25%),
+      linear-gradient(180deg, #fbfcfe 0%, #f7f9fc 55%, #fbfcfe 100%);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 450;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image:
+      linear-gradient(rgba(27, 65, 104, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27, 65, 104, 0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
+  }
+
+  .academic-home {
+    max-width: none;
+    padding-bottom: 0;
+  }
+
+  .academic-home main {
+    width: min(100%, 1208px);
+    margin: 0 auto;
+    padding: 0 24px 68px;
+  }
+
+  .academic-home a {
+    color: #205d99;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    border-bottom: 0;
+    transition: color 160ms ease, opacity 160ms ease, transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .academic-home a:focus-visible {
+    outline: 3px solid rgba(79, 195, 221, 0.55);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+
+  .topbar {
+    margin: 0 0 3rem;
+    border-bottom: 1px solid rgba(205, 217, 231, 0.82);
+    background: rgba(248, 250, 252, 0.86);
+    box-shadow: 0 8px 30px rgba(29, 53, 79, 0.05);
+  }
+
+  .topbar-inner {
+    max-width: 1208px;
+    padding: 0.82rem 24px;
+  }
+
+  .brand a {
+    font-size: 0.98rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(207, 220, 235, 0.95);
+    border-radius: 11px;
+    box-shadow: 0 7px 18px rgba(24, 47, 73, 0.11);
+  }
+
+  .navlinks {
+    gap: 0.35rem;
+  }
+
+  .navlinks a {
+    position: relative;
+    padding: 0.45rem 0.66rem;
+    border-radius: 8px;
+    color: #405269;
+    font-size: 0.88rem;
+    font-weight: 680;
+  }
+
+  .navlinks a:hover {
+    color: #173f68;
+    background: rgba(220, 232, 244, 0.55);
+  }
+
+  .hero {
+    min-height: 510px;
+    grid-template-columns: minmax(0, 1fr) 290px;
+    gap: 3.5rem;
+    padding: clamp(2.4rem, 5vw, 4.2rem);
+    color: #26394f;
+    border: 1px solid #dce8f1;
+    border-radius: 34px;
+    background:
+      linear-gradient(118deg, #ffffff 0%, #f4f9fd 55%, #eef7f9 100%);
+    box-shadow: var(--ah-shadow-strong);
+  }
+
+  .hero::before {
+    width: 540px;
+    height: 540px;
+    right: -100px;
+    top: -230px;
+    background: radial-gradient(circle, rgba(98, 191, 211, 0.22) 0%, rgba(98, 191, 211, 0.00) 68%);
+  }
+
+  .hero::after {
+    width: 430px;
+    height: 430px;
+    left: -130px;
+    bottom: -240px;
+    background: radial-gradient(circle, rgba(132, 123, 224, 0.15) 0%, rgba(132, 123, 224, 0.00) 69%);
+  }
+
+  .hero-copy {
+    max-width: 720px;
+  }
+
+  .eyebrow {
+    margin-bottom: 1.25rem;
+    border-color: #d4e4ef;
+    color: #356f9f;
+    background: rgba(239, 247, 252, 0.90);
+    box-shadow: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 0.8rem;
+    color: #172b42;
+    font-size: clamp(2.85rem, 5.5vw, 5.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .cn-name {
+    display: inline-block;
+    color: #6f85a0;
+    font-size: 0.58em;
+    font-weight: 560;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    max-width: 690px;
+    margin-bottom: 1.4rem;
+    color: #52677e;
+    font-size: clamp(1.05rem, 2vw, 1.23rem);
+    line-height: 1.58;
+    font-weight: 470;
+  }
+
+  .research-tags {
+    margin: 1.35rem 0 1.7rem;
+  }
+
+  .tag {
+    border-color: #d8e5ef;
+    color: #355a7c;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: none;
+    font-size: 0.82rem;
+    font-weight: 620;
+  }
+
+  .hero-actions {
+    margin-top: 0;
+  }
+
+  .button {
+    min-height: 44px;
+    padding: 0.55rem 1.05rem;
+    border-color: #cadbe8 !important;
+    color: #315f88 !important;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 7px 18px rgba(42, 78, 110, 0.06);
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    color: #214d74 !important;
+    border-color: #acc9df !important;
+    background: #ffffff;
+  }
+
+  .button.primary {
+    border-color: #3979b4 !important;
+    color: #ffffff !important;
+    background: #3979b4;
+    box-shadow: 0 10px 24px rgba(48, 108, 163, 0.18);
+  }
+
+  .button.primary:hover {
+    color: #ffffff !important;
+    background: #2f6ba2;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 2rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid #dce7ef;
+  }
+
+  .hero-stat {
+    min-width: 155px;
+    padding: 0.1rem 1.25rem 0.1rem 0;
+    margin-right: 1.25rem;
+    border-right: 1px solid #dce7ef;
+  }
+
+  .hero-stat:last-child {
+    margin-right: 0;
+    border-right: 0;
+  }
+
+  .hero-stat strong,
+  .hero-stat span {
+    display: block;
+  }
+
+  .hero-stat strong {
+    color: #20364d;
+    font-size: 0.96rem;
+    font-weight: 760;
+  }
+
+  .hero-stat span {
+    margin-top: 0.1rem;
+    color: #728399;
+    font-size: 0.76rem;
+    letter-spacing: 0.025em;
+  }
+
+  .portrait-card {
+    width: 290px;
+    padding: 0.78rem;
+    border-color: #dce6ef;
+    border-radius: 27px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 20px 44px rgba(42, 71, 99, 0.12);
+  }
+
+  .portrait-card img {
+    aspect-ratio: 1 / 1.05;
+    border-radius: 20px;
+    object-position: center top;
+  }
+
+  .quick-meta {
+    margin: 0;
+    padding: 1.05rem 0.65rem 0.45rem;
+    color: #5d6f83;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .quick-meta strong,
+  .quick-meta span {
+    display: block;
+  }
+
+  .quick-meta strong {
+    margin: 0.16rem 0 0.22rem;
+    color: #152b43;
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+
+  .quick-meta-label {
+    color: #3270aa;
+    font-size: 0.69rem;
+    font-weight: 760;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  section {
+    margin-top: 5rem;
+    scroll-margin-top: 5.8rem;
+  }
+
+  .section-head {
+    position: relative;
+    align-items: end;
+    margin-bottom: 1.35rem;
+    padding: 1.45rem 0 0.92rem;
+    border-bottom-color: #d9e3ee;
+  }
+
+  .section-head::before {
+    content: attr(data-kicker);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #3677b2;
+    font-size: 0.69rem;
+    font-weight: 790;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .section-head h2 {
+    color: #12243a;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  .section-note {
+    max-width: 440px;
+    color: #738196;
+    font-size: 0.87rem;
+    text-align: right;
+  }
+
+  .bio-card,
+  .simple-card {
+    border-color: #dfe7f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 14px 36px rgba(24, 46, 72, 0.06);
+  }
+
+  .bio-card {
+    position: relative;
+    padding: 2rem 2.25rem 2rem 2.55rem;
+    font-size: 1.02rem;
+    line-height: 1.78;
+  }
+
+  .bio-card::before {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    bottom: 2rem;
+    left: 1.3rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #3677b2, #6e67e7);
+  }
+
+  .timeline-grid {
+    gap: 1.15rem;
+  }
+
+  .timeline-card {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 1.15rem;
+    padding: 1.45rem;
+    border-color: #dfe7f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 12px 32px rgba(24, 46, 72, 0.055);
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-3px);
+    border-color: #bad4ea;
+    box-shadow: 0 18px 40px rgba(24, 57, 91, 0.10);
+  }
+
+  .inst-logo {
+    width: 74px;
+    height: 74px;
+    border-color: #e0e8f1;
+    border-radius: 18px;
+    box-shadow: none;
+  }
+
+  .inst-logo-dark {
+    border-color: #203d5c;
+    background: #132b44;
+  }
+
+  .period {
+    color: #2e72ad;
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .timeline-card h3 {
+    margin-top: 0.35rem;
+    color: #142940;
+    font-size: 1.07rem;
+  }
+
+  .timeline-card p {
+    color: #66768a;
+    font-size: 0.9rem;
+    line-height: 1.56;
+  }
+
+  .paper-list {
+    gap: 1.15rem;
+  }
+
+  .paper-card {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 1.6rem;
+    padding: 1.25rem;
+    border-color: #dfe7f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 12px 34px rgba(24, 46, 72, 0.055);
+  }
+
+  .paper-card.featured {
+    border-color: #c3d9ec;
+    background:
+      linear-gradient(110deg, rgba(241, 248, 254, 0.95) 0%, #ffffff 42%, #ffffff 100%);
+    box-shadow: 0 16px 40px rgba(31, 80, 126, 0.09);
+  }
+
+  .paper-card:hover {
+    transform: translateY(-3px);
+    border-color: #aacbe4;
+    box-shadow: 0 20px 44px rgba(26, 61, 94, 0.105);
+  }
+
+  .paper-thumb {
+    width: 100%;
+    border-color: #dbe5ef;
+    border-radius: 16px;
+    background: #f7f9fc;
+    box-shadow: none;
+  }
+
+  .paper-thumb img {
+    background: #f7f9fc;
+  }
+
+  .paper-card > div:last-child {
+    align-self: center;
+    padding: 0.16rem 0.35rem 0.16rem 0;
+  }
+
+  .paper-meta {
+    margin-bottom: 0.62rem;
+  }
+
+  .venue,
+  .type-label {
+    padding: 0.23rem 0.56rem;
+    border-radius: 7px;
+    font-size: 0.69rem;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .venue {
+    color: #205f98;
+    background: #eaf4fc;
+  }
+
+  .type-label {
+    color: #5c6575;
+    background: #f0f2f5;
+  }
+
+  .paper-card h3 {
+    margin: 0.22rem 0 0.52rem;
+    color: #10243b;
+    font-size: clamp(1.08rem, 2vw, 1.24rem);
+    line-height: 1.32;
+    letter-spacing: -0.018em;
+  }
+
+  .authors {
+    color: #647388;
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .authors strong {
+    color: #173b61;
+    font-weight: 790;
+  }
+
+  .paper-note {
+    margin-top: 0.55rem;
+    color: #485a70;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .paper-links {
+    gap: 0.5rem;
+    margin-top: 0.78rem;
+  }
+
+  .paper-links a,
+  .link-pending {
+    display: inline-flex;
+    align-items: center;
+    min-height: 31px;
+    padding: 0.28rem 0.63rem;
+    border: 1px solid #cfddeb;
+    border-radius: 8px;
+    color: #245f96;
+    background: #f8fbfe;
+    font-size: 0.77rem;
+    font-weight: 720;
+    line-height: 1;
+  }
+
+  .paper-links a:hover {
+    color: #113f6c;
+    border-color: #9fc2df;
+    background: #edf6fd;
+    transform: translateY(-1px);
+  }
+
+  .link-pending {
+    color: #8792a1;
+    border-style: dashed;
+    background: #f8f9fa;
+  }
+
+  .project-card {
+    padding: 2rem 2.2rem;
+    border-color: #d4e3ee;
+    border-radius: 24px;
+    color: #2c4359;
+    background: linear-gradient(120deg, #f5faff 0%, #edf7fa 100%);
+    box-shadow: 0 16px 38px rgba(40, 76, 107, 0.08);
+  }
+
+  .project-card::before {
+    background: radial-gradient(circle, rgba(98, 191, 211, 0.18) 0%, rgba(98, 191, 211, 0) 69%);
+  }
+
+  .project-card h3 {
+    color: #17314b;
+    font-size: 1.25rem;
+  }
+
+  .project-card p {
+    max-width: 920px;
+    color: #64788c;
+  }
+
+  .project-stars {
+    color: #2b608b;
+    background: #ffffff;
+  }
+
+  .project-links a {
+    color: #2e6898;
+    border-bottom: 1px solid rgba(46, 104, 152, 0.28);
+  }
+
+  .two-col {
+    grid-template-columns: 1fr 0.7fr;
+    gap: 1.15rem;
+  }
+
+  .simple-card {
+    padding: 1.7rem 1.8rem;
+  }
+
+  .simple-card h3 {
+    color: #17304b;
+    font-size: 1.05rem;
+  }
+
+  .compact-list {
+    color: #647489;
+    font-size: 0.91rem;
+  }
+
+  .footer-note {
+    margin-top: 4.5rem;
+    padding-top: 1.4rem;
+    color: #7b8797;
+    text-align: center;
+  }
+
+  @media (max-width: 980px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) 245px;
+      gap: 2.2rem;
+    }
+
+    .portrait-card {
+      width: 245px;
+    }
+
+    .paper-card {
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .academic-home main {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .topbar {
+      margin-bottom: 1.7rem;
+    }
+
+    .topbar-inner {
+      align-items: flex-start;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .navlinks {
+      justify-content: flex-end;
+    }
+
+    .navlinks a {
+      padding: 0.34rem 0.42rem;
+      font-size: 0.78rem;
+    }
+
+    .hero {
+      min-height: 0;
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      border-radius: 27px;
+    }
+
+    .portrait-card {
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      align-items: center;
+      justify-self: stretch;
+      width: 100%;
+      padding: 0.65rem;
+      border-radius: 22px;
+    }
+
+    .portrait-card img {
+      aspect-ratio: 1;
+      border-radius: 16px;
+    }
+
+    .quick-meta {
+      padding: 0.7rem 0.8rem;
+    }
+
+    .section-head {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .section-note {
+      max-width: none;
+      text-align: left;
+    }
+
+    .timeline-grid,
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+
+    .paper-card {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .paper-thumb {
+      max-width: 540px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .brand a > span:last-child {
+      display: none;
+    }
+
+    .navlinks {
+      gap: 0.15rem;
+    }
+
+    .navlinks a[href="#education"],
+    .navlinks a[href="#projects"] {
+      display: none;
+    }
+
+    .hero {
+      padding: 1.45rem;
+      border-radius: 23px;
+    }
+
+    .hero h1 {
+      font-size: 2.65rem;
+    }
+
+    .cn-name {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.5em;
+    }
+
+    .research-tags {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tag {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-stat {
+      width: 50%;
+      min-width: 0;
+      margin-right: 0;
+      padding-right: 0.75rem;
+    }
+
+    .hero-stat:nth-child(2) {
+      padding-left: 0.75rem;
+      border-right: 0;
+    }
+
+    .portrait-card {
+      grid-template-columns: 96px minmax(0, 1fr);
+    }
+
+    section {
+      margin-top: 3.8rem;
+    }
+
+    .bio-card {
+      padding: 1.55rem 1.35rem 1.55rem 2rem;
+      font-size: 0.94rem;
+    }
+
+    .bio-card::before {
+      top: 1.5rem;
+      bottom: 1.5rem;
+      left: 1rem;
+    }
+
+    .timeline-card {
+      grid-template-columns: 58px minmax(0, 1fr);
+      padding: 1.05rem;
+    }
+
+    .inst-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+    }
+
+    .paper-card {
+      padding: 0.9rem;
+      border-radius: 18px;
+    }
+
+    .paper-card > div:last-child {
+      padding: 0.1rem 0.15rem 0.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 </style>
 
 <div class="academic-home">
@@ -702,10 +1524,10 @@
 
   <main id="top">
     <section class="hero" aria-label="Profile introduction">
-      <div>
-        <div class="eyebrow">Incoming PhD Student · Multimodal AI · Embodied Intelligence</div>
+      <div class="hero-copy">
+        <div class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</div>
         <h1>Bohan Hou <span class="cn-name">侯博涵</span></h1>
-        <p class="subtitle">I work on multimodal models, information retrieval, embodied intelligence, and robot learning.</p>
+        <p class="subtitle">I build multimodal foundation models and agents that connect perception, reasoning, world modeling, and action.</p>
         <div class="research-tags" aria-label="Research interests">
           <span class="tag">Multimodal Models</span>
           <span class="tag">Information Retrieval</span>
@@ -714,28 +1536,33 @@
         </div>
         <div class="hero-actions">
           <a class="button primary" href="mailto:bohanhou@foxmail.com">Email</a>
+          <a class="button" href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=RLW64pQAAAAJ">Google Scholar</a>
           <a class="button" href="https://github.com/hbhalpha">GitHub</a>
+        </div>
+        <div class="hero-stats" aria-label="Current research profile">
+          <div class="hero-stat"><strong>NTU</strong><span>PhD Student</span></div>
+          <div class="hero-stat"><strong>Alibaba DAMO</strong><span>Research Intern</span></div>
         </div>
       </div>
       <aside class="portrait-card" aria-label="Profile photo and affiliation">
         <img src="./assets/profile.png" alt="Bohan Hou">
-        <div class="quick-meta">Qingdao, China<br>Shandong University · Taishan College<br>Incoming PhD Student, Nanyang Technological University</div>
+        <div class="quick-meta"><span class="quick-meta-label">Current focus</span><strong>Embodied Foundation Models</strong><span>Multimodal agents · World models · Robot learning</span></div>
       </aside>
     </section>
 
     <section id="bio">
-      <div class="section-head">
+      <div class="section-head" data-kicker="01 · Profile">
         <h2>Short Bio</h2>
         <p class="section-note">A concise research-focused introduction.</p>
       </div>
       <div class="bio-card">
-        <p>I am an incoming PhD student at Nanyang Technological University (NTU), where I will be advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. I received my undergraduate education at Shandong University, where I studied Computer Science at Taishan College under the guidance of Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a>. I have also been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. My research interests include multimodal models, information retrieval, embodied intelligence, robot learning, and related areas.</p>
+        <p>I am a PhD student at Nanyang Technological University (NTU), advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. My research focuses on multimodal foundation models and agents for embodied intelligence, particularly embodied reasoning, vision-language-action models, world models, and robot learning. I received my B.Eng. in Computer Science from Taishan College at Shandong University, where I worked with Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a>, and I have been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. I am also a research intern at Alibaba DAMO Academy, developing open embodied models and systems.</p>
       </div>
     </section>
 
     
     <section id="experience">
-      <div class="section-head">
+      <div class="section-head" data-kicker="02 · Experience">
         <h2>Experience</h2>
         <p class="section-note">Research appointments and internships.</p>
       </div>
@@ -746,12 +1573,12 @@
             <div class="period">Nov. 2025 — Present</div>
             <h3>Alibaba DAMO Academy</h3>
             <p>Research Intern · Embodied Intelligence and World Model</p>
-            <p>Mentors: Dr. <a href="https://cen-jun.com/">Jun Cen</a>, <a href="#top">Ronghao Dang</a>, and Dr. <a href="https://lixin4ever.github.io/">Xin Li</a>.</p>
-          <p>I also work closely with my talented colleagues Jiayan Guo(We explore Agents) and Siteng Huang(We explore VLA)</p>
+            <p>Mentors: Dr. <a href="https://lixin4ever.github.io/">Xin Li</a>, Dr. <a href="https://cen-jun.com/">Jun Cen</a>, and <a href="#top">Ronghao Dang</a>.</p>
+            <p>I also work closely with my talented colleagues Jiayan Guo on agents and Siteng Huang on VLA models.</p>
           </div>
         </article>
         <article class="timeline-card">
-          <div class="inst-logo"><img src="./assets/logos/ilearn.png" alt="iLearn Lab logo"></div>
+          <div class="inst-logo inst-logo-dark"><img src="./assets/logos/ilearn.png" alt="iLearn Lab logo"></div>
           <div>
             <div class="period">Sep. 2022 — Present</div>
             <h3>iLearn Lab, Shandong University</h3>
@@ -763,7 +1590,7 @@
     </section>
 
     <section id="education">
-      <div class="section-head">
+      <div class="section-head" data-kicker="03 · Education">
         <h2>Education</h2>
         <p class="section-note">Academic training and degree programs.</p>
       </div>
@@ -771,9 +1598,9 @@
         <article class="timeline-card">
           <div class="inst-logo"><img src="./assets/logos/ntu.png" alt="Nanyang Technological University logo"></div>
           <div>
-            <div class="period">Incoming</div>
+            <div class="period">2026 — Present</div>
             <h3>Nanyang Technological University</h3>
-            <p>Incoming PhD Student</p>
+            <p>PhD Student</p>
             <p>Advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. Research direction: multimodal learning, MLLM Agents, and embodied intelligence.</p>
           </div>
         </article>
@@ -790,11 +1617,44 @@
     </section>
 
     <section id="publications">
-      <div class="section-head">
+      <div class="section-head" data-kicker="04 · Research">
         <h2>First-Author Publications</h2>
-        <p class="section-note">Left: visual preview. Right: paper information.</p>
+        <p class="section-note">* Equal or core contribution, as specified by each paper.</p>
       </div>
       <div class="paper-list">
+        <article class="paper-card featured">
+          <div class="paper-thumb"><img src="./assets/papers/data-pyramid.png" alt="Embodied Data Pyramid overview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Data</span></div>
+            <h3>Data Pyramid for Embodied Manipulation</h3>
+            <p class="authors">Yifan Ye*, Yankai Fu*, Yaoxu Lv*, <strong>Bohan Hou*</strong>, Jun Cen*, Lingdong Kong*, et al.</p>
+            <p class="paper-note">A data-centric taxonomy that organizes embodied manipulation data into five complementary layers and connects their collection, alignment, and mixing strategies to embodied foundation models.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2607.24744v1">Paper</a><a href="https://jasper-aaa.github.io/embodied-data-pyramid/">Project</a><a href="https://github.com/worldbench/awesome-embodied-data-pyramid">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card featured">
+          <div class="paper-thumb"><img src="./assets/papers/rynnbrain11.png" alt="RynnBrain 1.1 overview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Foundation Models</span></div>
+            <h3>RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</h3>
+            <p class="authors">Kehan Li*, <strong>Bohan Hou*</strong>, Minghao Zhu*, Tianyi Zhang*, Zesen Cheng*, Zhikai Wang*, Sicong Leng*, Xin Li*, et al.</p>
+            <p class="paper-note">An embodied foundation-model family spanning 2B, 9B, and 122B-A10B scales, with stronger cognition and localization, native 3D grounding, contact-point prediction, and cross-embodiment VLA capabilities.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2607.17977">Paper</a><a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnBrain">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card featured">
+          <div class="paper-thumb"><img src="./assets/papers/rynnvalue.png" alt="RynnValue architecture overview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">2026</span><span class="type-label">Robotic Value Foundation Models</span></div>
+            <h3>RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance</h3>
+            <p class="authors">Dongchi Huang*, Hongyin Zhang*, <strong>Bohan Hou*</strong>, Siteng Huang†, Zhian Su, Hang Guo, et al.</p>
+            <p class="paper-note">A general-purpose robotic value foundation model that learns temporal distance from 7,000+ hours of heterogeneous data, turning time-to-completion into signals for progress estimation, failure detection, and VLA reinforcement learning.</p>
+            <div class="paper-links"><span class="link-pending" role="link" aria-disabled="true" title="Paper link coming soon">Paper</span><a href="https://alibaba-damo-academy.github.io/RynnValue.github.io/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnValue">Code</a></div>
+          </div>
+        </article>
+
         <article class="paper-card">
           <div class="paper-thumb"><img src="./assets/papers/interlv_search.png" alt="InterLV-Search preview"></div>
           <div>
@@ -861,11 +1721,22 @@
          </div>
     </section>
     <section id="publications2">
-      <div class="section-head">
+      <div class="section-head" data-kicker="05 · Collaboration">
         <h2>Co-Author Publications</h2>
         <p class="section-note">Left: visual preview. Right: paper information.</p>
       </div>
       <div class="paper-list">
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="./assets/papers/rynnvla002.png" alt="RynnVLA-002 unified VLA and world model architecture"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2025</span><span class="type-label">VLA · World Model</span></div>
+            <h3>RynnVLA-002: A Unified Vision-Language-Action and World Model</h3>
+            <p class="authors">Jun Cen, Siteng Huang, Yuqian Yuan, Kehan Li, Hangjie Yuan, Chaohui Yu, <strong>Bohan Hou</strong>, Yuming Jiang, Jiayan Guo, Xin Li, et al.</p>
+            <p class="paper-note">A unified autoregressive VLA and world model in which action generation and future-frame prediction improve one another for simulated and real-world robot manipulation.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2511.17502">Paper</a><a href="https://github.com/alibaba-damo-academy/RynnVLA-002">Code</a></div>
+          </div>
+        </article>
+
         <article class="paper-card">
           <div class="paper-thumb"><img src="./assets/papers/imgedit.png" alt="ImgEdit preview"></div>
           <div>
@@ -893,7 +1764,7 @@
     </section>
 
     <section id="projects">
-      <div class="section-head">
+      <div class="section-head" data-kicker="06 · Open Source">
         <h2>Selected Project</h2>
         <p class="section-note">Representative open-source effort.</p>
       </div>
@@ -921,7 +1792,7 @@
     </section>
 
     <section id="misc">
-      <div class="section-head">
+      <div class="section-head" data-kicker="07 · Recognition">
         <h2>Honors & Misc.</h2>
         <p class="section-note">Compact highlights; link to CV for the full list.</p>
       </div>
@@ -939,6 +1810,7 @@
           <h3>Links</h3>
           <ul class="compact-list">
             <li><a href="mailto:bohanhou@foxmail.com">Email</a></li>
+            <li><a href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=RLW64pQAAAAJ">Google Scholar</a></li>
             <li><a href="https://github.com/hbhalpha">GitHub</a></li>
             
           </ul>
