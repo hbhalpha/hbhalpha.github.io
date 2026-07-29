@@ -442,7 +442,9 @@
 
   .paper-thumb {
     overflow: hidden;
-    min-height: 150px;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    align-self: center;
     border-radius: 16px;
     border: 1px solid rgba(214, 225, 240, 0.95);
     background: #fff;
@@ -453,8 +455,9 @@
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 150px;
-    object-fit: cover;
+    min-height: 0;
+    object-fit: contain;
+    background: #fff;
   }
 
   .paper-meta {
@@ -511,6 +514,13 @@
     gap: 0.7rem;
     margin-top: 0.72rem;
     font-size: 0.92rem;
+  }
+
+  .link-pending {
+    color: #7a8494;
+    border-bottom: 1px dashed rgba(122, 132, 148, 0.5);
+    font-weight: 600;
+    cursor: not-allowed;
   }
 
   .project-grid {
@@ -651,9 +661,6 @@
       grid-template-columns: 1fr;
     }
 
-    .paper-thumb {
-      min-height: 180px;
-    }
   }
 
   @media (max-width: 560px) {
@@ -703,9 +710,9 @@
   <main id="top">
     <section class="hero" aria-label="Profile introduction">
       <div>
-        <div class="eyebrow">Incoming PhD Student · Multimodal AI · Embodied Intelligence</div>
+        <div class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</div>
         <h1>Bohan Hou <span class="cn-name">侯博涵</span></h1>
-        <p class="subtitle">I work on multimodal models, information retrieval, embodied intelligence, and robot learning.</p>
+        <p class="subtitle">I build multimodal foundation models and agents that connect perception, reasoning, world modeling, and action.</p>
         <div class="research-tags" aria-label="Research interests">
           <span class="tag">Multimodal Models</span>
           <span class="tag">Information Retrieval</span>
@@ -719,7 +726,7 @@
       </div>
       <aside class="portrait-card" aria-label="Profile photo and affiliation">
         <img src="./assets/profile.png" alt="Bohan Hou">
-        <div class="quick-meta">Qingdao, China<br>Shandong University · Taishan College<br>Incoming PhD Student, Nanyang Technological University</div>
+        <div class="quick-meta">PhD Student, Nanyang Technological University<br>Research Intern, Alibaba DAMO Academy<br>Multimodal AI · Embodied Intelligence</div>
       </aside>
     </section>
 
@@ -729,7 +736,7 @@
         <p class="section-note">A concise research-focused introduction.</p>
       </div>
       <div class="bio-card">
-        <p>I am an incoming PhD student at Nanyang Technological University (NTU), where I will be advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. I received my undergraduate education at Shandong University, where I studied Computer Science at Taishan College under the guidance of Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a>. I have also been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. My research interests include multimodal models, information retrieval, embodied intelligence, robot learning, and related areas.</p>
+        <p>I am a PhD student at Nanyang Technological University (NTU), advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. My research focuses on multimodal foundation models and agents for embodied intelligence, particularly embodied reasoning, vision-language-action models, world models, and robot learning. I received my B.Eng. in Computer Science from Taishan College at Shandong University, where I worked with Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a>, and I have been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. I am also a research intern at Alibaba DAMO Academy, developing open embodied models and systems.</p>
       </div>
     </section>
 
@@ -746,8 +753,8 @@
             <div class="period">Nov. 2025 — Present</div>
             <h3>Alibaba DAMO Academy</h3>
             <p>Research Intern · Embodied Intelligence and World Model</p>
-            <p>Mentors: Dr. <a href="https://cen-jun.com/">Jun Cen</a>, <a href="#top">Ronghao Dang</a>, and Dr. <a href="https://lixin4ever.github.io/">Xin Li</a>.</p>
-          <p>I also work closely with my talented colleagues Jiayan Guo(We explore Agents) and Siteng Huang(We explore VLA)</p>
+            <p>Mentors: Dr. <a href="https://lixin4ever.github.io/">Xin Li</a>, Dr. <a href="https://cen-jun.com/">Jun Cen</a>, and <a href="#top">Ronghao Dang</a>.</p>
+            <p>I also work closely with my talented colleagues Jiayan Guo on agents and Siteng Huang on VLA models.</p>
           </div>
         </article>
         <article class="timeline-card">
@@ -771,9 +778,9 @@
         <article class="timeline-card">
           <div class="inst-logo"><img src="./assets/logos/ntu.png" alt="Nanyang Technological University logo"></div>
           <div>
-            <div class="period">Incoming</div>
+            <div class="period">2026 — Present</div>
             <h3>Nanyang Technological University</h3>
-            <p>Incoming PhD Student</p>
+            <p>PhD Student</p>
             <p>Advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. Research direction: multimodal learning, MLLM Agents, and embodied intelligence.</p>
           </div>
         </article>
@@ -792,9 +799,42 @@
     <section id="publications">
       <div class="section-head">
         <h2>First-Author Publications</h2>
-        <p class="section-note">Left: visual preview. Right: paper information.</p>
+        <p class="section-note">* Equal or core contribution, as specified by each paper.</p>
       </div>
       <div class="paper-list">
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="./assets/papers/data-pyramid.png" alt="Embodied Data Pyramid overview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Data</span></div>
+            <h3>Data Pyramid for Embodied Manipulation</h3>
+            <p class="authors">Yifan Ye*, Yankai Fu*, Yaoxu Lv*, <strong>Bohan Hou*</strong>, Jun Cen*, Lingdong Kong*, et al.</p>
+            <p class="paper-note">A data-centric taxonomy that organizes embodied manipulation data into five complementary layers and connects their collection, alignment, and mixing strategies to embodied foundation models.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2607.24744v1">Paper</a><a href="https://jasper-aaa.github.io/embodied-data-pyramid/">Project</a><a href="https://github.com/worldbench/awesome-embodied-data-pyramid">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="./assets/papers/rynnbrain11.png" alt="RynnBrain 1.1 overview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Foundation Models</span></div>
+            <h3>RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</h3>
+            <p class="authors">Kehan Li*, <strong>Bohan Hou*</strong>, Minghao Zhu*, Tianyi Zhang*, Zesen Cheng*, Zhikai Wang*, Sicong Leng*, Xin Li*, et al.</p>
+            <p class="paper-note">An embodied foundation-model family spanning 2B, 9B, and 122B-A10B scales, with stronger cognition and localization, native 3D grounding, contact-point prediction, and cross-embodiment VLA capabilities.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2607.17977">Paper</a><a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnBrain">Code</a></div>
+          </div>
+        </article>
+
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="./assets/papers/rynnvalue.png" alt="RynnValue architecture overview"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">2026</span><span class="type-label">Robotic Value Foundation Models</span></div>
+            <h3>RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance</h3>
+            <p class="authors">Dongchi Huang*, Hongyin Zhang*, <strong>Bohan Hou*</strong>, Siteng Huang†, Zhian Su, Hang Guo, et al.</p>
+            <p class="paper-note">A general-purpose robotic value foundation model that learns temporal distance from 7,000+ hours of heterogeneous data, turning time-to-completion into signals for progress estimation, failure detection, and VLA reinforcement learning.</p>
+            <div class="paper-links"><span class="link-pending" role="link" aria-disabled="true" title="Paper link coming soon">Paper</span><a href="https://alibaba-damo-academy.github.io/RynnValue.github.io/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnValue">Code</a></div>
+          </div>
+        </article>
+
         <article class="paper-card">
           <div class="paper-thumb"><img src="./assets/papers/interlv_search.png" alt="InterLV-Search preview"></div>
           <div>
@@ -866,6 +906,17 @@
         <p class="section-note">Left: visual preview. Right: paper information.</p>
       </div>
       <div class="paper-list">
+        <article class="paper-card">
+          <div class="paper-thumb"><img src="./assets/papers/rynnvla002.png" alt="RynnVLA-002 unified VLA and world model architecture"></div>
+          <div>
+            <div class="paper-meta"><span class="venue">arXiv 2025</span><span class="type-label">VLA · World Model</span></div>
+            <h3>RynnVLA-002: A Unified Vision-Language-Action and World Model</h3>
+            <p class="authors">Jun Cen, Siteng Huang, Yuqian Yuan, Kehan Li, Hangjie Yuan, Chaohui Yu, <strong>Bohan Hou</strong>, Yuming Jiang, Jiayan Guo, Xin Li, et al.</p>
+            <p class="paper-note">A unified autoregressive VLA and world model in which action generation and future-frame prediction improve one another for simulated and real-world robot manipulation.</p>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2511.17502">Paper</a><a href="https://github.com/alibaba-damo-academy/RynnVLA-002">Code</a></div>
+          </div>
+        </article>
+
         <article class="paper-card">
           <div class="paper-thumb"><img src="./assets/papers/imgedit.png" alt="ImgEdit preview"></div>
           <div>
