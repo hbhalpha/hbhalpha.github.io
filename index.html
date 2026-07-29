@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bohan Hou</title>
+<meta name="description" content="Bohan Hou is a PhD student at Nanyang Technological University researching multimodal foundation models, embodied intelligence, world models, and robot learning.">
+<meta name="theme-color" content="#102a46">
+<title>Bohan Hou | Multimodal & Embodied Intelligence</title>
+<link rel="icon" href="./assets/site-logo.png">
 </head>
 <body>
 <style>
@@ -688,6 +691,817 @@
       border-radius: 15px;
     }
   }
+
+  /* Professional visual refresh */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --ah-ink: #0f1d2f;
+    --ah-muted: #607086;
+    --ah-soft: #f4f7fb;
+    --ah-line: #dce5f0;
+    --ah-accent: #2467a7;
+    --ah-accent-2: #6f67e8;
+    --ah-accent-3: #4fc3dd;
+    --ah-accent-soft: #edf5fc;
+    --ah-card: #ffffff;
+    --ah-radius: 22px;
+    --ah-shadow: 0 18px 45px rgba(25, 47, 75, 0.08);
+    --ah-shadow-strong: 0 28px 70px rgba(15, 36, 61, 0.20);
+  }
+
+  body {
+    min-width: 320px;
+    background:
+      radial-gradient(circle at 8% 4%, rgba(79, 195, 221, 0.10), transparent 24%),
+      radial-gradient(circle at 92% 22%, rgba(111, 103, 232, 0.09), transparent 25%),
+      linear-gradient(180deg, #f8fafc 0%, #f4f7fb 55%, #f8fafc 100%);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 450;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image:
+      linear-gradient(rgba(27, 65, 104, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27, 65, 104, 0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
+  }
+
+  .academic-home {
+    max-width: none;
+    padding-bottom: 0;
+  }
+
+  .academic-home main {
+    width: min(100%, 1208px);
+    margin: 0 auto;
+    padding: 0 24px 68px;
+  }
+
+  .academic-home a {
+    color: #205d99;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    border-bottom: 0;
+    transition: color 160ms ease, opacity 160ms ease, transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .academic-home a:focus-visible {
+    outline: 3px solid rgba(79, 195, 221, 0.55);
+    outline-offset: 4px;
+    border-radius: 6px;
+  }
+
+  .topbar {
+    margin: 0 0 3rem;
+    border-bottom: 1px solid rgba(205, 217, 231, 0.82);
+    background: rgba(248, 250, 252, 0.86);
+    box-shadow: 0 8px 30px rgba(29, 53, 79, 0.05);
+  }
+
+  .topbar-inner {
+    max-width: 1208px;
+    padding: 0.82rem 24px;
+  }
+
+  .brand a {
+    font-size: 0.98rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(207, 220, 235, 0.95);
+    border-radius: 11px;
+    box-shadow: 0 7px 18px rgba(24, 47, 73, 0.11);
+  }
+
+  .navlinks {
+    gap: 0.35rem;
+  }
+
+  .navlinks a {
+    position: relative;
+    padding: 0.45rem 0.66rem;
+    border-radius: 8px;
+    color: #405269;
+    font-size: 0.88rem;
+    font-weight: 680;
+  }
+
+  .navlinks a:hover {
+    color: #173f68;
+    background: rgba(220, 232, 244, 0.55);
+  }
+
+  .hero {
+    min-height: 510px;
+    grid-template-columns: minmax(0, 1fr) 290px;
+    gap: 3.5rem;
+    padding: clamp(2.4rem, 5vw, 4.2rem);
+    color: #f8fbff;
+    border: 1px solid rgba(151, 194, 229, 0.2);
+    border-radius: 34px;
+    background:
+      linear-gradient(118deg, rgba(13, 35, 58, 0.98) 0%, rgba(20, 61, 96, 0.97) 56%, rgba(31, 95, 126, 0.94) 100%);
+    box-shadow: var(--ah-shadow-strong);
+  }
+
+  .hero::before {
+    width: 540px;
+    height: 540px;
+    right: -100px;
+    top: -230px;
+    background: radial-gradient(circle, rgba(98, 216, 235, 0.28) 0%, rgba(98, 216, 235, 0.00) 68%);
+  }
+
+  .hero::after {
+    width: 430px;
+    height: 430px;
+    left: -130px;
+    bottom: -240px;
+    background: radial-gradient(circle, rgba(126, 111, 238, 0.24) 0%, rgba(126, 111, 238, 0.00) 69%);
+  }
+
+  .hero-copy {
+    max-width: 720px;
+  }
+
+  .eyebrow {
+    margin-bottom: 1.25rem;
+    border-color: rgba(185, 220, 243, 0.28);
+    color: #c9e9fa;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+    font-size: clamp(2.85rem, 5.5vw, 5.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  .cn-name {
+    display: inline-block;
+    color: #b7d7ed;
+    font-size: 0.58em;
+    font-weight: 560;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    max-width: 690px;
+    margin-bottom: 1.4rem;
+    color: #d7e7f3;
+    font-size: clamp(1.05rem, 2vw, 1.23rem);
+    line-height: 1.58;
+    font-weight: 470;
+  }
+
+  .research-tags {
+    margin: 1.35rem 0 1.7rem;
+  }
+
+  .tag {
+    border-color: rgba(193, 223, 243, 0.24);
+    color: #e8f6ff;
+    background: rgba(235, 247, 255, 0.09);
+    box-shadow: none;
+    font-size: 0.82rem;
+    font-weight: 620;
+  }
+
+  .hero-actions {
+    margin-top: 0;
+  }
+
+  .button {
+    min-height: 44px;
+    padding: 0.55rem 1.05rem;
+    border-color: rgba(211, 232, 245, 0.28) !important;
+    color: #eff9ff !important;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .button.primary {
+    border-color: #ffffff !important;
+    color: #143a5e !important;
+    background: #ffffff;
+    box-shadow: 0 12px 26px rgba(2, 20, 38, 0.22);
+  }
+
+  .button.primary:hover {
+    color: #0d2d4d !important;
+    background: #eef8ff;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 2rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(210, 234, 248, 0.18);
+  }
+
+  .hero-stat {
+    min-width: 155px;
+    padding: 0.1rem 1.25rem 0.1rem 0;
+    margin-right: 1.25rem;
+    border-right: 1px solid rgba(210, 234, 248, 0.16);
+  }
+
+  .hero-stat:last-child {
+    margin-right: 0;
+    border-right: 0;
+  }
+
+  .hero-stat strong,
+  .hero-stat span {
+    display: block;
+  }
+
+  .hero-stat strong {
+    color: #ffffff;
+    font-size: 0.96rem;
+    font-weight: 760;
+  }
+
+  .hero-stat span {
+    margin-top: 0.1rem;
+    color: #aac7db;
+    font-size: 0.76rem;
+    letter-spacing: 0.025em;
+  }
+
+  .portrait-card {
+    width: 290px;
+    padding: 0.78rem;
+    border-color: rgba(231, 244, 252, 0.32);
+    border-radius: 27px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 25px 55px rgba(4, 24, 42, 0.28);
+  }
+
+  .portrait-card img {
+    aspect-ratio: 1 / 1.05;
+    border-radius: 20px;
+    object-position: center top;
+  }
+
+  .quick-meta {
+    margin: 0;
+    padding: 1.05rem 0.65rem 0.45rem;
+    color: #5d6f83;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .quick-meta strong,
+  .quick-meta span {
+    display: block;
+  }
+
+  .quick-meta strong {
+    margin: 0.16rem 0 0.22rem;
+    color: #152b43;
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+
+  .quick-meta-label {
+    color: #3270aa;
+    font-size: 0.69rem;
+    font-weight: 760;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  section {
+    margin-top: 5rem;
+    scroll-margin-top: 5.8rem;
+  }
+
+  .section-head {
+    position: relative;
+    align-items: end;
+    margin-bottom: 1.35rem;
+    padding: 1.45rem 0 0.92rem;
+    border-bottom-color: #d9e3ee;
+  }
+
+  .section-head::before {
+    content: attr(data-kicker);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #3677b2;
+    font-size: 0.69rem;
+    font-weight: 790;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .section-head h2 {
+    color: #12243a;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+  }
+
+  .section-note {
+    max-width: 440px;
+    color: #738196;
+    font-size: 0.87rem;
+    text-align: right;
+  }
+
+  .bio-card,
+  .simple-card {
+    border-color: #dfe7f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 14px 36px rgba(24, 46, 72, 0.06);
+  }
+
+  .bio-card {
+    position: relative;
+    padding: 2rem 2.25rem 2rem 2.55rem;
+    font-size: 1.02rem;
+    line-height: 1.78;
+  }
+
+  .bio-card::before {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    bottom: 2rem;
+    left: 1.3rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #3677b2, #6e67e7);
+  }
+
+  .timeline-grid {
+    gap: 1.15rem;
+  }
+
+  .timeline-card {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 1.15rem;
+    padding: 1.45rem;
+    border-color: #dfe7f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 12px 32px rgba(24, 46, 72, 0.055);
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-3px);
+    border-color: #bad4ea;
+    box-shadow: 0 18px 40px rgba(24, 57, 91, 0.10);
+  }
+
+  .inst-logo {
+    width: 74px;
+    height: 74px;
+    border-color: #e0e8f1;
+    border-radius: 18px;
+    box-shadow: none;
+  }
+
+  .inst-logo-dark {
+    border-color: #203d5c;
+    background: #132b44;
+  }
+
+  .period {
+    color: #2e72ad;
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .timeline-card h3 {
+    margin-top: 0.35rem;
+    color: #142940;
+    font-size: 1.07rem;
+  }
+
+  .timeline-card p {
+    color: #66768a;
+    font-size: 0.9rem;
+    line-height: 1.56;
+  }
+
+  .paper-list {
+    gap: 1.15rem;
+  }
+
+  .paper-card {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 1.6rem;
+    padding: 1.25rem;
+    border-color: #dfe7f0;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 12px 34px rgba(24, 46, 72, 0.055);
+  }
+
+  .paper-card.featured {
+    border-color: #c3d9ec;
+    background:
+      linear-gradient(110deg, rgba(241, 248, 254, 0.95) 0%, #ffffff 42%, #ffffff 100%);
+    box-shadow: 0 16px 40px rgba(31, 80, 126, 0.09);
+  }
+
+  .paper-card:hover {
+    transform: translateY(-3px);
+    border-color: #aacbe4;
+    box-shadow: 0 20px 44px rgba(26, 61, 94, 0.105);
+  }
+
+  .paper-thumb {
+    width: 100%;
+    border-color: #dbe5ef;
+    border-radius: 16px;
+    background: #f7f9fc;
+    box-shadow: none;
+  }
+
+  .paper-thumb img {
+    background: #f7f9fc;
+  }
+
+  .paper-card > div:last-child {
+    align-self: center;
+    padding: 0.16rem 0.35rem 0.16rem 0;
+  }
+
+  .paper-meta {
+    margin-bottom: 0.62rem;
+  }
+
+  .venue,
+  .type-label {
+    padding: 0.23rem 0.56rem;
+    border-radius: 7px;
+    font-size: 0.69rem;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+  }
+
+  .venue {
+    color: #205f98;
+    background: #eaf4fc;
+  }
+
+  .type-label {
+    color: #5c6575;
+    background: #f0f2f5;
+  }
+
+  .paper-card h3 {
+    margin: 0.22rem 0 0.52rem;
+    color: #10243b;
+    font-size: clamp(1.08rem, 2vw, 1.24rem);
+    line-height: 1.32;
+    letter-spacing: -0.018em;
+  }
+
+  .authors {
+    color: #647388;
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  .authors strong {
+    color: #173b61;
+    font-weight: 790;
+  }
+
+  .paper-note {
+    margin-top: 0.55rem;
+    color: #485a70;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .paper-links {
+    gap: 0.5rem;
+    margin-top: 0.78rem;
+  }
+
+  .paper-links a,
+  .link-pending {
+    display: inline-flex;
+    align-items: center;
+    min-height: 31px;
+    padding: 0.28rem 0.63rem;
+    border: 1px solid #cfddeb;
+    border-radius: 8px;
+    color: #245f96;
+    background: #f8fbfe;
+    font-size: 0.77rem;
+    font-weight: 720;
+    line-height: 1;
+  }
+
+  .paper-links a:hover {
+    color: #113f6c;
+    border-color: #9fc2df;
+    background: #edf6fd;
+    transform: translateY(-1px);
+  }
+
+  .link-pending {
+    color: #8792a1;
+    border-style: dashed;
+    background: #f8f9fa;
+  }
+
+  .project-card {
+    padding: 2rem 2.2rem;
+    border-color: rgba(132, 181, 218, 0.25);
+    border-radius: 24px;
+    color: #f4f9fd;
+    background: linear-gradient(120deg, #122d48 0%, #17486f 100%);
+    box-shadow: 0 20px 45px rgba(18, 53, 84, 0.18);
+  }
+
+  .project-card::before {
+    background: radial-gradient(circle, rgba(98, 216, 235, 0.25) 0%, rgba(98, 216, 235, 0) 69%);
+  }
+
+  .project-card h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+  }
+
+  .project-card p {
+    max-width: 920px;
+    color: #c8dcec;
+  }
+
+  .project-stars {
+    color: #103d64;
+    background: #e8f5fc;
+  }
+
+  .project-links a {
+    color: #d9f2ff;
+    border-bottom: 1px solid rgba(217, 242, 255, 0.35);
+  }
+
+  .two-col {
+    grid-template-columns: 1fr 0.7fr;
+    gap: 1.15rem;
+  }
+
+  .simple-card {
+    padding: 1.7rem 1.8rem;
+  }
+
+  .simple-card h3 {
+    color: #17304b;
+    font-size: 1.05rem;
+  }
+
+  .compact-list {
+    color: #647489;
+    font-size: 0.91rem;
+  }
+
+  .footer-note {
+    margin-top: 4.5rem;
+    padding-top: 1.4rem;
+    color: #7b8797;
+    text-align: center;
+  }
+
+  @media (max-width: 980px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) 245px;
+      gap: 2.2rem;
+    }
+
+    .portrait-card {
+      width: 245px;
+    }
+
+    .paper-card {
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .academic-home main {
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .topbar {
+      margin-bottom: 1.7rem;
+    }
+
+    .topbar-inner {
+      align-items: flex-start;
+      padding-right: 16px;
+      padding-left: 16px;
+    }
+
+    .navlinks {
+      justify-content: flex-end;
+    }
+
+    .navlinks a {
+      padding: 0.34rem 0.42rem;
+      font-size: 0.78rem;
+    }
+
+    .hero {
+      min-height: 0;
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      border-radius: 27px;
+    }
+
+    .portrait-card {
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      align-items: center;
+      justify-self: stretch;
+      width: 100%;
+      padding: 0.65rem;
+      border-radius: 22px;
+    }
+
+    .portrait-card img {
+      aspect-ratio: 1;
+      border-radius: 16px;
+    }
+
+    .quick-meta {
+      padding: 0.7rem 0.8rem;
+    }
+
+    .section-head {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .section-note {
+      max-width: none;
+      text-align: left;
+    }
+
+    .timeline-grid,
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+
+    .paper-card {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .paper-thumb {
+      max-width: 540px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .brand a > span:last-child {
+      display: none;
+    }
+
+    .navlinks {
+      gap: 0.15rem;
+    }
+
+    .navlinks a[href="#education"],
+    .navlinks a[href="#projects"] {
+      display: none;
+    }
+
+    .hero {
+      padding: 1.45rem;
+      border-radius: 23px;
+    }
+
+    .hero h1 {
+      font-size: 2.65rem;
+    }
+
+    .cn-name {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.5em;
+    }
+
+    .research-tags {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tag {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-stat {
+      width: 50%;
+      min-width: 0;
+      margin-right: 0;
+      padding-right: 0.75rem;
+    }
+
+    .hero-stat:nth-child(2) {
+      padding-left: 0.75rem;
+      border-right: 0;
+    }
+
+    .portrait-card {
+      grid-template-columns: 96px minmax(0, 1fr);
+    }
+
+    section {
+      margin-top: 3.8rem;
+    }
+
+    .bio-card {
+      padding: 1.55rem 1.35rem 1.55rem 2rem;
+      font-size: 0.94rem;
+    }
+
+    .bio-card::before {
+      top: 1.5rem;
+      bottom: 1.5rem;
+      left: 1rem;
+    }
+
+    .timeline-card {
+      grid-template-columns: 58px minmax(0, 1fr);
+      padding: 1.05rem;
+    }
+
+    .inst-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+    }
+
+    .paper-card {
+      padding: 0.9rem;
+      border-radius: 18px;
+    }
+
+    .paper-card > div:last-child {
+      padding: 0.1rem 0.15rem 0.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 </style>
 
 <div class="academic-home">
@@ -709,7 +1523,7 @@
 
   <main id="top">
     <section class="hero" aria-label="Profile introduction">
-      <div>
+      <div class="hero-copy">
         <div class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</div>
         <h1>Bohan Hou <span class="cn-name">侯博涵</span></h1>
         <p class="subtitle">I build multimodal foundation models and agents that connect perception, reasoning, world modeling, and action.</p>
@@ -723,15 +1537,19 @@
           <a class="button primary" href="mailto:bohanhou@foxmail.com">Email</a>
           <a class="button" href="https://github.com/hbhalpha">GitHub</a>
         </div>
+        <div class="hero-stats" aria-label="Current research profile">
+          <div class="hero-stat"><strong>NTU</strong><span>PhD Student</span></div>
+          <div class="hero-stat"><strong>Alibaba DAMO</strong><span>Research Intern</span></div>
+        </div>
       </div>
       <aside class="portrait-card" aria-label="Profile photo and affiliation">
         <img src="./assets/profile.png" alt="Bohan Hou">
-        <div class="quick-meta">PhD Student, Nanyang Technological University<br>Research Intern, Alibaba DAMO Academy<br>Multimodal AI · Embodied Intelligence</div>
+        <div class="quick-meta"><span class="quick-meta-label">Current focus</span><strong>Embodied Foundation Models</strong><span>Multimodal agents · World models · Robot learning</span></div>
       </aside>
     </section>
 
     <section id="bio">
-      <div class="section-head">
+      <div class="section-head" data-kicker="01 · Profile">
         <h2>Short Bio</h2>
         <p class="section-note">A concise research-focused introduction.</p>
       </div>
@@ -742,7 +1560,7 @@
 
     
     <section id="experience">
-      <div class="section-head">
+      <div class="section-head" data-kicker="02 · Experience">
         <h2>Experience</h2>
         <p class="section-note">Research appointments and internships.</p>
       </div>
@@ -758,7 +1576,7 @@
           </div>
         </article>
         <article class="timeline-card">
-          <div class="inst-logo"><img src="./assets/logos/ilearn.png" alt="iLearn Lab logo"></div>
+          <div class="inst-logo inst-logo-dark"><img src="./assets/logos/ilearn.png" alt="iLearn Lab logo"></div>
           <div>
             <div class="period">Sep. 2022 — Present</div>
             <h3>iLearn Lab, Shandong University</h3>
@@ -770,7 +1588,7 @@
     </section>
 
     <section id="education">
-      <div class="section-head">
+      <div class="section-head" data-kicker="03 · Education">
         <h2>Education</h2>
         <p class="section-note">Academic training and degree programs.</p>
       </div>
@@ -797,12 +1615,12 @@
     </section>
 
     <section id="publications">
-      <div class="section-head">
+      <div class="section-head" data-kicker="04 · Research">
         <h2>First-Author Publications</h2>
         <p class="section-note">* Equal or core contribution, as specified by each paper.</p>
       </div>
       <div class="paper-list">
-        <article class="paper-card">
+        <article class="paper-card featured">
           <div class="paper-thumb"><img src="./assets/papers/data-pyramid.png" alt="Embodied Data Pyramid overview"></div>
           <div>
             <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Data</span></div>
@@ -813,7 +1631,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card featured">
           <div class="paper-thumb"><img src="./assets/papers/rynnbrain11.png" alt="RynnBrain 1.1 overview"></div>
           <div>
             <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Foundation Models</span></div>
@@ -824,7 +1642,7 @@
           </div>
         </article>
 
-        <article class="paper-card">
+        <article class="paper-card featured">
           <div class="paper-thumb"><img src="./assets/papers/rynnvalue.png" alt="RynnValue architecture overview"></div>
           <div>
             <div class="paper-meta"><span class="venue">2026</span><span class="type-label">Robotic Value Foundation Models</span></div>
@@ -901,7 +1719,7 @@
          </div>
     </section>
     <section id="publications2">
-      <div class="section-head">
+      <div class="section-head" data-kicker="05 · Collaboration">
         <h2>Co-Author Publications</h2>
         <p class="section-note">Left: visual preview. Right: paper information.</p>
       </div>
@@ -944,7 +1762,7 @@
     </section>
 
     <section id="projects">
-      <div class="section-head">
+      <div class="section-head" data-kicker="06 · Open Source">
         <h2>Selected Project</h2>
         <p class="section-note">Representative open-source effort.</p>
       </div>
@@ -972,7 +1790,7 @@
     </section>
 
     <section id="misc">
-      <div class="section-head">
+      <div class="section-head" data-kicker="07 · Recognition">
         <h2>Honors & Misc.</h2>
         <p class="section-note">Compact highlights; link to CV for the full list.</p>
       </div>
