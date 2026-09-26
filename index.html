@@ -1,1825 +1,1274 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Bohan Hou is a PhD student at Nanyang Technological University researching multimodal foundation models, embodied intelligence, world models, and robot learning.">
-<meta name="theme-color" content="#f6f9fc">
-<title>Bohan Hou | Multimodal & Embodied Intelligence</title>
-<link rel="icon" href="./assets/site-logo.png">
-</head>
-<body>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Bohan Hou is a PhD student at Nanyang Technological University researching multimodal foundation models, embodied intelligence, world models, and robot learning." name="description"/>
+<meta content="#f4f8fd" id="theme-color-meta" name="theme-color"/>
+<meta content="website" property="og:type"/>
+<meta content="Bohan Hou | Multimodal &amp; Embodied Intelligence" property="og:title"/>
+<meta content="Research in multimodal foundation models, embodied intelligence, world models, and robot learning." property="og:description"/>
+<title>Bohan Hou | Multimodal &amp; Embodied Intelligence</title>
+<link href="./assets/site-logo.png" rel="icon"/>
+<script>
+/* Apply the saved/system palette before the page is painted. */
+(() => {
+  let saved = null;
+  try { saved = localStorage.getItem('bohan-homepage-theme'); } catch (_) {}
+  const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  document.getElementById('theme-color-meta').content = dark ? '#0d0b08' : '#f4f8fd';
+})();
+</script>
 <style>
-  :root {
-    --ah-ink: #122033;
-    --ah-muted: #5b6880;
-    --ah-soft: #f6f9fc;
-    --ah-line: rgba(195, 209, 229, 0.7);
-    --ah-accent: #2f5f9f;
-    --ah-accent-2: #5a7dff;
-    --ah-accent-3: #61d5ff;
-    --ah-accent-soft: #edf3fb;
-    --ah-card: rgba(255, 255, 255, 0.82);
-    --ah-radius: 18px;
-    --ah-shadow: 0 18px 50px rgba(22, 32, 51, 0.10);
-    --ah-shadow-strong: 0 24px 60px rgba(34, 66, 130, 0.16);
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    color: var(--ah-ink);
-    background:
-      radial-gradient(circle at 12% 10%, rgba(90, 125, 255, 0.18) 0%, rgba(90, 125, 255, 0.00) 26%),
-      radial-gradient(circle at 88% 12%, rgba(97, 213, 255, 0.18) 0%, rgba(97, 213, 255, 0.00) 26%),
-      radial-gradient(circle at 78% 78%, rgba(126, 92, 255, 0.14) 0%, rgba(126, 92, 255, 0.00) 26%),
-      radial-gradient(circle at 20% 75%, rgba(68, 166, 255, 0.10) 0%, rgba(68, 166, 255, 0.00) 24%),
-      linear-gradient(180deg, #f8fbff 0%, #f5f9ff 32%, #f7fbfd 100%);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    line-height: 1.68;
-  }
-
-  .page__title { display: none; }
-  .archive { width: 100%; }
-
-  .academic-home {
-    position: relative;
-    max-width: 1060px;
-    margin: 0 auto;
-    color: var(--ah-ink);
-    padding-bottom: 40px;
-  }
-
-  .academic-home a {
-    color: var(--ah-accent);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(47, 95, 159, 0.25);
-    font-weight: 600;
-  }
-
-  .academic-home a:hover {
-    border-bottom-color: var(--ah-accent);
-    color: #234b80;
-  }
-
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    background: rgba(255, 255, 255, 0.72);
-    border-bottom: 1px solid rgba(210, 221, 238, 0.7);
-    box-shadow: 0 8px 30px rgba(70, 96, 140, 0.06);
-    margin: 0 0 2.2rem;
-  }
-
-  .topbar-inner {
-    max-width: 1060px;
-    margin: 0 auto;
-    padding: 0.85rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .brand a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    color: inherit;
-    border-bottom: none;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-  }
-
-  .brand-logo {
-    width: 34px;
-    height: 34px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.9);
-    box-shadow:
-      0 6px 16px rgba(22, 32, 51, 0.12),
-      0 0 24px rgba(90, 125, 255, 0.18);
-  }
-
-  .brand-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .navlinks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .navlinks a {
-    color: inherit;
-    border-bottom: none;
-    font-weight: 700;
-    opacity: 0.92;
-  }
-
-  .navlinks a:hover {
-    opacity: 1;
-    color: var(--ah-accent);
-  }
-
-  .hero {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px;
-    gap: 2.2rem;
-    align-items: center;
-    padding: 2.8rem;
-    border: 1px solid rgba(205, 220, 240, 0.8);
-    border-radius: 30px;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,0.88) 0%, rgba(248,251,255,0.9) 55%, rgba(240,246,255,0.92) 100%);
-    box-shadow: var(--ah-shadow-strong);
-    isolation: isolate;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    right: -80px;
-    top: -90px;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgba(90, 125, 255, 0.20) 0%, rgba(90, 125, 255, 0.00) 68%);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    left: -80px;
-    bottom: -120px;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgba(97, 213, 255, 0.16) 0%, rgba(97, 213, 255, 0.00) 70%);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  .hero > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    margin-bottom: 1rem;
-    padding: 0.32rem 0.8rem;
-    border: 1px solid rgba(210, 223, 242, 0.95);
-    border-radius: 999px;
-    color: #4d6180;
-    background: rgba(255, 255, 255, 0.74);
-    box-shadow: 0 0 18px rgba(97, 213, 255, 0.08);
-    font-size: 0.84rem;
-    font-weight: 700;
-  }
-
-  .hero h1 {
-    margin: 0 0 0.45rem;
-    font-size: clamp(2.4rem, 5vw, 4.6rem);
-    line-height: 1.02;
-    letter-spacing: -0.06em;
-    font-weight: 850;
-  }
-
-  .cn-name {
-    color: var(--ah-muted);
-    font-weight: 650;
-    letter-spacing: 0;
-  }
-
-  .subtitle {
-    margin: 0 0 1.2rem;
-    color: var(--ah-muted);
-    font-size: 1.10rem;
-    font-weight: 560;
-    max-width: 670px;
-  }
-
-  .research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin: 1.1rem 0 1.45rem;
-  }
-
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.42rem 0.8rem;
-    border-radius: 999px;
-    background: rgba(237, 243, 251, 0.92);
-    border: 1px solid rgba(212, 225, 242, 0.8);
-    color: #214d83;
-    font-size: 0.88rem;
-    font-weight: 700;
-    box-shadow: 0 0 18px rgba(90, 125, 255, 0.06);
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.15rem;
-  }
-
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 0.5rem 0.98rem;
-    border-radius: 12px;
-    font-weight: 750;
-    font-size: 0.93rem;
-    border: 1px solid rgba(211, 222, 238, 0.9) !important;
-    background: rgba(255,255,255,0.88);
-    color: var(--ah-ink) !important;
-    box-shadow: 0 8px 18px rgba(22, 32, 51, 0.05);
-  }
-
-  .button.primary {
-    background: linear-gradient(135deg, #16304f 0%, #244f85 100%);
-    color: #fff !important;
-    border-color: #244f85 !important;
-    box-shadow: 0 10px 24px rgba(36, 79, 133, 0.22);
-  }
-
-  .portrait-card {
-    justify-self: end;
-    width: 250px;
-    padding: 0.9rem;
-    border-radius: 26px;
-    border: 1px solid rgba(211, 224, 242, 0.8);
-    background: rgba(255,255,255,0.84);
-    box-shadow:
-      0 14px 35px rgba(22, 32, 51, 0.10),
-      0 0 28px rgba(97, 213, 255, 0.10);
-    backdrop-filter: blur(10px);
-  }
-
-  .portrait-card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 1 / 1.12;
-    object-fit: cover;
-    border-radius: 18px;
-  }
-
-  .quick-meta {
-    margin-top: 0.9rem;
-    color: var(--ah-muted);
-    font-size: 0.94rem;
-    font-weight: 560;
-  }
-
-  section {
-    margin-top: 3.2rem;
-    scroll-margin-top: 5.3rem;
-  }
-
-  .section-head {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.15rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid rgba(207, 220, 238, 0.86);
-  }
-
-  .section-head h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    letter-spacing: -0.025em;
-    font-weight: 820;
-  }
-
-  .section-note {
-    margin: 0;
-    color: var(--ah-muted);
-    font-size: 0.94rem;
-    font-weight: 560;
-  }
-
-  .bio-card,
-  .simple-card,
-  .project-card,
-  .timeline-card,
-  .paper-card {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .bio-card,
-  .simple-card {
-    padding: 1.45rem 1.55rem;
-    border: 1px solid rgba(210, 222, 239, 0.85);
-    border-radius: var(--ah-radius);
-    background: var(--ah-card);
-    box-shadow: 0 12px 30px rgba(22, 32, 51, 0.06);
-  }
-
-  .bio-card p,
-  .simple-card p {
-    margin: 0;
-    font-weight: 560;
-  }
-
-  .timeline-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .timeline-card {
-    display: grid;
-    grid-template-columns: 82px minmax(0, 1fr);
-    gap: 1rem;
-    align-items: start;
-    padding: 1.15rem 1.2rem;
-    border: 1px solid rgba(208, 222, 241, 0.88);
-    border-radius: var(--ah-radius);
-    background: rgba(255, 255, 255, 0.80);
-    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-    box-shadow: 0 12px 28px rgba(22, 32, 51, 0.06);
-  }
-
-  .timeline-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(90, 125, 255, 0.26);
-    box-shadow:
-      0 16px 34px rgba(22, 32, 51, 0.08),
-      0 0 24px rgba(90, 125, 255, 0.10);
-  }
-
-  .inst-logo {
-    width: 82px;
-    height: 82px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border: 1px solid rgba(213, 223, 238, 0.9);
-    border-radius: 20px;
-    background: rgba(255,255,255,0.96);
-    box-shadow: 0 8px 20px rgba(22, 32, 51, 0.05);
-  }
-
-  .inst-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 0.45rem;
-  }
-
-  .period {
-    color: var(--ah-accent);
-    font-size: 0.86rem;
-    font-weight: 760;
-    letter-spacing: 0.02em;
-  }
-
-  .timeline-card h3 {
-    margin: 0.28rem 0 0.32rem;
-    font-size: 1.08rem;
-    line-height: 1.35;
-    font-weight: 780;
-  }
-
-  .timeline-card p {
-    margin: 0.2rem 0;
-    color: var(--ah-muted);
-    font-size: 0.96rem;
-    font-weight: 560;
-  }
-
-  .paper-list {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .paper-card {
-    display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: 1.25rem;
-    align-items: stretch;
-    padding: 1rem;
-    border: 1px solid rgba(208, 222, 241, 0.88);
-    border-radius: var(--ah-radius);
-    background: rgba(255, 255, 255, 0.80);
-    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-    box-shadow: 0 12px 28px rgba(22, 32, 51, 0.06);
-  }
-
-  .paper-card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(90, 125, 255, 0.28);
-    box-shadow:
-      0 18px 36px rgba(22, 32, 51, 0.08),
-      0 0 28px rgba(97, 213, 255, 0.08);
-  }
-
-  .paper-thumb {
-    overflow: hidden;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-    align-self: center;
-    border-radius: 16px;
-    border: 1px solid rgba(214, 225, 240, 0.95);
-    background: #fff;
-    box-shadow: 0 8px 22px rgba(22, 32, 51, 0.04);
-  }
-
-  .paper-thumb img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    object-fit: contain;
-    background: #fff;
-  }
-
-  .paper-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .venue,
-  .type-label {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    font-size: 0.79rem;
-    font-weight: 780;
-  }
-
-  .venue {
-    background: #ecf2fb;
-    color: #234b80;
-  }
-
-  .type-label {
-    background: #f1f2f4;
-    color: #535c6c;
-  }
-
-  .paper-card h3 {
-    margin: 0.2rem 0 0.45rem;
-    font-size: 1.1rem;
-    line-height: 1.35;
-    font-weight: 790;
-  }
-
-  .authors {
-    margin: 0;
-    color: var(--ah-muted);
-    font-size: 0.94rem;
-    font-weight: 560;
-  }
-
-  .paper-note {
-    margin: 0.58rem 0 0;
-    color: #41506a;
-    font-size: 0.94rem;
-    font-weight: 560;
-  }
-
-  .paper-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 0.72rem;
-    font-size: 0.92rem;
-  }
-
-  .link-pending {
-    color: #7a8494;
-    border-bottom: 1px dashed rgba(122, 132, 148, 0.5);
-    font-weight: 600;
-    cursor: not-allowed;
-  }
-
-  .project-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .project-card {
-    position: relative;
-    overflow: hidden;
-    padding: 1.3rem 1.4rem;
-    border: 1px solid rgba(208, 222, 241, 0.88);
-    border-radius: var(--ah-radius);
-    background:
-      linear-gradient(135deg, rgba(255,255,255,0.84) 0%, rgba(247,250,255,0.86) 100%);
-    box-shadow:
-      0 14px 32px rgba(22, 32, 51, 0.08),
-      0 0 30px rgba(90, 125, 255, 0.08);
-  }
-
-  .project-card::before {
-    content: "";
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    right: -80px;
-    top: -120px;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgba(90, 125, 255, 0.16) 0%, rgba(90, 125, 255, 0.00) 70%);
-    pointer-events: none;
-  }
-
-  .project-top {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.45rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .project-card h3 {
-    margin: 0;
-    font-size: 1.12rem;
-    line-height: 1.35;
-    font-weight: 800;
-  }
-
-  .project-card p {
-    margin: 0.5rem 0 0;
-    color: var(--ah-muted);
-    font-size: 0.96rem;
-    font-weight: 560;
-    position: relative;
-    z-index: 1;
-  }
-
-  .project-stars {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.28rem;
-    flex: 0 0 auto;
-    padding: 0.24rem 0.6rem;
-    border-radius: 999px;
-    background: rgba(237, 243, 251, 0.95);
-    color: #234b80;
-    font-size: 0.85rem;
-    font-weight: 800;
-    box-shadow: 0 0 16px rgba(97, 213, 255, 0.10);
-  }
-
-  .project-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 0.78rem;
-    font-size: 0.92rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .two-col {
-    display: grid;
-    grid-template-columns: 1.25fr 0.75fr;
-    gap: 1rem;
-  }
-
-  .simple-card h3 {
-    margin: 0 0 0.65rem;
-    font-weight: 780;
-  }
-
-  .compact-list {
-    margin: 0;
-    padding-left: 1.15rem;
-    color: var(--ah-muted);
-    font-weight: 560;
-  }
-
-  .compact-list li + li {
-    margin-top: 0.5rem;
-  }
-
-  .footer-note {
-    margin: 3rem 0 1rem;
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(207, 220, 238, 0.86);
-    color: var(--ah-muted);
-    font-size: 0.92rem;
-    font-weight: 560;
-  }
-
-  @media (max-width: 860px) {
-    .topbar-inner {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    .hero {
-      grid-template-columns: 1fr;
-      padding: 1.6rem;
-    }
-
-    .portrait-card {
-      justify-self: start;
-      width: min(250px, 100%);
-    }
-
-    .timeline-grid,
-    .two-col,
-    .project-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .paper-card {
-      grid-template-columns: 1fr;
-    }
-
-  }
-
-  @media (max-width: 560px) {
-    .navlinks {
-      gap: 0.65rem;
-      font-size: 0.85rem;
-    }
-
-    .hero h1 {
-      font-size: 2.35rem;
-    }
-
-    .section-head {
-      align-items: start;
-      flex-direction: column;
-    }
-
-    .timeline-card {
-      grid-template-columns: 64px minmax(0, 1fr);
-    }
-
-    .inst-logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 15px;
-    }
-  }
-
-  /* Professional visual refresh */
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  :root {
-    --ah-ink: #17263a;
-    --ah-muted: #68798d;
-    --ah-soft: #f7f9fc;
-    --ah-line: #e2eaf2;
-    --ah-accent: #3577b5;
-    --ah-accent-2: #7772d9;
-    --ah-accent-3: #62bfd3;
-    --ah-accent-soft: #f0f7fc;
-    --ah-card: #ffffff;
-    --ah-radius: 22px;
-    --ah-shadow: 0 16px 38px rgba(37, 62, 88, 0.06);
-    --ah-shadow-strong: 0 24px 64px rgba(40, 72, 103, 0.11);
-  }
-
-  body {
-    min-width: 320px;
-    background:
-      radial-gradient(circle at 8% 4%, rgba(98, 191, 211, 0.09), transparent 24%),
-      radial-gradient(circle at 92% 22%, rgba(119, 114, 217, 0.07), transparent 25%),
-      linear-gradient(180deg, #fbfcfe 0%, #f7f9fc 55%, #fbfcfe 100%);
-    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 450;
-    line-height: 1.62;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.35;
-    background-image:
-      linear-gradient(rgba(27, 65, 104, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(27, 65, 104, 0.035) 1px, transparent 1px);
-    background-size: 42px 42px;
-    mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
-  }
-
-  .academic-home {
-    max-width: none;
-    padding-bottom: 0;
-  }
-
-  .academic-home main {
-    width: min(100%, 1208px);
-    margin: 0 auto;
-    padding: 0 24px 68px;
-  }
-
-  .academic-home a {
-    color: #205d99;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    border-bottom: 0;
-    transition: color 160ms ease, opacity 160ms ease, transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
-  }
-
-  .academic-home a:focus-visible {
-    outline: 3px solid rgba(79, 195, 221, 0.55);
-    outline-offset: 4px;
-    border-radius: 6px;
-  }
-
-  .topbar {
-    margin: 0 0 3rem;
-    border-bottom: 1px solid rgba(205, 217, 231, 0.82);
-    background: rgba(248, 250, 252, 0.86);
-    box-shadow: 0 8px 30px rgba(29, 53, 79, 0.05);
-  }
-
-  .topbar-inner {
-    max-width: 1208px;
-    padding: 0.82rem 24px;
-  }
-
-  .brand a {
-    font-size: 0.98rem;
-    letter-spacing: -0.01em;
-  }
-
-  .brand-logo {
-    width: 38px;
-    height: 38px;
-    border: 1px solid rgba(207, 220, 235, 0.95);
-    border-radius: 11px;
-    box-shadow: 0 7px 18px rgba(24, 47, 73, 0.11);
-  }
-
-  .navlinks {
-    gap: 0.35rem;
-  }
-
-  .navlinks a {
-    position: relative;
-    padding: 0.45rem 0.66rem;
-    border-radius: 8px;
-    color: #405269;
-    font-size: 0.88rem;
-    font-weight: 680;
-  }
-
-  .navlinks a:hover {
-    color: #173f68;
-    background: rgba(220, 232, 244, 0.55);
-  }
-
-  .hero {
-    min-height: 510px;
-    grid-template-columns: minmax(0, 1fr) 290px;
-    gap: 3.5rem;
-    padding: clamp(2.4rem, 5vw, 4.2rem);
-    color: #26394f;
-    border: 1px solid #dce8f1;
-    border-radius: 34px;
-    background:
-      linear-gradient(118deg, #ffffff 0%, #f4f9fd 55%, #eef7f9 100%);
-    box-shadow: var(--ah-shadow-strong);
-  }
-
-  .hero::before {
-    width: 540px;
-    height: 540px;
-    right: -100px;
-    top: -230px;
-    background: radial-gradient(circle, rgba(98, 191, 211, 0.22) 0%, rgba(98, 191, 211, 0.00) 68%);
-  }
-
-  .hero::after {
-    width: 430px;
-    height: 430px;
-    left: -130px;
-    bottom: -240px;
-    background: radial-gradient(circle, rgba(132, 123, 224, 0.15) 0%, rgba(132, 123, 224, 0.00) 69%);
-  }
-
-  .hero-copy {
-    max-width: 720px;
-  }
-
-  .eyebrow {
-    margin-bottom: 1.25rem;
-    border-color: #d4e4ef;
-    color: #356f9f;
-    background: rgba(239, 247, 252, 0.90);
-    box-shadow: none;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.72rem;
-  }
-
-  .hero h1 {
-    margin-bottom: 0.8rem;
-    color: #172b42;
-    font-size: clamp(2.85rem, 5.5vw, 5.2rem);
-    line-height: 0.98;
-    letter-spacing: -0.035em;
-  }
-
-  .cn-name {
-    display: inline-block;
-    color: #6f85a0;
-    font-size: 0.58em;
-    font-weight: 560;
-    letter-spacing: -0.02em;
-  }
-
-  .subtitle {
-    max-width: 690px;
-    margin-bottom: 1.4rem;
-    color: #52677e;
-    font-size: clamp(1.05rem, 2vw, 1.23rem);
-    line-height: 1.58;
-    font-weight: 470;
-  }
-
-  .research-tags {
-    margin: 1.35rem 0 1.7rem;
-  }
-
-  .tag {
-    border-color: #d8e5ef;
-    color: #355a7c;
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: none;
-    font-size: 0.82rem;
-    font-weight: 620;
-  }
-
-  .hero-actions {
-    margin-top: 0;
-  }
-
-  .button {
-    min-height: 44px;
-    padding: 0.55rem 1.05rem;
-    border-color: #cadbe8 !important;
-    color: #315f88 !important;
-    background: rgba(255, 255, 255, 0.88);
-    box-shadow: 0 7px 18px rgba(42, 78, 110, 0.06);
-  }
-
-  .button:hover {
-    transform: translateY(-2px);
-    color: #214d74 !important;
-    border-color: #acc9df !important;
-    background: #ffffff;
-  }
-
-  .button.primary {
-    border-color: #3979b4 !important;
-    color: #ffffff !important;
-    background: #3979b4;
-    box-shadow: 0 10px 24px rgba(48, 108, 163, 0.18);
-  }
-
-  .button.primary:hover {
-    color: #ffffff !important;
-    background: #2f6ba2;
-  }
-
-  .hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    margin-top: 2rem;
-    padding-top: 1.35rem;
-    border-top: 1px solid #dce7ef;
-  }
-
-  .hero-stat {
-    min-width: 155px;
-    padding: 0.1rem 1.25rem 0.1rem 0;
-    margin-right: 1.25rem;
-    border-right: 1px solid #dce7ef;
-  }
-
-  .hero-stat:last-child {
-    margin-right: 0;
-    border-right: 0;
-  }
-
-  .hero-stat strong,
-  .hero-stat span {
-    display: block;
-  }
-
-  .hero-stat strong {
-    color: #20364d;
-    font-size: 0.96rem;
-    font-weight: 760;
-  }
-
-  .hero-stat span {
-    margin-top: 0.1rem;
-    color: #728399;
-    font-size: 0.76rem;
-    letter-spacing: 0.025em;
-  }
-
-  .portrait-card {
-    width: 290px;
-    padding: 0.78rem;
-    border-color: #dce6ef;
-    border-radius: 27px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 20px 44px rgba(42, 71, 99, 0.12);
-  }
-
-  .portrait-card img {
-    aspect-ratio: 1 / 1.05;
-    border-radius: 20px;
-    object-position: center top;
-  }
-
-  .quick-meta {
-    margin: 0;
-    padding: 1.05rem 0.65rem 0.45rem;
-    color: #5d6f83;
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-
-  .quick-meta strong,
-  .quick-meta span {
-    display: block;
-  }
-
-  .quick-meta strong {
-    margin: 0.16rem 0 0.22rem;
-    color: #152b43;
-    font-size: 0.98rem;
-    line-height: 1.35;
-  }
-
-  .quick-meta-label {
-    color: #3270aa;
-    font-size: 0.69rem;
-    font-weight: 760;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  section {
-    margin-top: 5rem;
-    scroll-margin-top: 5.8rem;
-  }
-
-  .section-head {
-    position: relative;
-    align-items: end;
-    margin-bottom: 1.35rem;
-    padding: 1.45rem 0 0.92rem;
-    border-bottom-color: #d9e3ee;
-  }
-
-  .section-head::before {
-    content: attr(data-kicker);
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #3677b2;
-    font-size: 0.69rem;
-    font-weight: 790;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .section-head h2 {
-    color: #12243a;
-    font-size: clamp(1.55rem, 3vw, 2rem);
-    line-height: 1.2;
-    letter-spacing: -0.04em;
-  }
-
-  .section-note {
-    max-width: 440px;
-    color: #738196;
-    font-size: 0.87rem;
-    text-align: right;
-  }
-
-  .bio-card,
-  .simple-card {
-    border-color: #dfe7f0;
-    border-radius: 22px;
-    background: #ffffff;
-    box-shadow: 0 14px 36px rgba(24, 46, 72, 0.06);
-  }
-
-  .bio-card {
-    position: relative;
-    padding: 2rem 2.25rem 2rem 2.55rem;
-    font-size: 1.02rem;
-    line-height: 1.78;
-  }
-
-  .bio-card::before {
-    content: "";
-    position: absolute;
-    top: 2rem;
-    bottom: 2rem;
-    left: 1.3rem;
-    width: 3px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, #3677b2, #6e67e7);
-  }
-
-  .timeline-grid {
-    gap: 1.15rem;
-  }
-
-  .timeline-card {
-    grid-template-columns: 74px minmax(0, 1fr);
-    gap: 1.15rem;
-    padding: 1.45rem;
-    border-color: #dfe7f0;
-    border-radius: 22px;
-    background: #ffffff;
-    box-shadow: 0 12px 32px rgba(24, 46, 72, 0.055);
-  }
-
-  .timeline-card:hover {
-    transform: translateY(-3px);
-    border-color: #bad4ea;
-    box-shadow: 0 18px 40px rgba(24, 57, 91, 0.10);
-  }
-
-  .inst-logo {
-    width: 74px;
-    height: 74px;
-    border-color: #e0e8f1;
-    border-radius: 18px;
-    box-shadow: none;
-  }
-
-  .inst-logo-dark {
-    border-color: #203d5c;
-    background: #132b44;
-  }
-
-  .period {
-    color: #2e72ad;
-    font-size: 0.75rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
-
-  .timeline-card h3 {
-    margin-top: 0.35rem;
-    color: #142940;
-    font-size: 1.07rem;
-  }
-
-  .timeline-card p {
-    color: #66768a;
-    font-size: 0.9rem;
-    line-height: 1.56;
-  }
-
-  .paper-list {
-    gap: 1.15rem;
-  }
-
-  .paper-card {
-    grid-template-columns: 300px minmax(0, 1fr);
-    gap: 1.6rem;
-    padding: 1.25rem;
-    border-color: #dfe7f0;
-    border-radius: 22px;
-    background: #ffffff;
-    box-shadow: 0 12px 34px rgba(24, 46, 72, 0.055);
-  }
-
-  .paper-card.featured {
-    border-color: #c3d9ec;
-    background:
-      linear-gradient(110deg, rgba(241, 248, 254, 0.95) 0%, #ffffff 42%, #ffffff 100%);
-    box-shadow: 0 16px 40px rgba(31, 80, 126, 0.09);
-  }
-
-  .paper-card:hover {
-    transform: translateY(-3px);
-    border-color: #aacbe4;
-    box-shadow: 0 20px 44px rgba(26, 61, 94, 0.105);
-  }
-
-  .paper-thumb {
-    width: 100%;
-    border-color: #dbe5ef;
-    border-radius: 16px;
-    background: #f7f9fc;
-    box-shadow: none;
-  }
-
-  .paper-thumb img {
-    background: #f7f9fc;
-  }
-
-  .paper-card > div:last-child {
-    align-self: center;
-    padding: 0.16rem 0.35rem 0.16rem 0;
-  }
-
-  .paper-meta {
-    margin-bottom: 0.62rem;
-  }
-
-  .venue,
-  .type-label {
-    padding: 0.23rem 0.56rem;
-    border-radius: 7px;
-    font-size: 0.69rem;
-    letter-spacing: 0.035em;
-    text-transform: uppercase;
-  }
-
-  .venue {
-    color: #205f98;
-    background: #eaf4fc;
-  }
-
-  .type-label {
-    color: #5c6575;
-    background: #f0f2f5;
-  }
-
-  .paper-card h3 {
-    margin: 0.22rem 0 0.52rem;
-    color: #10243b;
-    font-size: clamp(1.08rem, 2vw, 1.24rem);
-    line-height: 1.32;
-    letter-spacing: -0.018em;
-  }
-
-  .authors {
-    color: #647388;
-    font-size: 0.86rem;
-    line-height: 1.5;
-  }
-
-  .authors strong {
-    color: #173b61;
-    font-weight: 790;
-  }
-
-  .paper-note {
-    margin-top: 0.55rem;
-    color: #485a70;
-    font-size: 0.88rem;
-    line-height: 1.55;
-  }
-
-  .paper-links {
-    gap: 0.5rem;
-    margin-top: 0.78rem;
-  }
-
-  .paper-links a,
-  .link-pending {
-    display: inline-flex;
-    align-items: center;
-    min-height: 31px;
-    padding: 0.28rem 0.63rem;
-    border: 1px solid #cfddeb;
-    border-radius: 8px;
-    color: #245f96;
-    background: #f8fbfe;
-    font-size: 0.77rem;
-    font-weight: 720;
-    line-height: 1;
-  }
-
-  .paper-links a:hover {
-    color: #113f6c;
-    border-color: #9fc2df;
-    background: #edf6fd;
-    transform: translateY(-1px);
-  }
-
-  .link-pending {
-    color: #8792a1;
-    border-style: dashed;
-    background: #f8f9fa;
-  }
-
-  .project-card {
-    padding: 2rem 2.2rem;
-    border-color: #d4e3ee;
-    border-radius: 24px;
-    color: #2c4359;
-    background: linear-gradient(120deg, #f5faff 0%, #edf7fa 100%);
-    box-shadow: 0 16px 38px rgba(40, 76, 107, 0.08);
-  }
-
-  .project-card::before {
-    background: radial-gradient(circle, rgba(98, 191, 211, 0.18) 0%, rgba(98, 191, 211, 0) 69%);
-  }
-
-  .project-card h3 {
-    color: #17314b;
-    font-size: 1.25rem;
-  }
-
-  .project-card p {
-    max-width: 920px;
-    color: #64788c;
-  }
-
-  .project-stars {
-    color: #2b608b;
-    background: #ffffff;
-  }
-
-  .project-links a {
-    color: #2e6898;
-    border-bottom: 1px solid rgba(46, 104, 152, 0.28);
-  }
-
-  .two-col {
-    grid-template-columns: 1fr 0.7fr;
-    gap: 1.15rem;
-  }
-
-  .simple-card {
-    padding: 1.7rem 1.8rem;
-  }
-
-  .simple-card h3 {
-    color: #17304b;
-    font-size: 1.05rem;
-  }
-
-  .compact-list {
-    color: #647489;
-    font-size: 0.91rem;
-  }
-
-  .footer-note {
-    margin-top: 4.5rem;
-    padding-top: 1.4rem;
-    color: #7b8797;
-    text-align: center;
-  }
-
-  @media (max-width: 980px) {
-    .hero {
-      grid-template-columns: minmax(0, 1fr) 245px;
-      gap: 2.2rem;
-    }
-
-    .portrait-card {
-      width: 245px;
-    }
-
-    .paper-card {
-      grid-template-columns: 260px minmax(0, 1fr);
-      gap: 1.25rem;
-    }
-  }
-
-  @media (max-width: 760px) {
-    .academic-home main {
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-
-    .topbar {
-      margin-bottom: 1.7rem;
-    }
-
-    .topbar-inner {
-      align-items: flex-start;
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-
-    .navlinks {
-      justify-content: flex-end;
-    }
-
-    .navlinks a {
-      padding: 0.34rem 0.42rem;
-      font-size: 0.78rem;
-    }
-
-    .hero {
-      min-height: 0;
-      grid-template-columns: 1fr;
-      padding: 2rem;
-      border-radius: 27px;
-    }
-
-    .portrait-card {
-      display: grid;
-      grid-template-columns: 118px minmax(0, 1fr);
-      align-items: center;
-      justify-self: stretch;
-      width: 100%;
-      padding: 0.65rem;
-      border-radius: 22px;
-    }
-
-    .portrait-card img {
-      aspect-ratio: 1;
-      border-radius: 16px;
-    }
-
-    .quick-meta {
-      padding: 0.7rem 0.8rem;
-    }
-
-    .section-head {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-
-    .section-note {
-      max-width: none;
-      text-align: left;
-    }
-
-    .timeline-grid,
-    .two-col {
-      grid-template-columns: 1fr;
-    }
-
-    .paper-card {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .paper-thumb {
-      max-width: 540px;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .brand a > span:last-child {
-      display: none;
-    }
-
-    .navlinks {
-      gap: 0.15rem;
-    }
-
-    .navlinks a[href="#education"],
-    .navlinks a[href="#projects"] {
-      display: none;
-    }
-
-    .hero {
-      padding: 1.45rem;
-      border-radius: 23px;
-    }
-
-    .hero h1 {
-      font-size: 2.65rem;
-    }
-
-    .cn-name {
-      display: block;
-      margin-top: 0.35rem;
-      font-size: 0.5em;
-    }
-
-    .research-tags {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .tag {
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero-stat {
-      width: 50%;
-      min-width: 0;
-      margin-right: 0;
-      padding-right: 0.75rem;
-    }
-
-    .hero-stat:nth-child(2) {
-      padding-left: 0.75rem;
-      border-right: 0;
-    }
-
-    .portrait-card {
-      grid-template-columns: 96px minmax(0, 1fr);
-    }
-
-    section {
-      margin-top: 3.8rem;
-    }
-
-    .bio-card {
-      padding: 1.55rem 1.35rem 1.55rem 2rem;
-      font-size: 0.94rem;
-    }
-
-    .bio-card::before {
-      top: 1.5rem;
-      bottom: 1.5rem;
-      left: 1rem;
-    }
-
-    .timeline-card {
-      grid-template-columns: 58px minmax(0, 1fr);
-      padding: 1.05rem;
-    }
-
-    .inst-logo {
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
-    }
-
-    .paper-card {
-      padding: 0.9rem;
-      border-radius: 18px;
-    }
-
-    .paper-card > div:last-child {
-      padding: 0.1rem 0.15rem 0.25rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
-  }
+/* ==============================================================
+   Bohan Hou · Quiet Shanshui
+   Single-file HTML / CSS / JavaScript. No framework, font CDN,
+   generated screenshot, or external mountain image is required.
+
+   调整山水浓淡：修改下面 landscape / hero / portrait opacity 变量。
+   常驻背景：.site-backdrop 使用 position: fixed，滚动到底部仍显示。
+   蓝色云纹 / 金色云纹浓度在下方主题变量中调整。
+   所有内容图片使用原站 ./assets/ 路径；未提供的图片不编造文件名。
+   分类：搜索 data-topics。多标签用空格分开。
+   ============================================================== */
+:root {
+  --ink: #15283e;
+  --muted: #526477;
+  --quiet: #687a87;
+  --accent: #246bc2;
+  --accent-dark: #1a4e8b;
+  --line: #d9e4ef;
+  --background: #f4f8fd;
+  --surface: #fff;
+  --radius: 14px;
+  --landscape-opacity: .36;
+  --hero-landscape-opacity: .38;
+  --portrait-landscape-opacity: .46;
+  --pattern-opacity: .28;
+  --surface-elevated: #ffffff;
+  --shadow-soft: 0 14px 40px rgba(24, 43, 66, 0.04);
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  --ink: #edf2f7;
+  --muted: #a5b0bd;
+  --quiet: #8e99a8;
+  --accent: #e0bd7a;
+  --accent-dark: #f0d39b;
+  --line: #3a2f20;
+  --background: #0d0b08;
+  --surface: #15120f;
+  --surface-elevated: #1a1612;
+  --landscape-opacity: 0;
+  --hero-landscape-opacity: 0;
+  --portrait-landscape-opacity: 0;
+  --pattern-opacity: 0;
+  --shadow-soft: 0 20px 54px rgba(0, 0, 0, 0.34);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body {
+  margin: 0;
+  position: relative;
+  background-color: var(--background);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans CJK SC", sans-serif;
+  font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+}
+html[data-theme="dark"] body { background-image: none; }
+a { color: var(--accent); text-decoration: none; text-underline-offset: 3px; }
+a:hover { color: var(--accent-dark); }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button, a, input, summary { -webkit-tap-highlight-color: transparent; }
+:where(a, button, input, summary):focus-visible { outline: 3px solid #4c86c8; outline-offset: 4px; }
+[hidden] { display: none !important; }
+img { display: block; max-width: 100%; }
+::selection { background: #dcebe9; color: #17384a; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; z-index: 100; top: 8px; left: 12px; padding: 10px 16px; color: white; background: var(--accent); border-radius: 8px; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); color: white; }
+.svg-definitions { position: absolute; overflow: hidden; pointer-events: none; }
+.page-landscape { position: absolute; inset: 70px 0 auto; height: 640px; overflow: hidden; pointer-events: none; z-index: 0; opacity: var(--landscape-opacity); }
+.edge-mountains { position: absolute; width: 1850px; max-width: none; height: 620px; left: 50%; top: 15px; transform: translateX(-50%); }
+.site-header { position: sticky; top: 0; z-index: 30; border-bottom: 1px solid var(--line); background: rgba(244,248,253,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.nav-shell { width: min(100%, 1264px); min-height: 72px; padding: 12px 28px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); font-size: 16px; font-weight: 750; white-space: nowrap; }
+.brand-mark { position: relative; display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid #dce6ec; border-radius: 10px; overflow: hidden; background: #e9f2fb; color: #235c96; font-size: 12px; font-weight: 750; }
+.brand-mark img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.navlinks { display: flex; align-items: center; flex-wrap: wrap; gap: 3px; }
+.navlinks a { padding: 8px 11px; border-radius: 7px; font-size: 13px; color: #485c6c; font-weight: 600; }
+.navlinks a:hover, .navlinks a[aria-current="location"] { color: var(--accent); background: #f0f5f8; }
+.nav-toggle { display: none; padding: 7px 13px; background: white; border: 1px solid var(--line); color: var(--ink); border-radius: 8px; font-size: 13px; font-weight: 650; }
+.theme-toggle { display: inline-flex; align-items: center; gap: 7px; min-height: 38px; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.78); color: var(--ink); font-size: 12px; font-weight: 650; }
+.theme-toggle:hover { background: #f6f9fc; border-color: #cbd6dc; }
+.theme-toggle__icon { width: 16px; text-align: center; font-size: 14px; line-height: 1; }
+.theme-toggle__label { letter-spacing: .01em; }
+main { position: relative; width: min(100%, 1264px); margin: 0 auto; padding: 32px 28px 48px; }
+section { margin-top: 52px; scroll-margin-top: 92px; }
+.hero { position: relative; isolation: isolate; margin-top: 0; display: grid; grid-template-columns: minmax(0,1fr) 230px; align-items: center; gap: 50px; padding: 40px 43px; overflow: hidden; border: 1px solid #dde8e5; border-radius: 20px; background: linear-gradient(110deg, #ffffff 35%, #f2f8ff 100%); }
+.hero-landscape { position: absolute; z-index: -1; right: -130px; bottom: -35px; width: 800px; height: 290px; opacity: var(--hero-landscape-opacity); pointer-events: none; mask-image: linear-gradient(90deg, transparent, #000 20%); -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%); }
+.hero-copy { position: relative; min-width: 0; }
+.eyebrow { display: flex; align-items: center; gap: 8px; margin: 0 0 18px; color: #2764a4; font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.eyebrow::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #418478; flex: 0 0 auto; }
+.hero h1 { margin: 0 0 16px; color: #10263f; font-size: clamp(2.65rem,4.9vw,4.2rem); font-weight: 780; letter-spacing: -.05em; line-height: 1.1; }
+.cn-name { display: inline-block; margin-left: 10px; font-size: .35em; font-weight: 400; letter-spacing: .05em; color: #73858c; vertical-align: middle; }
+.subtitle { max-width: 670px; margin: 0; color: #455d70; font-size: 17px; line-height: 1.75; }
+.research-tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 20px 0 24px; }
+/* Five research colors, confined to small dots and text rather than big fills. */
+.topic-agent { --topic: #287e70; --topic-bg: #f0f8f5; }
+.topic-retrieval { --topic: #78609d; --topic-bg: #f6f3fa; }
+.topic-world-model { --topic: #3b74ac; --topic-bg: #f0f6fb; }
+.topic-mllms { --topic: #a1713d; --topic-bg: #fbf6ef; }
+.topic-embodied { --topic: #547b60; --topic-bg: #f2f7f1; }
+.tag { border: 1px solid transparent; color: var(--topic); background: var(--topic-bg); border-radius: 6px; padding: 4px 9px; font-size: 11px; font-weight: 550; white-space: nowrap; }
+.tag:hover { color: var(--topic); border-color: currentColor; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 40px; padding: 8px 13px; border: 1px solid #dce4eb; border-radius: 7px; background: white; color: #345875; font-size: 12px; font-weight: 650; transition: background-color .15s, border-color .15s; }
+.button:hover { border-color: #aac2d4; background: #f6f9fc; }
+.button.primary { border-color: var(--accent); background: var(--accent); color: #fff; }
+.button.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+.affiliations { display: flex; flex-wrap: wrap; gap: 14px 26px; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 24px; }
+.affiliation { max-width: 265px; }
+.affiliation + .affiliation { padding-left: 24px; border-left: 1px solid var(--line); }
+.affiliation strong { display: block; font-size: 11px; line-height: 1.5; font-weight: 650; color: #3d596d; }
+.affiliation span { display: block; margin-top: 3px; font-size: 11px; color: #647884; }
+.portrait-card { align-self: center; padding: 8px; border: 1px solid #e0e8e9; border-radius: 14px; background: #fff; }
+.portrait-visual { position: relative; aspect-ratio: 1.12; overflow: hidden; border-radius: 9px; background: #edf4fb; }
+.portrait-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.quick-meta { padding: 14px 9px 9px; }
+.quick-meta-label { display: block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #618276; }
+.quick-meta strong { display: block; margin-top: 4px; font-size: 12px; line-height: 1.45; font-weight: 700; }
+.quick-meta p { margin: 5px 0 0; font-size: 11px; line-height: 1.65; color: var(--muted); }
+.updates { display: grid; grid-template-columns: 117px minmax(0,1fr); gap: 18px; margin-top: 22px; padding: 17px 8px 0; }
+.updates-header h2 { margin: 1px 0 0; color: #6c7d83; font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.news-lines { display: grid; gap: 7px; }
+.news-lines p { display: flex; gap: 10px; align-items: baseline; margin: 0; color: #5c6d79; font-size: 12px; line-height: 1.8; }
+.news-dot { width: 4px; height: 4px; flex: 0 0 auto; background: #8a76a5; border-radius: 50%; transform: translateY(-2px); }
+.news-dot.jade { background: #679486; }
+.news-lines a { font-weight: 550; }
+.news-lines strong { color: #425769; font-weight: 650; }
+.section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 20px; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
+.section-kicker { display: block; margin: 0 0 6px; color: #678379; font-size: 9px; font-weight: 650; letter-spacing: .16em; text-transform: uppercase; }
+.section-head h2 { margin: 0; font-size: 27px; letter-spacing: -.035em; font-weight: 740; line-height: 1.2; }
+.section-note { margin: 0; color: var(--quiet); font-size: 11px; line-height: 1.6; max-width: 380px; text-align: right; }
+.bio-card { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 1px 0; }
+.bio-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+.bio-card a { font-weight: 550; }
+.pub-controls { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 10px; }
+.filter-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter-button { display: inline-flex; align-items: center; gap: 6px; min-height: 35px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 7px; background: white; color: #4d6071; font-size: 11px; font-weight: 550; }
+.filter-dot { width: 5px; height: 5px; background: var(--topic, #8296a4); border-radius: 50%; }
+.filter-button[data-filter="all"] .filter-dot { display: none; }
+.filter-button:hover { border-color: #9cb6b7; color: var(--topic,var(--accent)); }
+.filter-button[aria-pressed="true"] { background: var(--topic-bg, #eef4fc); border-color: var(--topic,var(--accent)); color: var(--topic,var(--accent)); }
+.filter-button[data-filter="all"][aria-pressed="true"] { background: var(--accent); color: white; border-color: var(--accent); }
+.filter-count { font-size: 10px; opacity: .73; font-variant-numeric: tabular-nums; }
+.search-wrap { position: relative; flex: 0 1 235px; width: 235px; }
+.search-wrap svg { position: absolute; left: 10px; top: 11px; width: 14px; height: 14px; stroke: #87969f; pointer-events: none; }
+.pub-search { display: block; width: 100%; height: 36px; padding: 8px 12px 8px 32px; border: 1px solid var(--line); background: white; border-radius: 7px; color: var(--ink); font-size: 11px; -webkit-appearance: none; }
+.pub-search::placeholder { color: #788996; opacity: 1; }
+.results-row { display: flex; justify-content: space-between; gap: 10px; align-items: center; min-height: 24px; margin: 0 0 17px; color: #71828c; font-size: 10px; }
+.results-row p { margin: 0; }
+.text-button { border: 0; padding: 0; background: none; color: var(--accent); font-size: 11px; font-weight: 550; text-decoration: underline; text-underline-offset: 3px; }
+.anchor-alias { position: absolute; height: 0; scroll-margin-top: 92px; }
+.paper-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.paper-card { position: relative; display: grid; grid-template-columns: 83px minmax(0,1fr); gap: 17px; align-items: start; padding: 21px; border: 1px solid var(--line); border-radius: 12px; background: white; scroll-margin-top: 93px; transition: border-color .16s; }
+.paper-card:hover { border-color: #adbfca; }
+.paper-card:target { border-color: #7499b4; }
+.paper-body { min-width: 0; display: flex; flex-direction: column; align-self: stretch; }
+.paper-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; }
+.venue, .type-label, .status-label { display: inline-flex; align-items: center; border-radius: 4px; padding: 2px 5px; font-size: 9px; font-weight: 550; line-height: 1.5; }
+.venue { background: #f0f5fa; color: #497196; }
+.status-label { background: #f0f6f1; color: #52806a; }
+.type-label { background: #f6f7f7; color: #63747e; }
+.paper-title { margin: 0 0 8px; font-size: 16px; font-weight: 700; line-height: 1.42; letter-spacing: -.014em; overflow-wrap: break-word; }
+.paper-title a { color: #193752; }
+.paper-title a:hover { color: var(--accent); }
+.authors, .author-summary { margin: 0; color: #687986; font-size: 11px; line-height: 1.75; }
+.authors strong, .author-summary strong { color: #365a72; font-weight: 700; }
+.author-details { margin: 0; }
+.author-summary { cursor: pointer; list-style: none; }
+.author-summary::-webkit-details-marker { display: none; }
+.authors-toggle { display: inline-block; margin-left: 6px; color: #557b95; font-size: 9px; white-space: nowrap; text-decoration: underline; text-decoration-color: #d3e0e6; text-underline-offset: 3px; }
+.authors-toggle::after { content: " +"; }
+.author-details[open] .authors-toggle::after { content: " −"; }
+.author-details[open] .authors { padding-top: 8px; margin-top: 7px; border-top: 1px solid #edf0f0; }
+.contribution-note { margin: 6px 0 0; color: #657d8a; font-size: 9px; line-height: 1.6; }
+.paper-note { margin: 9px 0 0; color: #586d7c; font-size: 11px; line-height: 1.85; }
+.paper-topics { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 0 9px; margin-top: auto; }
+.topic-label { display: inline-flex; align-items: center; gap: 5px; color: var(--topic); font-size: 9px; line-height: 1.5; }
+.topic-label::before { content: ""; width: 4px; height: 4px; flex-shrink: 0; border-radius: 50%; background: currentColor; opacity: .75; }
+.paper-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 9px; border-top: 1px solid #eef1f1; padding-top: 10px; }
+.paper-links { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; }
+.paper-links a { display: inline-flex; align-items: center; min-height: 24px; color: #356da0; font-size: 10px; font-weight: 550; }
+.paper-links a:hover { text-decoration: underline; }
+.paper-links a span { margin-left: 3px; font-size: 9px; color: #7b929f; }
+.paper-role, .link-status { color: #6d7e85; font-size: 9px; }
+.paper-role { margin-left: auto; }
+.empty-results { padding: 32px; text-align: center; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 14px; }
+.empty-results p { margin: 0 0 12px; }
+.timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.timeline-card { display: grid; grid-template-columns: 54px minmax(0,1fr); gap: 17px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+.inst-logo { position: relative; width: 54px; height: 54px; border: 1px solid #e6eaeb; border-radius: 10px; background: #f3f8fd; display: grid; place-items: center; overflow: hidden; }
+.inst-logo .asset-fallback { font-size: 10px; color: #63828c; font-weight: 700; }
+.inst-logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 7px; }
+.period { font-size: 10px; color: #6d8b80; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.timeline-card h3 { margin: 6px 0; color: #29475e; font-size: 15px; line-height: 1.45; font-weight: 650; }
+.timeline-card p { margin: 5px 0; color: #5f7380; font-size: 12px; line-height: 1.8; }
+.project-card { padding: 26px 28px; border: 1px solid var(--line); background: white; border-radius: 12px; }
+.project-top { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+.project-top h3 { margin: 0; font-size: 19px; letter-spacing: -.025em; font-weight: 650; }
+.project-badge { padding: 3px 8px; border: 1px solid #dfebe4; background: #f8fbf8; border-radius: 5px; color: #678676; font-size: 10px; font-weight: 550; }
+.project-card p { max-width: 950px; margin: 12px 0 0; color: #5e7180; font-size: 13px; line-height: 1.85; }
+.project-links { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 15px; font-size: 12px; font-weight: 550; }
+.two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+.simple-card { border: 1px solid var(--line); background: white; border-radius: 12px; padding: 24px 26px; }
+.simple-card h3 { font-size: 15px; margin: 0 0 14px; font-weight: 650; color: #345268; }
+.compact-list { margin: 0; padding-left: 17px; color: #617481; font-size: 12px; line-height: 1.9; }
+.compact-list li + li { margin-top: 6px; }
+.contact-links { display: grid; gap: 10px; font-size: 12px; }
+.contact-links a { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid #edf0f0; }
+.contact-links .email-address { font-size: 11px; color: #667f8c; overflow-wrap: anywhere; }
+.footer-note { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; align-items: center; color: #71848c; font-size: 10px; }
+.footer-note p { margin: 0; }
+.footer-note a { color: #577c88; }
+
+.hero, .portrait-card, .paper-card, .timeline-card, .project-card, .simple-card { box-shadow: var(--shadow-soft); }
+html[data-theme="dark"] .site-header {
+  border-bottom-color: rgba(212,176,113,.28);
+  background: rgba(13,11,8,.88);
+}
+html[data-theme="dark"] .brand,
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .section-head h2,
+html[data-theme="dark"] .paper-title a,
+html[data-theme="dark"] .timeline-card h3,
+html[data-theme="dark"] .project-top h3,
+html[data-theme="dark"] .simple-card h3,
+html[data-theme="dark"] .quick-meta strong,
+html[data-theme="dark"] .affiliation strong { color: var(--ink); }
+html[data-theme="dark"] .brand-mark {
+  background: #201912;
+  border-color: #303946;
+  color: #f0c980;
+}
+html[data-theme="dark"] .navlinks a { color: #c5ced8; }
+html[data-theme="dark"] .navlinks a:hover,
+html[data-theme="dark"] .navlinks a[aria-current="location"] {
+  color: #f1cf8b;
+  background: rgba(212,176,113,.14);
+}
+html[data-theme="dark"] .nav-toggle,
+html[data-theme="dark"] .theme-toggle,
+html[data-theme="dark"] .button,
+html[data-theme="dark"] .filter-button,
+html[data-theme="dark"] .pub-search {
+  background: rgba(25,20,15,.94);
+  border-color: #5a4729;
+  color: var(--ink);
+}
+html[data-theme="dark"] .theme-toggle:hover,
+html[data-theme="dark"] .button:hover,
+html[data-theme="dark"] .filter-button:hover {
+  border-color: rgba(212,176,113,.62);
+  background: rgba(38,28,16,.96);
+}
+html[data-theme="dark"] .button.primary {
+  background: #a67832;
+  border-color: #a67832;
+  color: #fff8ea;
+}
+html[data-theme="dark"] .button.primary:hover {
+  background: #bf8d41;
+  border-color: #bf8d41;
+}
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .portrait-card,
+html[data-theme="dark"] .paper-card,
+html[data-theme="dark"] .timeline-card,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .simple-card,
+html[data-theme="dark"] .empty-results {
+  background: rgba(24,19,14,.90);
+  border-color: rgba(212,176,113,.26);
+}
+html[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, rgba(23,18,13,.98), rgba(15,12,9,.96));
+}
+html[data-theme="dark"] .portrait-visual,
+html[data-theme="dark"] .inst-logo,
+html[data-theme="dark"] .project-badge,
+html[data-theme="dark"] .status-label,
+html[data-theme="dark"] .type-label,
+html[data-theme="dark"] .venue,
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .contact-links a,
+html[data-theme="dark"] .paper-footer,
+html[data-theme="dark"] .author-details[open] .authors,
+html[data-theme="dark"] .affiliations,
+html[data-theme="dark"] .affiliation + .affiliation,
+html[data-theme="dark"] .footer-note,
+html[data-theme="dark"] .contact-links a,
+html[data-theme="dark"] .section-head,
+html[data-theme="dark"] .timeline-card,
+html[data-theme="dark"] .simple-card,
+html[data-theme="dark"] .project-card {
+  border-color: rgba(212,176,113,.26);
+}
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .bio-card p,
+html[data-theme="dark"] .paper-note,
+html[data-theme="dark"] .authors,
+html[data-theme="dark"] .author-summary,
+html[data-theme="dark"] .timeline-card p,
+html[data-theme="dark"] .project-card p,
+html[data-theme="dark"] .compact-list,
+html[data-theme="dark"] .quick-meta p,
+html[data-theme="dark"] .affiliation span,
+html[data-theme="dark"] .section-note,
+html[data-theme="dark"] .footer-note,
+html[data-theme="dark"] .results-row,
+html[data-theme="dark"] .contribution-note,
+html[data-theme="dark"] .contact-links .email-address,
+html[data-theme="dark"] .news-lines p,
+html[data-theme="dark"] .updates-header h2,
+html[data-theme="dark"] .period,
+html[data-theme="dark"] .paper-role,
+html[data-theme="dark"] .link-status,
+html[data-theme="dark"] .pub-search::placeholder { color: #a4b0bd; }
+html[data-theme="dark"] .section-kicker,
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .quick-meta-label { color: #f1cb84; }
+html[data-theme="dark"] .eyebrow::before,
+html[data-theme="dark"] .news-dot,
+html[data-theme="dark"] .news-dot.jade { background: #e1bb71; }
+html[data-theme="dark"] .search-wrap svg { stroke: #b2bfcb; }
+html[data-theme="dark"] .topic-agent { --topic: #8fd3bd; --topic-bg: rgba(66,131,112,.18); }
+html[data-theme="dark"] .topic-retrieval { --topic: #c8b2ee; --topic-bg: rgba(120,96,157,.16); }
+html[data-theme="dark"] .topic-world-model { --topic: #9fc5f2; --topic-bg: rgba(59,116,172,.17); }
+html[data-theme="dark"] .topic-mllms { --topic: #f0cb95; --topic-bg: rgba(161,113,61,.17); }
+html[data-theme="dark"] .topic-embodied { --topic: #afd0b5; --topic-bg: rgba(84,123,96,.16); }
+html[data-theme="dark"] a { color: #efcf93; }
+html[data-theme="dark"] a:hover { color: #fff0cf; }
+html[data-theme="dark"] ::selection { background: rgba(212,176,113,.35); color: #fff; }
+@media (min-width: 1540px) {
+  main, .nav-shell { width: min(100%, 1360px); }
+  .hero { gap: 85px; }
+}
+@media (max-width: 1040px) {
+  .hero { gap: 32px; padding: 32px; grid-template-columns: minmax(0,1fr) 200px; }
+  .hero h1 { font-size: 51px; }
+  .cn-name { font-size: 20px; }
+  .subtitle { font-size: 16px; }
+  .affiliations { gap: 13px 20px; }
+  .affiliation + .affiliation { padding-left: 0; border-left: 0; }
+  .paper-card { grid-template-columns: 70px minmax(0,1fr); padding: 18px; gap: 14px; }
+  .venue-cover-name { font-size: 18px; }
+  .venue-cover { min-height: 104px; }
+  .paper-role { font-size: 8px; }
+  .pub-controls { align-items: stretch; }
+  .search-wrap { flex: 1 1 190px; }
+  .paper-title { font-size: 15px; }
+}
+@media (max-width: 800px) {
+  .nav-shell { flex-wrap: wrap; min-height: 64px; padding: 12px 20px; gap: 10px; }
+  .theme-toggle { order: 3; margin-left: auto; }
+  .navlinks { width: 100%; gap: 4px; padding-top: 5px; }
+  .enhanced .nav-toggle { display: inline-flex; }
+  .enhanced .navlinks { display: none; }
+  .enhanced .navlinks.is-open { display: flex; }
+  main { padding: 24px 20px 40px; }
+  .hero { grid-template-columns: minmax(0,1fr) 180px; padding: 28px; gap: 24px; }
+  .hero h1 { font-size: 43px; }
+  .cn-name { display: block; margin: 7px 0 0; font-size: 18px; }
+  .eyebrow { font-size: 9px; }
+  .hero-actions { gap: 6px; }
+  .button { padding-inline: 10px; font-size: 11px; }
+  .paper-list { grid-template-columns: 1fr; }
+  .paper-card { grid-template-columns: 90px minmax(0,1fr); gap: 20px; padding: 22px; }
+  .paper-title { font-size: 17px; }
+  .paper-note, .authors, .author-summary { font-size: 12px; }
+  .paper-role { font-size: 9px; }
+  .venue-cover { min-height: 115px; }
+  .venue-cover-name { font-size: 22px; }
+  .timeline-grid { grid-template-columns: 1fr; }
+  .bio-card { gap: 24px; }
+  .updates { grid-template-columns: 98px minmax(0,1fr); gap: 12px; }
+  .news-lines p { font-size: 11px; }
+}
+@media (max-width: 620px) {
+  .theme-toggle { min-height: 36px; padding-inline: 10px; font-size: 11px; }
+  main { padding: 18px 16px 32px; }
+  .nav-shell { padding-inline: 16px; }
+  .hero { grid-template-columns: 1fr; gap: 24px; padding: 25px; border-radius: 15px; }
+  .hero h1 { font-size: clamp(38px,9vw,48px); margin-bottom: 14px; }
+  .cn-name { display: inline-block; vertical-align: middle; margin: 0 0 0 9px; font-size: 18px; }
+  .eyebrow { margin-bottom: 15px; font-size: 9px; letter-spacing: .07em; }
+  .subtitle { font-size: 15px; }
+  .research-tags { margin: 18px 0 20px; gap: 6px; }
+  .tag { font-size: 10px; }
+  .affiliations { padding-top: 17px; margin-top: 21px; gap: 13px 20px; }
+  .affiliation strong { font-size: 11px; }
+  .portrait-card { display: grid; grid-template-columns: 87px minmax(0,1fr); gap: 12px; align-items: center; padding: 7px; border-radius: 10px; }
+  .portrait-visual { aspect-ratio: 1; border-radius: 6px; }
+  .portrait-fallback strong { font-size: 31px; }
+  .portrait-fallback span { display: none; }
+  .portrait-landscape { width: 250px; height: 82px; left: -60px; bottom: -12px; }
+  .quick-meta { padding: 4px 4px 4px 0; }
+  .quick-meta strong { font-size: 12px; }
+  .quick-meta p { font-size: 10px; }
+  .hero-landscape { opacity: calc(var(--hero-landscape-opacity) * .86); right: -80px; bottom: 10px; width: 590px; }
+  .page-landscape { opacity: calc(var(--landscape-opacity) * .80); }
+  .updates { display: block; margin-top: 20px; padding: 0 3px; }
+  .updates-header { margin-bottom: 10px; }
+  .news-lines { gap: 8px; }
+  .news-lines p { font-size: 11px; line-height: 1.9; }
+  section { margin-top: 39px; }
+  .section-head { flex-direction: column; align-items: start; gap: 9px; padding-bottom: 12px; margin-bottom: 18px; }
+  .section-head h2 { font-size: 25px; }
+  .section-note { text-align: left; max-width: none; font-size: 10px; }
+  .bio-card { grid-template-columns: 1fr; gap: 14px; }
+  .bio-card p { font-size: 13px; }
+  .filter-list { gap: 6px; }
+  .filter-button { padding: 7px 9px; font-size: 10px; min-height: 36px; }
+  .filter-count { font-size: 9px; }
+  .filter-dot { width: 4px; height: 4px; }
+  .search-wrap { flex-basis: 100%; width: 100%; }
+  .pub-search { height: 39px; font-size: 13px; }
+  .search-wrap svg { top: 12px; }
+  .results-row { font-size: 10px; }
+  .paper-card { grid-template-columns: 1fr; gap: 13px; padding: 20px; border-radius: 11px; }
+  .venue-cover { min-height: 40px; width: fit-content; flex-direction: row; justify-content: start; gap: 10px; padding: 7px 11px; border-radius: 6px; }
+  .venue-cover-kind { display: none; }
+  .venue-cover-name { font-size: 19px; }
+  .venue-cover-year { font-size: 10px; }
+  .paper-meta .venue { display: none; }
+  .paper-title { font-size: 17px; }
+  .paper-note, .authors, .author-summary { font-size: 12px; }
+  .contribution-note { font-size: 10px; }
+  .paper-links a { min-height: 32px; font-size: 11px; }
+  .paper-role { font-size: 9px; }
+  .topic-label { font-size: 10px; }
+  .authors-toggle { font-size: 10px; }
+  .two-col { grid-template-columns: 1fr; }
+  .project-card, .simple-card { padding: 21px; }
+  .project-top { align-items: start; flex-direction: column; gap: 9px; }
+  .project-top h3 { font-size: 19px; }
+  .footer-note { flex-direction: column; align-items: start; gap: 10px; margin-top: 36px; }
+}
+@media (max-width: 380px) {
+  .hero { padding: 21px; }
+  .hero h1 { font-size: 36px; }
+  .cn-name { display: block; margin: 7px 0 0; font-size: 18px; }
+  .portrait-card { grid-template-columns: 73px minmax(0,1fr); gap: 10px; }
+  .paper-card { padding: 17px; }
+  .navlinks a { padding-inline: 7px; font-size: 12px; }
+  .timeline-card { grid-template-columns: 43px minmax(0,1fr); gap: 12px; padding: 17px; }
+  .inst-logo { width: 43px; height: 43px; }
+  .contact-links a { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  body { background: white; color: #111; font-size: 10pt; }
+  .page-landscape, .hero-landscape, .portrait-landscape, .site-header, .hero-actions, .pub-controls, .results-row, .empty-results, .skip-link, .back-top { display: none !important; }
+  main { width: 100%; padding: 0; }
+  section { margin-top: 22pt; }
+  .hero { padding: 18pt; grid-template-columns: minmax(0,1fr) 140px; gap: 22pt; background: white; }
+  .hero h1 { font-size: 29pt; }
+  .hero .cn-name { display: inline-block; font-size: 15pt; }
+  .hero .subtitle { font-size: 11pt; }
+  .paper-list { display: block; }
+  .paper-card[hidden] { display: grid !important; }
+  .paper-card, .timeline-card, .project-card { break-inside: avoid; }
+  .paper-card { grid-template-columns: 80px minmax(0,1fr); margin-top: 10pt; padding: 12pt; gap: 15pt; }
+  .paper-title { font-size: 12pt; }
+  .authors, .paper-note, .author-summary { font-size: 9pt; }
+  .section-head h2 { font-size: 18pt; }
+  .section-head { break-after: avoid; }
+  .author-summary, .paper-topics, .paper-role { display: none; }
+  details:not([open]) > .authors { display: block !important; }
+}
+
+
+/* ==============================================================
+   Persistent blue / gilt backdrop, original assets, reordered sections
+   图层固定在视口，不参与滚动、不遮挡点击；手机和桌面均保留。
+   ============================================================== */
+:root {
+  --landscape-opacity: .40;
+  --pattern-opacity: .35;
+  --backdrop-veil: 244, 248, 253;
+}
+html[data-theme="dark"] {
+  --pattern-opacity: .54;
+  --backdrop-veil: 13, 11, 8;
+}
+body { isolation: isolate; }
+main { z-index: 1; }
+.site-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  background:
+    radial-gradient(ellipse at 5% 20%, rgba(93,153,204,.13), transparent 42%),
+    radial-gradient(ellipse at 94% 82%, rgba(90,151,202,.09), transparent 38%),
+    var(--background);
+}
+html[data-theme="dark"] .site-backdrop {
+  background:
+    radial-gradient(ellipse at 5% 20%, rgba(186,138,60,.12), transparent 42%),
+    radial-gradient(ellipse at 95% 76%, rgba(186,138,60,.09), transparent 38%),
+    var(--background);
+}
+.site-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    rgba(var(--backdrop-veil),0) 0%,
+    rgba(var(--backdrop-veil),.15) 12%,
+    rgba(var(--backdrop-veil),.88) 29%,
+    rgba(var(--backdrop-veil),.88) 71%,
+    rgba(var(--backdrop-veil),.15) 88%,
+    rgba(var(--backdrop-veil),0) 100%);
+}
+.site-backdrop .page-landscape {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  opacity: var(--landscape-opacity);
+  overflow: hidden;
+}
+.site-backdrop .edge-mountains {
+  position: absolute;
+  width: max(1720px, 122vw); max-width: none;
+  height: auto;
+  left: 50%; top: auto; bottom: -34px;
+  transform: translateX(-50%);
+}
+.site-backdrop .edge-mountains--far {
+  width: max(1900px, 136vw);
+  top: -42px; bottom: auto;
+  opacity: .45;
+  transform: translateX(-50%) scaleX(-1);
+}
+.site-backdrop .page-pattern {
+  position: absolute; inset: 0;
+  opacity: var(--pattern-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20420%20350%22%20width%3D%22420%22%20height%3D%22350%22%3E%0A%3Cg%20fill%3D%22none%22%20stroke%3D%22%234886bd%22%20stroke-width%3D%221.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%3Cpath%20d%3D%22M28%2089h80c17%200%2024-6%2024-14%200-7-7-11-14-10-3-13-15-21-27-17-5-17-24-22-36-11-8%207-9%2015-7%2022-13-4-23%202-23%2012%200%207%205%2011%2012%2011h46%22%2F%3E%0A%3Cpath%20d%3D%22M49%2066c-2-12%2010-20%2020-14%209%205%208%2015-1%2017h-8M87%2057c10-3%2020%203%2021%2011M48%2097h63M60%20105h34%22%20opacity%3D%22.64%22%2F%3E%0A%3Cpath%20d%3D%22M267%20238h96c13%200%2020-5%2020-13%200-8-8-12-16-10-4-14-16-20-28-15-3-16-18-24-31-17-10%205-14%2014-11%2025-15-5-26%202-26%2012%200%207%206%2011%2015%2011h45%22%2F%3E%0A%3Cpath%20d%3D%22M298%20213c-3-12%208-21%2018-15%209%205%208%2015-1%2017h-6M341%20203c10-2%2019%204%2020%2012M284%20247h67M298%20255h39%22%20opacity%3D%22.65%22%2F%3E%0A%3Cpath%20d%3D%22M45%20273c23-4%2041-4%2065%200m-59%208h51M307%2080c24-5%2046-5%2073%200m-66%208h56%22%20opacity%3D%22.48%22%2F%3E%0A%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-size: 420px 350px;
+  background-position: -9px 80px;
+  background-repeat: repeat;
+}
+html[data-theme="dark"] .site-backdrop .page-landscape { display: none; }
+html[data-theme="dark"] .site-backdrop .page-pattern { display: block; }
+html:not([data-theme="dark"]) .hero { border-color: #cbdfee; }
+/* Always show actual images. No BH portrait, filename card, or venue-cover substitutes. */
+.paper-card.has-paper-image { grid-template-columns: 148px minmax(0,1fr); }
+.paper-card.without-paper-image,
+.paper-card.has-paper-image.image-unavailable,
+.timeline-card.image-unavailable { grid-template-columns: minmax(0,1fr); }
+.paper-thumb {
+  position: relative; width: 100%; align-self: start;
+  overflow: hidden; aspect-ratio: 4 / 3;
+  background: #fff; border: 1px solid #d9e4ef; border-radius: 8px;
+}
+.paper-thumb img {
+  display: block; width: 100%; height: 100%;
+  object-fit: contain; object-position: center;
+  background: #fff; filter: none; opacity: 1; mix-blend-mode: normal;
+}
+.brand-mark img, .portrait-visual img, .inst-logo img { filter: none; opacity: 1; }
+.portrait-visual { aspect-ratio: 1 / 1.05; }
+.inst-logo { background: #fff; }
+.inst-logo-dark { background: #132b44; }
+.paper-thumb.asset-missing, .portrait-visual.asset-missing,
+.inst-logo.asset-missing, .brand-mark.asset-missing { display: none; }
+.portrait-card.image-unavailable { display: block; }
+/* Dark UI never inverts the original figures or logos. */
+html[data-theme="dark"] .paper-thumb { background: #fff; border-color: rgba(212,176,113,.34); }
+html[data-theme="dark"] .authors strong,
+html[data-theme="dark"] .author-summary strong,
+html[data-theme="dark"] .news-lines strong { color: #ebd8b0; }
+html[data-theme="dark"] .filter-button[aria-pressed="true"] {
+  background: #d8b56d; border-color: #d8b56d; color: #21180b;
+}
+html[data-theme="dark"] .filter-button[aria-pressed="true"] .filter-count { color: #4e3a18; }
+@media (max-width: 1040px) {
+  .paper-card.has-paper-image { grid-template-columns: 118px minmax(0,1fr); }
+}
+@media (max-width: 800px) {
+  .paper-card.has-paper-image { grid-template-columns: 168px minmax(0,1fr); }
+  .brand { margin-right: auto; }
+  .nav-toggle { order: 2; }
+  .theme-toggle { order: 3; margin-left: 0; }
+  .navlinks { order: 4; }
+}
+@media (max-width: 620px) {
+  .paper-card.has-paper-image { grid-template-columns: minmax(0,1fr); }
+  .paper-thumb { width: 100%; max-width: none; aspect-ratio: 16 / 10; }
+  .paper-meta .venue { display: inline-flex; }
+  .portrait-visual { aspect-ratio: 1; }
+  .site-backdrop .page-landscape { opacity: calc(var(--landscape-opacity) * .85); }
+  .site-backdrop .edge-mountains { width: 1100px; bottom: -14px; }
+  .site-backdrop .edge-mountains--far { width: 1250px; top: 12%; bottom: auto; }
+  .site-backdrop .page-pattern { background-size: 330px 275px; opacity: calc(var(--pattern-opacity) * .85); }
+  .site-backdrop::after {
+    background: linear-gradient(90deg,
+      rgba(var(--backdrop-veil),.08),
+      rgba(var(--backdrop-veil),.73) 26%,
+      rgba(var(--backdrop-veil),.73) 74%,
+      rgba(var(--backdrop-veil),.08));
+  }
+  .paper-card, .timeline-card, .project-card, .simple-card { background: rgba(255,255,255,.96); }
+}
+@media print {
+  .site-backdrop, .theme-toggle { display: none !important; }
+  main { z-index: auto; }
+  .paper-card.has-paper-image { grid-template-columns: 130px minmax(0,1fr); }
+  .paper-card.image-unavailable, .paper-card.without-paper-image { grid-template-columns: 1fr; }
+  html[data-theme="dark"] body { background: white; color: #111; }
+}
+
+/* ==============================================================
+   Authorship and continuous Chinese auspicious-cloud gilding
+   --gilt-cloud-opacity: gold pattern strength (0..1).
+   All content photos / figures remain your original ./assets/ files.
+   No CSS tint, generated substitute, or inverted dark-mode image.
+   ============================================================== */
+html[data-theme="dark"] {
+  --gilt-cloud-opacity: .74;
+  --gilt-cloud-scale: 560px 392px;
+  --gilt-cloud-pattern: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22420%22%20viewBox%3D%220%200%20600%20420%22%3E%20%3Cdefs%3E%20%3ClinearGradient%20id%3D%22gilt%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%22600%22%20y2%3D%220%22%20gradientUnits%3D%22userSpaceOnUse%22%3E%20%3Cstop%20stop-color%3D%22%23b48a47%22%2F%3E%3Cstop%20offset%3D%22.16%22%20stop-color%3D%22%23e9ca89%22%2F%3E%20%3Cstop%20offset%3D%22.32%22%20stop-color%3D%22%23a47a3b%22%2F%3E%3Cstop%20offset%3D%22.49%22%20stop-color%3D%22%23f2dba1%22%2F%3E%20%3Cstop%20offset%3D%22.65%22%20stop-color%3D%22%23ac8140%22%2F%3E%3Cstop%20offset%3D%22.83%22%20stop-color%3D%22%23dfbc75%22%2F%3E%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b48a47%22%2F%3E%20%3C%2FlinearGradient%3E%20%3Cg%20id%3D%22cloudflow%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%20%3Cpath%20d%3D%22M0%20161%20C30%20161%2049%20153%2070%20137%20C50%20127%2044%20109%2054%2094%20C64%2080%2083%2079%2097%2089%20C89%2064%20103%2043%20125%2040%20C142%2038%20157%2046%20164%2061%20C168%2040%20185%2027%20205%2030%20C226%2033%20239%2053%20232%2072%20C250%2062%20270%2068%20278%2084%20C286%20101%20277%20119%20260%20124%20C284%20128%20296%20143%20304%20158%20C325%20141%20344%20130%20366%20122%20C352%20107%20356%2087%20372%2076%20C385%2067%20401%2069%20411%2080%20C408%2058%20423%2041%20443%2042%20C462%2042%20475%2058%20472%2076%20C490%2068%20508%2077%20510%2093%20C513%20109%20500%20123%20484%20121%20C503%20137%20517%20146%20537%20153%20C557%20161%20578%20161%20600%20161%22%2F%3E%3Cpath%20d%3D%22M0%20173%20C37%20173%2062%20162%2086%20145%20C106%20131%20119%20121%20132%20121%20C148%20121%20157%20133%20153%20145%20C149%20157%20134%20161%20126%20151%20C122%20145%20125%20138%20131%20139%20M86%20145%20C116%20155%20146%20163%20178%20164%20C206%20164%20223%20157%20242%20147%20C267%20134%20283%20151%20290%20170%20C296%20187%20310%20190%20324%20178%20C353%20150%20378%20140%20405%20143%20C430%20146%20445%20163%20468%20173%20C510%20191%20550%20173%20600%20173%22%2F%3E%20%3Cpath%20d%3D%22M70%20137%20C86%20134%2097%20124%2096%20112%20C95%20101%2085%2096%2077%20102%20C68%20109%2073%20119%2081%20117%20M97%2089%20C111%2090%20118%2081%20116%2072%20C114%2061%20101%2065%20104%2074%20M164%2061%20C148%2065%20144%2082%20155%2093%20C166%20104%20185%2097%20185%2083%20C185%2073%20174%2068%20167%2075%20C162%2080%20165%2086%20171%2084%20M232%2072%20C215%2073%20205%2085%20211%2099%20C217%20113%20236%20113%20242%20103%20C247%2095%20241%2087%20234%2090%20M260%20124%20C244%20136%20221%20138%20205%20129%20C188%20119%20169%20115%20153%20120%20M132%20121%20C141%20110%20156%20105%20173%20108%20M304%20158%20C322%20164%20341%20156%20354%20145%20M366%20122%20C388%20125%20409%20116%20411%20102%20C413%2090%20402%2083%20394%2089%20C387%2094%20391%20103%20398%20101%20M443%2042%20C428%2048%20429%2067%20441%2071%20C452%2075%20460%2067%20455%2058%20C452%2053%20447%2054%20445%2058%20M472%2076%20C457%2086%20458%20104%20470%20108%20C483%20111%20491%20100%20485%2093%20C481%2088%20475%2090%20475%2096%20M484%20121%20C468%20136%20443%20137%20425%20126%20M178%20164%20C208%20178%20236%20171%20256%20162%20M405%20143%20C410%20131%20422%20128%20431%20133%20C443%20140%20441%20151%20432%20154%20C424%20157%20417%20151%20420%20145%20M468%20173%20C502%20179%20535%20162%20566%20163%22%2F%3E%3C%2Fg%3E%20%3Cg%20id%3D%22engraving%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M3%20152%20C33%20152%2046%20146%2057%20139%20M9%20181%20C46%20180%2068%20169%2085%20156%20M176%2037%20C188%2028%20204%2032%20212%2037%20M180%2043%20C190%2035%20202%2038%20208%2043%20M251%2073%20C262%2075%20269%2082%20270%2090%20M331%20173%20C353%20153%20374%20147%20391%20150%20M535%20147%20C557%20154%20578%20152%20599%20152%20M543%20182%20C564%20180%20581%20181%20599%20181%22%2F%3E%3C%2Fg%3E%20%3Cg%20id%3D%22row%22%3E%20%3Cuse%20href%3D%22%23cloudflow%22%20stroke%3D%22%236f4c23%22%20stroke-width%3D%223%22%20opacity%3D%22.24%22%2F%3E%20%3Cuse%20href%3D%22%23cloudflow%22%20stroke%3D%22url%28%23gilt%29%22%20stroke-width%3D%221.12%22%2F%3E%20%3Cuse%20href%3D%22%23engraving%22%20stroke%3D%22%23f1d494%22%20stroke-width%3D%22.55%22%20opacity%3D%22.66%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fdefs%3E%20%3Cuse%20href%3D%22%23row%22%2F%3E%20%3Cg%20transform%3D%22translate%28300%20210%29%22%3E%3Cuse%20href%3D%22%23row%22%2F%3E%3C%2Fg%3E%20%3Cg%20transform%3D%22translate%28-300%20210%29%22%3E%3Cuse%20href%3D%22%23row%22%2F%3E%3C%2Fg%3E%20%3C%2Fsvg%3E");
+}
+html[data-theme="dark"] .site-backdrop .page-pattern {
+  background-image: var(--gilt-cloud-pattern);
+  background-size: var(--gilt-cloud-scale);
+  background-position: 16px -50px;
+  background-repeat: repeat;
+  opacity: var(--gilt-cloud-opacity);
+}
+html[data-theme="dark"] .site-backdrop::after {
+  background: linear-gradient(90deg,
+    rgba(13,11,8,0) 0%, rgba(13,11,8,.12) 9%,
+    rgba(13,11,8,.94) 26%, rgba(13,11,8,.94) 74%,
+    rgba(13,11,8,.12) 91%, rgba(13,11,8,0) 100%);
+}
+html[data-theme="dark"] .hero::after {
+  content: ""; position: absolute; inset: 0;
+  z-index: -1; pointer-events: none;
+  background-image: var(--gilt-cloud-pattern);
+  background-size: 560px 392px;
+  background-position: right -110px top -25px;
+  opacity: .16;
+  mask-image: linear-gradient(90deg, transparent 44%, #000 95%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 44%, #000 95%);
+}
+/* Research topics on the first row; authorship and search on the next. */
+.pub-controls { gap: 13px 18px; margin-bottom: 12px; }
+#topic-filters { flex: 1 0 100%; }
+.authorship-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.filter-caption {
+  color: var(--quiet); font-size: 10px; letter-spacing: .045em;
+  margin-right: 4px; font-weight: 600;
+}
+.role-filter {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 6px 10px; min-height: 35px;
+  color: #50667b; background: #fff;
+  border: 1px solid var(--line); border-radius: 7px;
+  font-size: 11px; font-weight: 550;
+}
+.role-filter:hover { color: var(--accent); border-color: #94b7dc; }
+.role-filter[aria-pressed="true"] {
+  color: #1f5fa9; background: #eaf3ff; border-color: #79a6d7;
+}
+.search-wrap { margin-left: auto; flex: 0 1 255px; }
+.paper-card.lead-author {
+  border-color: #afcae7;
+  border-left: 3px solid #407cc0;
+  background: linear-gradient(114deg, #f4f9ff, #fff 36%);
+}
+.paper-card.lead-author:hover { border-color: #6395cf; border-left-color: #246bc2; }
+.authorship-badge {
+  display: inline-flex; align-items: center; gap: 5px; border-radius: 4px;
+  color: #235fa5; background: #eaf2fe; border: 1px solid #b7d0ee;
+  font-size: 9px; font-weight: 750; line-height: 1.5; padding: 2px 6px;
+}
+.authorship-badge::before {
+  content: ""; width: 4px; height: 4px; border-radius: 1px;
+  background: currentColor; transform: rotate(45deg); flex: 0 0 auto;
+}
+.lead-author .authors strong, .lead-author .author-summary strong {
+  color: #225b9a; background: #edf4ff;
+  border-radius: 3px; padding: 1px 3px; box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.lead-author .paper-role { color: #3169a5; font-weight: 650; }
+html[data-theme="dark"] .role-filter {
+  background: #19140f; color: #cabfaa; border-color: #574328;
+}
+html[data-theme="dark"] .role-filter:hover { color: #f1d79c; border-color: #ae8343; }
+html[data-theme="dark"] .role-filter[aria-pressed="true"] {
+  color: #f3d99e; background: #332716; border-color: #c69d58;
+}
+html[data-theme="dark"] .paper-card.lead-author {
+  border-color: #755933; border-left-color: #d9b46a;
+  background: linear-gradient(115deg, #251d12, #18130e 43%);
+}
+html[data-theme="dark"] .paper-card.lead-author:hover { border-color: #b68c4e; border-left-color: #ebca83; }
+html[data-theme="dark"] .authorship-badge {
+  color: #f2d899; background: #372a17; border-color: #8d6b39;
+}
+html[data-theme="dark"] .lead-author .authors strong,
+html[data-theme="dark"] .lead-author .author-summary strong {
+  color: #f2d899; background: #332716;
+}
+html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
+/* The original thumbnail must remain entirely visible in either theme. */
+.paper-thumb img { filter: none !important; mix-blend-mode: normal !important; opacity: 1 !important; }
+@media (max-width: 800px) {
+  .search-wrap { flex: 1 1 190px; }
+}
+@media (max-width: 620px) {
+  .authorship-filters { width: 100%; gap: 5px; }
+  .filter-caption { width: 100%; margin: 0 0 2px; }
+  .role-filter { min-height: 38px; font-size: 10px; padding: 6px 9px; }
+  .search-wrap { margin-left: 0; flex-basis: 100%; }
+  .authorship-badge { font-size: 10px; }
+  html[data-theme="dark"] { --gilt-cloud-scale: 420px 294px; --gilt-cloud-opacity: .72; }
+  html[data-theme="dark"] .site-backdrop::after {
+    background: linear-gradient(90deg,
+      rgba(13,11,8,.02), rgba(13,11,8,.86) 26%,
+      rgba(13,11,8,.86) 74%, rgba(13,11,8,.02));
+  }
+}
+@media print {
+  .authorship-filters, .hero::after { display: none !important; }
+  .paper-card.lead-author { border-left: 3px solid #4c6177 !important; }
+  .authorship-badge { color: #111 !important; background: #fff !important; border-color: #999 !important; }
+}
 </style>
-
-<div class="academic-home">
-  <header class="topbar" aria-label="Site navigation">
-    <div class="topbar-inner">
-      <div class="brand">
-        <a href="#top"><span class="brand-logo"><img src="./assets/site-logo.png" alt="Bohan Hou logo"></span><span>Bohan Hou</span></a>
-      </div>
-      <nav class="navlinks">
-        <a href="#bio">Bio</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#misc">Misc.</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero" aria-label="Profile introduction">
-      <div class="hero-copy">
-        <div class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</div>
-        <h1>Bohan Hou <span class="cn-name">侯博涵</span></h1>
-        <p class="subtitle">I build multimodal foundation models and agents that connect perception, reasoning, world modeling, and action.</p>
-        <div class="research-tags" aria-label="Research interests">
-          <span class="tag">Multimodal Models</span>
-          <span class="tag">Information Retrieval</span>
-          <span class="tag">Embodied Intelligence</span>
-          <span class="tag">Robot Learning</span>
-        </div>
-        <div class="hero-actions">
-          <a class="button primary" href="mailto:bohanhou@foxmail.com">Email</a>
-          <a class="button" href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=RLW64pQAAAAJ">Google Scholar</a>
-          <a class="button" href="https://github.com/hbhalpha">GitHub</a>
-        </div>
-        <div class="hero-stats" aria-label="Current research profile">
-          <div class="hero-stat"><strong>NTU</strong><span>PhD Student</span></div>
-          <div class="hero-stat"><strong>Alibaba DAMO</strong><span>Research Intern</span></div>
-        </div>
-      </div>
-      <aside class="portrait-card" aria-label="Profile photo and affiliation">
-        <img src="./assets/profile.png" alt="Bohan Hou">
-        <div class="quick-meta"><span class="quick-meta-label">Current focus</span><strong>Embodied Foundation Models</strong><span>Multimodal agents · World models · Robot learning</span></div>
-      </aside>
-    </section>
-
-    <section id="bio">
-      <div class="section-head" data-kicker="01 · Profile">
-        <h2>Short Bio</h2>
-        <p class="section-note">A concise research-focused introduction.</p>
-      </div>
-      <div class="bio-card">
-        <p>I am a PhD student at Nanyang Technological University (NTU), advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. My research focuses on multimodal foundation models and agents for embodied intelligence, particularly embodied reasoning, vision-language-action models, world models, and robot learning. I received my B.Eng. in Computer Science from Taishan College at Shandong University, where I worked with Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a>, and I have been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. I am also a research intern at Alibaba DAMO Academy, developing open embodied models and systems.</p>
-      </div>
-    </section>
-
-    
-    <section id="experience">
-      <div class="section-head" data-kicker="02 · Experience">
-        <h2>Experience</h2>
-        <p class="section-note">Research appointments and internships.</p>
-      </div>
-      <div class="timeline-grid">
-        <article class="timeline-card">
-          <div class="inst-logo"><img src="./assets/logos/damo.png" alt="Alibaba DAMO Academy logo"></div>
-          <div>
-            <div class="period">Nov. 2025 — Present</div>
-            <h3>Alibaba DAMO Academy</h3>
-            <p>Research Intern · Embodied Intelligence and World Model</p>
-            <p>Mentors: Dr. <a href="https://lixin4ever.github.io/">Xin Li</a>, Dr. <a href="https://cen-jun.com/">Jun Cen</a>, and <a href="#top">Ronghao Dang</a>.</p>
-            <p>I also work closely with my talented colleagues Jiayan Guo on agents and Siteng Huang on VLA models.</p>
-          </div>
-        </article>
-        <article class="timeline-card">
-          <div class="inst-logo inst-logo-dark"><img src="./assets/logos/ilearn.png" alt="iLearn Lab logo"></div>
-          <div>
-            <div class="period">Sep. 2022 — Present</div>
-            <h3>iLearn Lab, Shandong University</h3>
-            <p>Research Assistant · Multimodal Large Language Models and Information Retrieval</p>
-            <p>Supervisors: Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a> and Prof. Liqiang Nie.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="section-head" data-kicker="03 · Education">
-        <h2>Education</h2>
-        <p class="section-note">Academic training and degree programs.</p>
-      </div>
-      <div class="timeline-grid">
-        <article class="timeline-card">
-          <div class="inst-logo"><img src="./assets/logos/ntu.png" alt="Nanyang Technological University logo"></div>
-          <div>
-            <div class="period">2026 — Present</div>
-            <h3>Nanyang Technological University</h3>
-            <p>PhD Student</p>
-            <p>Advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. Research direction: multimodal learning, MLLM Agents, and embodied intelligence.</p>
-          </div>
-        </article>
-        <article class="timeline-card">
-          <div class="inst-logo"><img src="./assets/logos/sdu.png" alt="Shandong University logo"></div>
-          <div>
-            <div class="period">Sep. 2022 — Jun. 2026</div>
-            <h3>Shandong University</h3>
-            <p>B.Eng. in Computer Science and Technology</p>
-            <p>Taishan College, First-Honor Program. GPA: 88.5 / 100; Rank: 5 / 22.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="section-head" data-kicker="04 · Research">
-        <h2>First-Author Publications</h2>
-        <p class="section-note">* Equal or core contribution, as specified by each paper.</p>
-      </div>
-      <div class="paper-list">
-        <article class="paper-card featured">
-          <div class="paper-thumb"><img src="./assets/papers/data-pyramid.png" alt="Embodied Data Pyramid overview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Data</span></div>
-            <h3>Data Pyramid for Embodied Manipulation</h3>
-            <p class="authors">Yifan Ye*, Yankai Fu*, Yaoxu Lv*, <strong>Bohan Hou*</strong>, Jun Cen*, Lingdong Kong*, et al.</p>
-            <p class="paper-note">A data-centric taxonomy that organizes embodied manipulation data into five complementary layers and connects their collection, alignment, and mixing strategies to embodied foundation models.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2607.24744v1">Paper</a><a href="https://jasper-aaa.github.io/embodied-data-pyramid/">Project</a><a href="https://github.com/worldbench/awesome-embodied-data-pyramid">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card featured">
-          <div class="paper-thumb"><img src="./assets/papers/rynnbrain11.png" alt="RynnBrain 1.1 overview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Foundation Models</span></div>
-            <h3>RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</h3>
-            <p class="authors">Kehan Li*, <strong>Bohan Hou*</strong>, Minghao Zhu*, Tianyi Zhang*, Zesen Cheng*, Zhikai Wang*, Sicong Leng*, Xin Li*, et al.</p>
-            <p class="paper-note">An embodied foundation-model family spanning 2B, 9B, and 122B-A10B scales, with stronger cognition and localization, native 3D grounding, contact-point prediction, and cross-embodiment VLA capabilities.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2607.17977">Paper</a><a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnBrain">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card featured">
-          <div class="paper-thumb"><img src="./assets/papers/rynnvalue.png" alt="RynnValue architecture overview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">2026</span><span class="type-label">Robotic Value Foundation Models</span></div>
-            <h3>RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance</h3>
-            <p class="authors">Dongchi Huang*, Hongyin Zhang*, <strong>Bohan Hou*</strong>, Siteng Huang†, Zhian Su, Hang Guo, et al.</p>
-            <p class="paper-note">A general-purpose robotic value foundation model that learns temporal distance from 7,000+ hours of heterogeneous data, turning time-to-completion into signals for progress estimation, failure detection, and VLA reinforcement learning.</p>
-            <div class="paper-links"><a href="https://github.com/hbhalpha/hbhalpha.github.io/blob/main/papers/RynnValue.pdf">Paper</a><a href="https://alibaba-damo-academy.github.io/RynnValue.github.io/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnValue">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/interlv_search.png" alt="InterLV-Search preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Agentic Search</span></div>
-            <h3>InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search</h3>
-            <p class="authors"><strong>Bohan Hou</strong>, Jiuning Gu, Jiayan Guo, Ronghao Dang, Sicong Leng, Xin Li, Xuemeng Song, and Jianfei Yang.</p>
-            <p class="paper-note">A benchmark for interleaved language-vision agentic search with active visual evidence seeking and open-web multimodal search.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2605.07510">Paper</a><a href="https://github.com/hbhalpha/InterLV-Search-Bench">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/world_model_robot_learning.png" alt="World Model for Robot Learning preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Survey</span></div>
-            <h3>World Model for Robot Learning: A Comprehensive Survey</h3>
-            <p class="authors"><strong>Bohan Hou</strong>, Gen Li, Jindou Jia, Tuo An, Xinying Guo, Sicong Leng, Haoran Geng, Yanjie Ze, Tatsuya Harada, Philip Torr, Oier Mees, Marc Pollefeys, Zhuang Liu, Jiajun Wu, Pieter Abbeel, Jitendra Malik, Yilun Du, and Jianfei Yang.</p>
-            <p class="paper-note">A robotics-centered survey of world models for policy learning, planning, learned simulation, evaluation, and video generation.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2605.00080">Paper</a><a href="https://ntumars.github.io/wm-robot-survey/">Project</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/rynnbrain.png" alt="RynnBrain preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">Embodied Foundation Models</span></div>
-            <h3>RynnBrain: Open Embodied Foundation Models</h3>
-            <p class="authors">Ronghao Dang*, Jiayan Guo*, <strong>Bohan Hou*</strong>, Sicong Leng*, Kehan Li*, Xin Li*, et al.</p>
-            <p class="paper-note">An open embodied foundation model family for egocentric understanding, spatiotemporal localization, physical reasoning, and planning.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2602.14979">Paper</a><a href="https://alibaba-damo-academy.github.io/RynnBrain.github.io/">Project</a><a href="https://github.com/alibaba-damo-academy/RynnBrain">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/fire.png" alt="FiRE preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">SIGIR 2025</span><span class="type-label">Conference · CCF-A / CORE-A</span></div>
-            <h3>FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval</h3>
-            <p class="authors"><strong>Bohan Hou</strong>, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu, and Xiangyu Zhao.</p>
-            <p class="paper-note">Fine-grained context learning for complex image retrieval with multimodal large language models.</p>
-            <div class="paper-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3729979">Paper</a><a href="https://github.com/iLearn-Lab/SIGIR25-FIRE">Code</a></div>
-          </div>
-        </article>
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/mdr.png" alt="Multimodal Document Retrieval preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">WWW 2025 Challenge</span><span class="type-label">Oral · CCF-A</span></div>
-            <h3>Visual Anchor Point for Multimodal Document Retrieval</h3>
-            <p class="authors"><strong>Bohan Hou</strong>, Haokun Wen, Haoqiang Lin, Xuemeng Song, and Liqiang Nie.</p>
-            <p class="paper-note">Winner of the WWW’25 Multimodal Document Retrieval Challenge.</p>
-            <div class="paper-links"><a href="https://github.com/hbhalpha/MDR">Code</a></div>
-          </div>
-        </article>
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/ptg.png" alt="PTG-FSCIR preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">IJCNN 2025</span><span class="type-label">Conference · CORE-A</span></div>
-            <h3>Pseudo-triplet Guided Few-shot Composed Image Retrieval</h3>
-            <p class="authors"><strong>Bohan Hou</strong>, Haoqiang Lin, Haokun Wen, Meng Liu, Mingzhu Xu, and Xuemeng Song.</p>
-            <p class="paper-note">A pseudo-triplet guided scheme for improving few-shot composed image retrieval.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2407.06001">Paper</a><a href="https://github.com/hbhalpha/PTG-FSCIR">Code</a></div>
-          </div>
-        </article>
-         </div>
-    </section>
-    <section id="publications2">
-      <div class="section-head" data-kicker="05 · Collaboration">
-        <h2>Co-Author Publications</h2>
-        <p class="section-note">Left: visual preview. Right: paper information.</p>
-      </div>
-      <div class="paper-list">
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/rynnvla002.png" alt="RynnVLA-002 unified VLA and world model architecture"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">arXiv 2025</span><span class="type-label">VLA · World Model</span></div>
-            <h3>RynnVLA-002: A Unified Vision-Language-Action and World Model</h3>
-            <p class="authors">Jun Cen, Siteng Huang, Yuqian Yuan, Kehan Li, Hangjie Yuan, Chaohui Yu, <strong>Bohan Hou</strong>, Yuming Jiang, Jiayan Guo, Xin Li, et al.</p>
-            <p class="paper-note">A unified autoregressive VLA and world model in which action generation and future-frame prediction improve one another for simulated and real-world robot manipulation.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2511.17502">Paper</a><a href="https://github.com/alibaba-damo-academy/RynnVLA-002">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/imgedit.png" alt="ImgEdit preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">NeurIPS 2025</span><span class="type-label">Conference · CCF-A</span></div>
-            <h3>ImgEdit: A Unified Image Editing Dataset and Benchmark</h3>
-            <p class="authors">Yang Ye, Xianyi He, Zongjian Li, Bin Lin, Shenghai Yuan, Zhiyuan Yan, <strong>Bohan Hou</strong>, and Li Yuan.</p>
-            <p class="paper-note">A unified image editing dataset, benchmark, and model for high-quality single-turn and multi-turn image editing.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2505.20275">Paper</a><a href="https://github.com/PKU-YuanGroup/ImgEdit">Code</a></div>
-          </div>
-        </article>
-
-        <article class="paper-card">
-          <div class="paper-thumb"><img src="./assets/papers/cir_survey.png" alt="Composed Image Retrieval survey preview"></div>
-          <div>
-            <div class="paper-meta"><span class="venue">TOIS</span><span class="type-label">Journal · CCF-A</span></div>
-            <h3>A Comprehensive Survey on Composed Image Retrieval</h3>
-            <p class="authors">Xuemeng Song, Haoqiang Lin, Haokun Wen, <strong>Bohan Hou</strong>, Mingzhu Xu, and Liqiang Nie.</p>
-            <p class="paper-note">A comprehensive survey of composed image retrieval, covering supervised, zero-shot, and related multimodal retrieval settings.</p>
-            <div class="paper-links"><a href="https://arxiv.org/abs/2502.18495">Paper</a><a href="https://github.com/haokunwen/Awesome-Composed-Image-Retrieval">Resource</a></div>
-          </div>
-        </article>
-
-        
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-head" data-kicker="06 · Open Source">
-        <h2>Selected Project</h2>
-        <p class="section-note">Representative open-source effort.</p>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-top">
-            <h3>Embodied-AI-Guide</h3>
-            <span class="project-stars">★ 13.6k stars</span>
-          </div>
-
-          <p>
+</head>
+<body id="top">
+<svg aria-hidden="true" class="svg-definitions" focusable="false" height="0" width="0" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="mountain-far-wash" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0" stop-color="#5a98ca" stop-opacity=".88"></stop>
+<stop offset="1" stop-color="#c4e0f5" stop-opacity="0"></stop>
+</linearGradient>
+<linearGradient id="mountain-near-wash" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0" stop-color="#3f82b9" stop-opacity=".88"></stop>
+<stop offset=".78" stop-color="#85b8df" stop-opacity=".47"></stop>
+<stop offset="1" stop-color="#e3f0fb" stop-opacity="0"></stop>
+</linearGradient>
+<symbol id="quiet-mountains" viewBox="0 0 1200 380">
+<path d="M0 269 L42.9 256.5 Q55 253 60.9 246.6 L76.1 230.4 Q82 224 86.2 225.5 L96.8 229.5 Q101 231 105.8 222.9 L118.2 202.1 Q123 194 127.6 195.3 L139.4 198.7 Q144 200 149.5 193.6 L163.5 177.4 Q169 171 173.8 173.0 L186.2 178.0 Q191 180 196.7 170.5 L211.3 146.5 Q217 137 219.9 139.4 L227.1 145.6 Q230 148 233.3 140.1 L241.7 119.9 Q245 112 247.9 113.8 L255.1 118.2 Q258 120 260.9 114.3 L268.1 99.7 Q271 94 273.9 97.3 L281.1 105.7 Q284 109 287.1 107.2 L294.9 102.8 Q298 101 301.3 110.0 L309.7 133.0 Q313 142 318.3 145.3 L331.7 153.7 Q337 157 341.2 164.0 L351.8 182.0 Q356 189 361.1 187.5 L373.9 183.5 Q379 182 383.6 187.3 L395.4 200.7 Q400 206 407.0 200.5 L425.0 186.5 Q432 181 437.1 181.4 L449.9 182.6 Q455 183 461.2 176.4 L476.8 159.6 Q483 153 488.9 156.3 L504.1 164.7 Q510 168 515.7 163.8 L530.3 153.2 Q536 149 540.0 151.9 L550.0 159.1 Q554 162 558.2 168.4 L568.8 184.6 Q573 191 578.7 189.0 L593.3 184.0 Q599 182 603.6 177.6 L615.4 166.4 Q620 162 624.6 163.5 L636.4 167.5 Q641 169 645.4 162.6 L656.6 146.4 Q661 140 665.0 141.8 L675.0 146.2 Q679 148 683.8 142.5 L696.2 128.5 Q701 123 704.3 126.3 L712.7 134.7 Q716 138 719.7 134.3 L729.3 124.7 Q733 121 736.3 127.4 L744.7 143.6 Q748 150 752.6 152.4 L764.4 158.6 Q769 161 774.5 165.4 L788.5 176.6 Q794 181 800.4 179.9 L816.6 177.1 Q823 176 828.3 181.3 L841.7 194.7 Q847 200 853.2 193.2 L868.8 175.8 Q875 169 879.4 170.1 L890.6 172.9 Q895 174 899.6 167.2 L911.4 149.8 Q916 143 920.4 145.4 L931.6 151.6 Q936 154 941.1 147.0 L953.9 129.0 Q959 122 963.8 124.0 L976.2 129.0 Q981 131 985.6 125.9 L997.4 113.1 Q1002 108 1007.5 117.5 L1021.5 141.5 Q1027 151 1030.1 149.2 L1037.9 144.8 Q1041 143 1046.1 150.0 L1058.9 168.0 Q1064 175 1069.1 173.7 L1081.9 170.3 Q1087 169 1091.0 175.4 L1101.0 191.6 Q1105 198 1109.2 199.3 L1119.8 202.7 Q1124 204 1130.2 202.0 L1145.8 197.0 Q1152 195 1157.3 200.5 L1170.7 214.5 Q1176 220 1181.3 217.6 L1200 209 V380 H0Z" fill="url(#mountain-far-wash)"></path>
+<path d="M0 338 L29.6 315.4 Q38 309 43.9 310.8 L59.1 315.2 Q65 317 70.9 309.1 L86.1 288.9 Q92 281 95.7 281.7 L105.3 283.3 Q109 284 113.0 278.7 L123.0 265.3 Q127 260 130.7 261.8 L140.3 266.2 Q144 268 148.4 260.7 L159.6 242.3 Q164 235 168.6 237.6 L180.4 244.4 Q185 247 189.8 241.3 L202.2 226.7 Q207 221 211.2 224.5 L221.8 233.5 Q226 237 230.8 231.3 L243.2 216.7 Q248 211 250.9 212.8 L258.1 217.2 Q261 219 264.7 215.0 L274.3 205.0 Q278 201 281.5 206.1 L290.5 218.9 Q294 224 299.9 225.5 L315.1 229.5 Q321 231 326.5 237.4 L340.5 253.6 Q346 260 352.6 258.2 L369.4 253.8 Q376 252 382.2 258.2 L397.8 273.8 Q404 280 410.8 277.4 L428.2 270.6 Q435 268 440.1 270.4 L452.9 276.6 Q458 279 463.9 273.5 L479.1 259.5 Q485 254 489.8 256.9 L502.2 264.1 Q507 267 511.0 259.1 L521.0 238.9 Q525 231 528.1 232.1 L535.9 234.9 Q539 236 542.7 231.6 L552.3 220.4 Q556 216 558.9 218.6 L566.1 225.4 Q569 228 572.3 221.2 L580.7 203.8 Q584 197 587.3 200.3 L595.7 208.7 Q599 212 602.1 210.2 L609.9 205.8 Q613 204 616.7 211.9 L626.3 232.1 Q630 240 634.4 243.1 L645.6 250.9 Q650 254 655.3 252.5 L668.7 248.5 Q674 247 679.1 253.8 L691.9 271.2 Q697 278 702.5 275.6 L716.5 269.4 Q722 267 727.3 271.0 L740.7 281.0 Q746 285 750.6 282.1 L762.4 274.9 Q767 272 772.7 269.1 L787.3 261.9 Q793 259 797.2 261.0 L807.8 266.0 Q812 268 816.6 261.6 L828.4 245.4 Q833 239 836.7 240.3 L846.3 243.7 Q850 245 854.2 238.2 L864.8 220.8 Q869 214 872.5 216.2 L881.5 221.8 Q885 224 888.7 217.8 L898.3 202.2 Q902 196 905.1 199.1 L912.9 206.9 Q916 210 920.2 206.0 L930.8 196.0 Q935 192 938.3 198.2 L946.7 213.8 Q950 220 954.4 222.0 L965.6 227.0 Q970 229 974.0 226.4 L984.0 219.6 Q988 217 993.1 224.0 L1005.9 242.0 Q1011 249 1015.6 247.9 L1027.4 245.1 Q1032 244 1037.3 250.6 L1050.7 267.4 Q1056 274 1061.5 272.7 L1075.5 269.3 Q1081 268 1086.1 272.6 L1098.9 284.4 Q1104 289 1109.5 285.0 L1123.5 275.0 Q1129 271 1134.9 276.9 L1150.1 292.1 Q1156 298 1161.3 295.4 L1174.7 288.6 Q1180 286 1184.4 291.3 L1200 310 V380 H0Z" fill="url(#mountain-near-wash)"></path>
+<path d="M227 238 L248 211 261 219 278 201 M525 232 L539 236 556 216 569 228 584 197 M868 215 L885 224 902 196 916 210 935 192" fill="none" stroke="#3876a8" stroke-opacity=".52" stroke-width="1.2"></path>
+</symbol>
+</defs>
+</svg><div aria-hidden="true" class="site-backdrop" id="site-backdrop"><div aria-hidden="true" class="page-pattern"></div><div aria-hidden="true" class="page-landscape"><svg class="edge-mountains edge-mountains--far" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 380"><use href="#quiet-mountains"></use></svg>
+<svg class="edge-mountains edge-mountains--near" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1200 380"><use href="#quiet-mountains"></use></svg>
+</div></div>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<div class="nav-shell">
+<a aria-label="Bohan Hou, back to top" class="brand" href="#top">
+<span aria-hidden="true" class="brand-mark"><img alt="" class="original-asset" decoding="async" height="36" src="./assets/site-logo.png" width="36"/></span>
+<span>Bohan Hou</span>
+</a>
+<button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" id="nav-toggle" type="button">Menu</button>
+<nav aria-label="Main navigation" class="navlinks" id="site-nav"><a href="#bio">About</a>
+<a href="#education">Education</a>
+<a href="#experience">Experience</a>
+<a href="#publications">Publications</a>
+<a href="#projects">Projects</a>
+<a href="#misc">More</a>
+</nav>
+<button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="theme-toggle" type="button"><span aria-hidden="true" class="theme-toggle__icon">☾</span><span class="theme-toggle__label">Dark</span></button>
+</div>
+</header>
+<main id="main-content">
+<section aria-labelledby="profile-name" class="hero"><svg aria-hidden="true" class="hero-landscape" focusable="false" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 380"><use href="#quiet-mountains"></use></svg>
+<div class="hero-copy">
+<p class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</p>
+<h1 id="profile-name">Bohan Hou <span class="cn-name" lang="zh-Hans">侯博涵</span></h1>
+<p class="subtitle">I build multimodal foundation models and agents that connect perception, reasoning, world modeling, and action.</p>
+<div aria-label="Research interests" class="research-tags"><a class="tag topic-agent" data-topic="agent" href="#publications">Agent</a><a class="tag topic-retrieval" data-topic="retrieval" href="#publications">Information Retrieval</a><a class="tag topic-world-model" data-topic="world-model" href="#publications">World Model</a><a class="tag topic-mllms" data-topic="mllms" href="#publications">MLLMs</a><a class="tag topic-embodied" data-topic="embodied" href="#publications">Embodied AI</a></div>
+<div class="hero-actions">
+<a class="button primary" href="#publications">Publications <span aria-hidden="true">↓</span></a>
+<a class="button" href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=RLW64pQAAAAJ">Google Scholar</a>
+<a class="button" href="https://github.com/hbhalpha">GitHub</a>
+<a class="button" href="mailto:bohanhou@foxmail.com">Email <span aria-hidden="true">↗</span></a>
+</div>
+<div aria-label="Current affiliations" class="affiliations">
+<div class="affiliation"><strong>Nanyang Technological University</strong><span>PhD Student</span></div>
+<div class="affiliation"><strong>Alibaba DAMO Academy</strong><span>Research Intern</span></div>
+</div>
+</div>
+<aside aria-label="Profile photo and research focus" class="portrait-card">
+<div class="portrait-visual">
+<img alt="Bohan Hou" class="original-asset" decoding="async" fetchpriority="high" height="280" src="./assets/profile.png" width="260"/>
+</div>
+<div class="quick-meta"><span class="quick-meta-label">Current focus</span><strong>Embodied Foundation Models</strong><p>Multimodal agents · World models · Robot learning</p></div>
+</aside>
+</section>
+<section aria-labelledby="updates-heading" class="updates" id="news"><div class="updates-header"><h2 id="updates-heading">Recent updates</h2></div>
+<div class="news-lines">
+<p><span aria-hidden="true" class="news-dot"></span><span><a href="#paper-interlv-search">InterLV-Search</a>, <a href="#paper-ecl-bench">ECL-Bench</a>, and <a href="#paper-rynnvla-002">RynnVLA-002</a> accepted to <strong>NeurIPS 2026</strong>.</span></p>
+<p><span aria-hidden="true" class="news-dot jade"></span><span>Our <a href="#paper-world-model-survey">World Model for Robot Learning</a> survey accepted to <strong>IJRR</strong>.</span></p>
+</div></section>
+<section aria-labelledby="bio-heading" id="bio">
+<div class="section-head"><div><span class="section-kicker">01 / Profile</span><h2 id="bio-heading">About</h2></div></div>
+<div class="bio-card"><p>I am a PhD student at Nanyang Technological University (NTU), advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. My research focuses on multimodal foundation models and agents for embodied intelligence, particularly embodied reasoning, vision-language-action models, world models, and robot learning.</p><p>I received my B.Eng. in Computer Science from Taishan College at Shandong University, where I worked with Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a>, and I have been a research assistant at the Intelligent Media Research Center (iLearn), led by Prof. Liqiang Nie. I am also a research intern at Alibaba DAMO Academy, developing open embodied models and systems.</p></div>
+</section>
+<section aria-labelledby="education-heading" id="education">
+<div class="section-head"><div><span class="section-kicker">02 / Background</span><h2 id="education-heading">Education</h2></div><p class="section-note">Academic training and degree programs.</p></div>
+<div class="timeline-grid">
+<article class="timeline-card">
+<div class="inst-logo"><img alt="Nanyang Technological University logo" class="original-asset" decoding="async" height="72" loading="lazy" src="./assets/logos/ntu.png" width="72"/></div>
+<div>
+<div class="period">2026 — Present</div>
+<h3>Nanyang Technological University</h3>
+<p>PhD Student</p>
+<p>Advised by Prof. <a href="https://marsyang.site/">Jianfei Yang</a>. Research direction: multimodal learning, MLLM Agents, and embodied intelligence.</p>
+</div>
+</article>
+<article class="timeline-card">
+<div class="inst-logo"><img alt="Shandong University logo" class="original-asset" decoding="async" height="72" loading="lazy" src="./assets/logos/sdu.png" width="72"/></div>
+<div>
+<div class="period">Sep. 2022 — Jun. 2026</div>
+<h3>Shandong University</h3>
+<p>B.Eng. in Computer Science and Technology</p>
+<p>Taishan College, First-Honor Program. GPA: 88.5 / 100; Rank: 5 / 22.</p>
+</div>
+</article>
+</div>
+</section>
+<section aria-labelledby="experience-heading" id="experience">
+<div class="section-head"><div><span class="section-kicker">03 / Appointments</span><h2 id="experience-heading">Experience</h2></div><p class="section-note">Research appointments and internships.</p></div>
+<div class="timeline-grid">
+<article class="timeline-card">
+<div class="inst-logo"><img alt="Alibaba DAMO Academy logo" class="original-asset" decoding="async" height="72" loading="lazy" src="./assets/logos/damo.png" width="72"/></div>
+<div>
+<div class="period">Nov. 2025 — Present</div>
+<h3>Alibaba DAMO Academy</h3>
+<p>Research Intern · Embodied Intelligence and World Model</p>
+<p>Mentors: Dr. <a href="https://lixin4ever.github.io/">Xin Li</a>, Dr. <a href="https://cen-jun.com/">Jun Cen</a>, and Ronghao Dang.</p>
+<p>I also work closely with my talented colleagues Jiayan Guo on agents and Siteng Huang on VLA models.</p>
+</div>
+</article>
+<article class="timeline-card">
+<div class="inst-logo inst-logo-dark"><img alt="iLearn Lab logo" class="original-asset" decoding="async" height="72" loading="lazy" src="./assets/logos/ilearn.png" width="72"/></div>
+<div>
+<div class="period">Sep. 2022 — Present</div>
+<h3>iLearn Lab, Shandong University</h3>
+<p>Research Assistant · Multimodal Large Language Models and Information Retrieval</p>
+<p>Supervisors: Prof. <a href="https://xuemengsong.github.io/">Xuemeng Song</a> and Prof. Liqiang Nie.</p>
+</div>
+</article>
+</div>
+</section>
+<section aria-labelledby="publications-heading" id="publications">
+<div class="section-head"><div><span class="section-kicker">04 / Research</span><h2 id="publications-heading">Publications</h2></div><p class="section-note">* Equal or core contribution, as specified by each paper.</p></div>
+<div class="pub-controls" hidden="" id="pub-controls">
+<div aria-label="Filter publications by research area" class="filter-list" id="topic-filters" role="group"><button aria-controls="publication-list" aria-pressed="true" class="filter-button topic-filter" data-filter="all" type="button"><span aria-hidden="true" class="filter-dot"></span>All work<span class="filter-count">15</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-agent topic-filter" data-filter="agent" type="button"><span aria-hidden="true" class="filter-dot"></span>Agent<span class="filter-count">2</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-retrieval topic-filter" data-filter="retrieval" type="button"><span aria-hidden="true" class="filter-dot"></span>Information Retrieval<span class="filter-count">6</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-world-model topic-filter" data-filter="world-model" type="button"><span aria-hidden="true" class="filter-dot"></span>World Model<span class="filter-count">2</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-mllms topic-filter" data-filter="mllms" type="button"><span aria-hidden="true" class="filter-dot"></span>MLLMs<span class="filter-count">7</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-embodied topic-filter" data-filter="embodied" type="button"><span aria-hidden="true" class="filter-dot"></span>Embodied AI<span class="filter-count">8</span></button></div>
+<div aria-label="Filter publications by authorship; combines with research area and search" class="authorship-filters" id="authorship-filters" role="group"><span class="filter-caption">Authorship</span><button aria-controls="publication-list" aria-pressed="true" class="role-filter" data-role-filter="all" type="button">All authorship<span class="filter-count">15</span></button><button aria-controls="publication-list" aria-pressed="false" class="role-filter" data-role-filter="lead" type="button">First / Co-first<span class="filter-count">10</span></button><button aria-controls="publication-list" aria-pressed="false" class="role-filter" data-role-filter="co-author" type="button">Co-author<span class="filter-count">5</span></button></div><div class="search-wrap"><label class="sr-only" for="pub-search">Search titles, authors, venues, or research topics</label><svg aria-hidden="true" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input autocomplete="off" class="pub-search" id="pub-search" placeholder="Search publications…" spellcheck="false" type="search"/></div>
+</div>
+<div class="results-row" hidden="" id="results-row"><p aria-live="polite" id="result-count" role="status">Showing 15 of 15 works</p><button class="text-button" hidden="" id="reset-filters" type="button">Clear filters</button></div>
+<div class="paper-list" id="publication-list"><span aria-hidden="true" class="anchor-alias" id="first-author-publications"></span><span aria-hidden="true" class="anchor-alias" id="publications2"></span><!-- Research-area labels live in data-topics (space-separated). A paper can belong to multiple areas. -->
+<article aria-labelledby="title-interlv-search" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="conference" data-topics="agent retrieval mllms" data-venue="NeurIPS 2026" id="paper-interlv-search"><div class="paper-thumb"><img alt="InterLV-Search preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/interlv_search.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">NeurIPS 2026</span><span class="status-label">Poster</span></div>
+<h3 class="paper-title" id="title-interlv-search"><a href="https://arxiv.org/abs/2605.07510">InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search</a></h3>
+<p class="authors"><strong>Bohan Hou*</strong>, Jiuning Gu*, Jiayan Guo, Ronghao Dang, Sicong Leng, Xin Li, Xuemeng Song, and Jianfei Yang.</p>
+<p class="contribution-note">* Bohan Hou and Jiuning Gu contributed equally.</p>
+<p class="paper-note">A benchmark for interleaved language-vision agentic search with active visual evidence seeking and open-web multimodal search.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-agent">Agent</span><span class="topic-label topic-retrieval">Information Retrieval</span><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2605.07510">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/hbhalpha/InterLV-Search-Bench">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article aria-labelledby="title-ecl-bench" class="paper-card without-paper-image lead-author" data-author-role="co-first" data-kind="conference" data-search-alias="ECL-Bench ECLBench" data-topics="mllms embodied" data-venue="NeurIPS 2026" id="paper-ecl-bench"><!-- ECL-Bench: no image path was supplied. Keep this text-only until an original image path is provided. -->
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">NeurIPS 2026</span><span class="status-label">Poster</span><span class="type-label">ECL-Bench</span></div>
+<h3 class="paper-title" id="title-ecl-bench">Benchmarking Fine-Grained Spatio-Temporal Awareness in Embodied Brain Models</h3>
+<p class="authors">Minghao Zhu*, Zhikai Wang*, Ronghao Dang*, <strong>Bohan Hou*</strong>, Jiangpin Liu, Kehan Li, Jiayan Guo, Sicong Leng, Yunxuan Mao, Yuqian Yuan, Xiao Lin, Xin Li, and Deli Zhao.</p>
+<p class="contribution-note">* Minghao Zhu, Zhikai Wang, Ronghao Dang, and Bohan Hou contributed equally.</p>
+<p class="paper-note">ECL-Bench evaluates fine-grained spatial and temporal awareness in embodied brain models.</p>
+<!-- ECL-Bench: insert verified Paper / Project / Code URLs here when available. -->
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><span class="link-status">Paper link pending</span><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article aria-labelledby="title-rynnvla-002" class="paper-card has-paper-image" data-author-role="co-author" data-kind="conference" data-search-alias="WorldVLA RynnVLA 002" data-topics="world-model embodied" data-venue="NeurIPS 2026" id="paper-rynnvla-002"><div class="paper-thumb"><img alt="RynnVLA-002 unified VLA and world model architecture" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnvla002.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="venue">NeurIPS 2026</span><span class="status-label">Accepted</span></div>
+<h3 class="paper-title" id="title-rynnvla-002"><a href="https://arxiv.org/abs/2511.17502">RynnVLA-002: A Unified Vision-Language-Action and World Model</a></h3>
+<p class="authors">Jun Cen, Siteng Huang, Yuqian Yuan, Kehan Li, Hangjie Yuan, Chaohui Yu, <strong>Bohan Hou</strong>, Yuming Jiang, Jiayan Guo, Xin Li, et al.</p>
+<p class="paper-note">A unified autoregressive VLA and world model in which action generation and future-frame prediction improve one another for simulated and real-world robot manipulation.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-world-model">World Model</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2511.17502">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnVLA-002">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
+</article>
+<article aria-labelledby="title-world-model-survey" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="journal" data-topics="world-model embodied" data-venue="IJRR" id="paper-world-model-survey"><div class="paper-thumb"><img alt="World Model for Robot Learning preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/world_model_robot_learning.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">IJRR</span><span class="status-label">Accepted</span></div>
+<h3 class="paper-title" id="title-world-model-survey"><a href="https://arxiv.org/abs/2605.00080">World Model for Robot Learning: A Comprehensive Survey</a></h3>
+<details class="author-details"><summary class="author-summary"><strong>Bohan Hou</strong>, Gen Li, Jindou Jia, Tuo An, …<span class="authors-toggle">Full author list</span></summary><p class="authors"><strong>Bohan Hou</strong>, Gen Li, Jindou Jia, Tuo An, Xinying Guo, Sicong Leng, Haoran Geng, Yanjie Ze, Tatsuya Harada, Philip Torr, Oier Mees, Marc Pollefeys, Zhuang Liu, Jiajun Wu, Pieter Abbeel, Jitendra Malik, Yilun Du, and Jianfei Yang.</p></details>
+<p class="paper-note">A robotics-centered survey of world models for policy learning, planning, learned simulation, evaluation, and video generation.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-world-model">World Model</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2605.00080">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://ntumars.github.io/wm-robot-survey/">Project<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
+</article>
+<article aria-labelledby="title-mars-policy" class="paper-card has-paper-image" data-author-role="co-author" data-kind="preprint" data-topics="embodied" data-venue="arXiv 2026" id="paper-mars-policy"><div class="paper-thumb"><img alt="MARS Policy overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/marspolicy.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="venue">arXiv 2026</span></div>
+<h3 class="paper-title" id="title-mars-policy"><a href="https://arxiv.org/abs/2605.29766">MARS Policy: Multimodality Only When It Matters</a></h3>
+<p class="authors">Jindou Jia*, Tuo An*, Yuxuan Hu*, Gen Li, Jingliang Li, <strong>Bohan Hou</strong>, Xiangyu Chen, Jiaqi Bai, Bofan Lyu, and Jianfei Yang.</p>
+<p class="paper-note">A modality-adaptive robot policy that introduces stochasticity when action diversity is useful, while retaining efficient deterministic behavior during single-modal phases.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2605.29766">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://jingliangli.com/MARS_Policy/">Project<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
+</article>
+<article aria-labelledby="title-videorover" class="paper-card has-paper-image" data-author-role="co-author" data-kind="preprint" data-topics="agent retrieval mllms" data-venue="arXiv 2026" id="paper-videorover"><div class="paper-thumb"><img alt="Thinking Beyond Videos / VideoRover overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/beyondvideo.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">VideoRover</span></div>
+<h3 class="paper-title" id="title-videorover"><a href="https://arxiv.org/abs/2608.23329">Thinking Beyond Videos: Unifying Video Reasoning and Deep Research for Open-World Video Agents</a></h3>
+<details class="author-details"><summary class="author-summary">Wenqi Liu*, Shijie Ma*, Yunxiao Wang*, Meng Liu, …, <strong>Bohan Hou</strong>, …<span class="authors-toggle">Full author list</span></summary><p class="authors">Wenqi Liu*, Shijie Ma*, Yunxiao Wang*, Meng Liu, Qile Su, Han Liu, <strong>Bohan Hou</strong>, Zeyu Wang, Xuanyu Zheng, Changyi Liu, Tianke Zhang, Haonan Fan, Kaiyu Jiang, Yingxin Li, Jiankang Chen, Xu Wang, Hongyi Fu, Jianxiong Wang, Bin Wen, Tingting Gao, Han Li, Jianhua Yin, Yinwei Wei, and Xuemeng Song.</p></details>
+<p class="paper-note">VideoRover unifies active video reasoning and deep research through iterative video cropping, multimodal search, and webpage browsing, with curated training trajectories and VideoRover-Bench.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-agent">Agent</span><span class="topic-label topic-retrieval">Information Retrieval</span><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2608.23329">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://liuwq-bit.github.io/VideoRover/">Project<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
+</article>
+<article aria-labelledby="title-data-pyramid" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="embodied" data-venue="arXiv 2026" id="paper-data-pyramid"><div class="paper-thumb"><img alt="Embodied Data Pyramid overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/data-pyramid.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
+<h3 class="paper-title" id="title-data-pyramid"><a href="https://arxiv.org/abs/2607.24744v1">Data Pyramid for Embodied Manipulation</a></h3>
+<p class="authors">Yifan Ye*, Yankai Fu*, Yaoxu Lv*, <strong>Bohan Hou*</strong>, Jun Cen*, Lingdong Kong*, et al.</p>
+<p class="paper-note">A data-centric taxonomy that organizes embodied manipulation data into five complementary layers and connects their collection, alignment, and mixing strategies to embodied foundation models.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2607.24744v1">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://jasper-aaa.github.io/embodied-data-pyramid/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/worldbench/awesome-embodied-data-pyramid">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article aria-labelledby="title-rynnbrain-1-1" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain-1-1"><div class="paper-thumb"><img alt="RynnBrain 1.1 overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnbrain11.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
+<h3 class="paper-title" id="title-rynnbrain-1-1"><a href="https://arxiv.org/abs/2607.17977">RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</a></h3>
+<p class="authors">Kehan Li*, <strong>Bohan Hou*</strong>, Minghao Zhu*, Tianyi Zhang*, Zesen Cheng*, Zhikai Wang*, Sicong Leng*, Xin Li*, et al.</p>
+<p class="paper-note">An embodied foundation-model family spanning 2B, 9B, and 122B-A10B scales, with stronger cognition and localization, native 3D grounding, contact-point prediction, and cross-embodiment VLA capabilities.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2607.17977">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article aria-labelledby="title-rynnvalue" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="unspecified" data-topics="embodied" data-venue="2026" id="paper-rynnvalue"><div class="paper-thumb"><img alt="RynnValue architecture overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnvalue.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">2026</span></div>
+<h3 class="paper-title" id="title-rynnvalue"><a href="https://github.com/hbhalpha/hbhalpha.github.io/blob/main/papers/RynnValue.pdf">RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance</a></h3>
+<p class="authors">Dongchi Huang*, Hongyin Zhang*, <strong>Bohan Hou*</strong>, Siteng Huang†, Zhian Su, Hang Guo, et al.</p>
+<p class="paper-note">A general-purpose robotic value foundation model that learns temporal distance from 7,000+ hours of heterogeneous data, turning time-to-completion into signals for progress estimation, failure detection, and VLA reinforcement learning.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://github.com/hbhalpha/hbhalpha.github.io/blob/main/papers/RynnValue.pdf">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://alibaba-damo-academy.github.io/RynnValue.github.io/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnValue">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article aria-labelledby="title-rynnbrain" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain"><div class="paper-thumb"><img alt="RynnBrain preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnbrain.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
+<h3 class="paper-title" id="title-rynnbrain"><a href="https://arxiv.org/abs/2602.14979">RynnBrain: Open Embodied Foundation Models</a></h3>
+<p class="authors">Ronghao Dang*, Jiayan Guo*, <strong>Bohan Hou*</strong>, Sicong Leng*, Kehan Li*, Xin Li*, et al.</p>
+<p class="paper-note">An open embodied foundation model family for egocentric understanding, spatiotemporal localization, physical reasoning, and planning.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2602.14979">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://alibaba-damo-academy.github.io/RynnBrain.github.io/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article aria-labelledby="title-fire" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval mllms" data-venue="SIGIR 2025" id="paper-fire"><div class="paper-thumb"><img alt="FiRE preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/fire.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">SIGIR 2025</span></div>
+<h3 class="paper-title" id="title-fire"><a href="https://dl.acm.org/doi/10.1145/3726302.3729979">FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval</a></h3>
+<p class="authors"><strong>Bohan Hou</strong>, Haoqiang Lin, Xuemeng Song, Haokun Wen, Meng Liu, Yupeng Hu, and Xiangyu Zhao.</p>
+<p class="paper-note">Fine-grained context learning for complex image retrieval with multimodal large language models.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3729979">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/iLearn-Lab/SIGIR25-FIRE">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
+</article>
+<article aria-labelledby="title-visual-anchor" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="challenge" data-topics="retrieval" data-venue="WWW 2025 Challenge" id="paper-visual-anchor"><div class="paper-thumb"><img alt="Multimodal Document Retrieval preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/mdr.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">WWW 2025 Challenge</span><span class="status-label">Oral</span></div>
+<h3 class="paper-title" id="title-visual-anchor">Visual Anchor Point for Multimodal Document Retrieval</h3>
+<p class="authors"><strong>Bohan Hou</strong>, Haokun Wen, Haoqiang Lin, Xuemeng Song, and Liqiang Nie.</p>
+<p class="paper-note">Winner of the WWW’25 Multimodal Document Retrieval Challenge.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span></div><div class="paper-footer"><div class="paper-links"><a href="https://github.com/hbhalpha/MDR">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
+</article>
+<article aria-labelledby="title-ptg-fscir" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval" data-venue="IJCNN 2025" id="paper-ptg-fscir"><div class="paper-thumb"><img alt="PTG-FSCIR preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/ptg.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">IJCNN 2025</span></div>
+<h3 class="paper-title" id="title-ptg-fscir"><a href="https://arxiv.org/abs/2407.06001">Pseudo-triplet Guided Few-shot Composed Image Retrieval</a></h3>
+<p class="authors"><strong>Bohan Hou</strong>, Haoqiang Lin, Haokun Wen, Meng Liu, Mingzhu Xu, and Xuemeng Song.</p>
+<p class="paper-note">A pseudo-triplet guided scheme for improving few-shot composed image retrieval.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2407.06001">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/hbhalpha/PTG-FSCIR">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
+</article>
+<article aria-labelledby="title-imgedit" class="paper-card has-paper-image" data-author-role="co-author" data-kind="conference" data-topics="mllms" data-venue="NeurIPS 2025" id="paper-imgedit"><div class="paper-thumb"><img alt="ImgEdit preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/imgedit.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="venue">NeurIPS 2025</span></div>
+<h3 class="paper-title" id="title-imgedit"><a href="https://arxiv.org/abs/2505.20275">ImgEdit: A Unified Image Editing Dataset and Benchmark</a></h3>
+<p class="authors">Yang Ye, Xianyi He, Zongjian Li, Bin Lin, Shenghai Yuan, Zhiyuan Yan, <strong>Bohan Hou</strong>, and Li Yuan.</p>
+<p class="paper-note">A unified image editing dataset, benchmark, and model for high-quality single-turn and multi-turn image editing.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2505.20275">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/PKU-YuanGroup/ImgEdit">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
+</article>
+<article aria-labelledby="title-cir-survey" class="paper-card has-paper-image" data-author-role="co-author" data-kind="journal" data-topics="retrieval" data-venue="TOIS" id="paper-cir-survey"><div class="paper-thumb"><img alt="Composed Image Retrieval survey preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/cir_survey.png"/></div>
+<div class="paper-body">
+<div class="paper-meta"><span class="venue">TOIS</span></div>
+<h3 class="paper-title" id="title-cir-survey"><a href="https://arxiv.org/abs/2502.18495">A Comprehensive Survey on Composed Image Retrieval</a></h3>
+<p class="authors">Xuemeng Song, Haoqiang Lin, Haokun Wen, <strong>Bohan Hou</strong>, Mingzhu Xu, and Liqiang Nie.</p>
+<p class="paper-note">A comprehensive survey of composed image retrieval, covering supervised, zero-shot, and related multimodal retrieval settings.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2502.18495">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/haokunwen/Awesome-Composed-Image-Retrieval">Resource<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
+</article>
+</div><div class="empty-results" hidden="" id="empty-results"><p>No papers match these filters.</p><button class="button" id="empty-reset" type="button">Show all publications</button></div>
+</section>
+<section aria-labelledby="projects-heading" id="projects">
+<div class="section-head"><div><span class="section-kicker">05 / Open Source</span><h2 id="projects-heading">Selected Project</h2></div></div>
+<article aria-labelledby="guide-title" class="project-card">
+<div class="project-top">
+<h3 id="guide-title">Embodied-AI-Guide</h3>
+<span class="project-badge">Open source</span>
+</div>
+<p>
             A popular Chinese knowledge base and resource index for embodied intelligence,
             organized in an encyclopedia-style format. It covers robotics foundations,
             robot learning, simulators, benchmarks, datasets, multimodal models, VLA models,
             navigation, and related embodied-AI research directions.
           </p>
-
-          <div class="project-links">
-            <a href="https://github.com/TianxingChen/Embodied-AI-Guide">GitHub</a>
-            <a href="https://github.com/TianxingChen/Embodied-AI-Guide#readme">README</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="misc">
-      <div class="section-head" data-kicker="07 · Recognition">
-        <h2>Honors & Misc.</h2>
-        <p class="section-note">Compact highlights; link to CV for the full list.</p>
-      </div>
-      <div class="two-col">
-        <div class="simple-card">
-          <h3>Selected Honors</h3>
-          <ul class="compact-list">
-            <li>Champion, WWW’25 Multimodal Document Retrieval Challenge.</li>
-            <li>Shandong University Outstanding Student Scholarship, 2023–2025.</li>
-            <li>Shandong University Academic Innovation Scholarship, 2025.</li>
-            <li>Second Prize, National Undergraduate Mathematics Competition, 2024.</li>
-          </ul>
-        </div>
-        <div class="simple-card">
-          <h3>Links</h3>
-          <ul class="compact-list">
-            <li><a href="mailto:bohanhou@foxmail.com">Email</a></li>
-            <li><a href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=RLW64pQAAAAJ">Google Scholar</a></li>
-            <li><a href="https://github.com/hbhalpha">GitHub</a></li>
-            
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer-note">© Bohan Hou. Last updated 2026. Built with GitHub Pages.</footer>
-  </main>
+<div class="project-links">
+<a href="https://github.com/TianxingChen/Embodied-AI-Guide">GitHub</a>
+<a href="https://github.com/TianxingChen/Embodied-AI-Guide#readme">README</a>
 </div>
+</article>
+</section>
+<section aria-labelledby="misc-heading" id="misc">
+<div class="section-head"><div><span class="section-kicker">06 / More</span><h2 id="misc-heading">Honors &amp; Contact</h2></div></div>
+<div class="two-col">
+<div class="simple-card"><h3>Selected Honors</h3><ul class="compact-list">
+<li>Champion, WWW’25 Multimodal Document Retrieval Challenge.</li>
+<li>Shandong University Outstanding Student Scholarship, 2023–2025.</li>
+<li>Shandong University Academic Innovation Scholarship, 2025.</li>
+<li>Second Prize, National Undergraduate Mathematics Competition, 2024.</li>
+</ul></div>
+<div class="simple-card"><h3>Contact &amp; Profiles</h3><div class="contact-links">
+<a href="mailto:bohanhou@foxmail.com"><span>Email</span><span class="email-address">bohanhou@foxmail.com</span></a>
+<a href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=RLW64pQAAAAJ"><span>Google Scholar</span><span aria-hidden="true">↗</span></a>
+<a href="https://github.com/hbhalpha"><span>GitHub</span><span aria-hidden="true">↗</span></a>
+</div></div>
+</div>
+</section>
+<footer class="footer-note"><p>© 2026 Bohan Hou · Last updated September 26, 2026 · GitHub Pages</p><a class="back-top" href="#top">Back to top ↑</a></footer>
+</main>
+<script>
+/* Progressive enhancement: all publications and links remain in the HTML.
+   To classify a paper, edit its space-separated data-topics attribute:
+   agent | retrieval | world-model | mllms | embodied
+   Authorship: data-author-role = first | co-first | co-author
+*/
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const nav = document.getElementById('site-nav');
+  const menu = document.getElementById('nav-toggle');
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeMeta = document.getElementById('theme-color-meta');
+  const themeKey = 'bohan-homepage-theme';
+  const themeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  let themePreference = null;
+  try { themePreference = localStorage.getItem(themeKey); } catch (_) { /* private / restricted preview */ }
+  function readThemePreference() { return themePreference; }
+  function rememberTheme(theme) {
+    themePreference = theme;
+    try { localStorage.setItem(themeKey, theme); } catch (_) { /* keep the choice for this visit */ }
+  }
+  root.classList.add('enhanced');
+  function applyTheme(theme) {
+    const isDark = theme === 'dark';
+    root.dataset.theme = theme;
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      const icon = themeToggle.querySelector('.theme-toggle__icon');
+      const label = themeToggle.querySelector('.theme-toggle__label');
+      if (icon) icon.textContent = isDark ? '☀' : '☾';
+      if (label) label.textContent = isDark ? 'Light' : 'Dark';
+    }
+    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#0d0b08' : '#f4f8fd');
+  }
+  function currentPreferredTheme() {
+    const stored = readThemePreference();
+    if (stored === 'dark' || stored === 'light') return stored;
+    return themeQuery.matches ? 'dark' : 'light';
+  }
+  applyTheme(currentPreferredTheme());
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      rememberTheme(next);
+      applyTheme(next);
+    });
+  }
+  const syncTheme = event => {
+    if (!readThemePreference()) applyTheme(event.matches ? 'dark' : 'light');
+  };
+  if (themeQuery.addEventListener) themeQuery.addEventListener('change', syncTheme);
+  else if (themeQuery.addListener) themeQuery.addListener(syncTheme);
+  function closeMenu(returnFocus = false) {
+    nav.classList.remove('is-open');
+    menu.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-label', 'Open navigation');
+    if (returnFocus) menu.focus();
+  }
+  menu.addEventListener('click', () => {
+    const open = !nav.classList.contains('is-open');
+    nav.classList.toggle('is-open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  });
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('is-open')) closeMenu(true);
+  });
+
+  // Only original image URLs are used. A missing local asset never becomes a fabricated cover.
+  document.querySelectorAll('img.original-asset').forEach(img => {
+    const container = img.parentElement;
+    const owner = img.closest('.paper-card, .timeline-card, .portrait-card');
+    const markMissing = () => {
+      img.hidden = true;
+      container.classList.add('asset-missing');
+      if (owner) owner.classList.add('image-unavailable');
+    };
+    const markLoaded = () => {
+      img.hidden = false;
+      container.classList.remove('asset-missing');
+      if (owner) owner.classList.remove('image-unavailable');
+    };
+    img.addEventListener('error', markMissing);
+    img.addEventListener('load', markLoaded);
+    if (img.complete) img.naturalWidth > 0 ? markLoaded() : markMissing();
+  });
+
+
+  const cards = [...document.querySelectorAll('.paper-card')];
+  const topicButtons = [...document.querySelectorAll('.topic-filter')];
+  const roleButtons = [...document.querySelectorAll('.role-filter')];
+  const search = document.getElementById('pub-search');
+  const countLabel = document.getElementById('result-count');
+  const resetButton = document.getElementById('reset-filters');
+  const empty = document.getElementById('empty-results');
+  const normalize = value => value.normalize('NFKC').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
+  const searchable = new Map(cards.map(card => [card, normalize(card.textContent + ' ' + (card.dataset.searchAlias || ''))]));
+  const topics = new Map(cards.map(card => [card, (card.dataset.topics || '').split(/\s+/)]));
+  const validTopics = new Set(topicButtons.map(button => button.dataset.filter));
+  let activeTopic = 'all';
+  let activeRole = 'all';
+  function matchesTopic(card, topic) { return topic === 'all' || topics.get(card).includes(topic); }
+  function matchesRole(card, role) {
+    if (role === 'all') return true;
+    if (role === 'lead') return card.dataset.authorRole === 'first' || card.dataset.authorRole === 'co-first';
+    return card.dataset.authorRole === role;
+  }
+  function applyFilters() {
+    const query = normalize(search.value);
+    const words = query.split(' ').filter(Boolean);
+    const matchesQuery = card => words.every(word => searchable.get(card).includes(word));
+    let shown = 0;
+    cards.forEach(card => {
+      const visible = matchesQuery(card) && matchesTopic(card, activeTopic) && matchesRole(card, activeRole);
+      card.hidden = !visible;
+      if (visible) shown += 1;
+    });
+    // Each facet's counts reflect search + the other facet, not itself.
+    topicButtons.forEach(button => {
+      const count = cards.filter(card => matchesQuery(card) && matchesRole(card, activeRole) && matchesTopic(card, button.dataset.filter)).length;
+      button.querySelector('.filter-count').textContent = String(count);
+      button.setAttribute('aria-pressed', String(button.dataset.filter === activeTopic));
+    });
+    roleButtons.forEach(button => {
+      const count = cards.filter(card => matchesQuery(card) && matchesTopic(card, activeTopic) && matchesRole(card, button.dataset.roleFilter)).length;
+      button.querySelector('.filter-count').textContent = String(count);
+      button.setAttribute('aria-pressed', String(button.dataset.roleFilter === activeRole));
+    });
+    countLabel.textContent = `${shown} of ${cards.length} publications`;
+    resetButton.hidden = !query && activeTopic === 'all' && activeRole === 'all';
+    empty.hidden = shown !== 0;
+  }
+  function resetFilters(focus = false) {
+    activeTopic = 'all'; activeRole = 'all'; search.value = ''; applyFilters();
+    if (focus) search.focus();
+  }
+  topicButtons.forEach(button => button.addEventListener('click', () => {
+    activeTopic = button.dataset.filter; applyFilters();
+  }));
+  roleButtons.forEach(button => button.addEventListener('click', () => {
+    activeRole = button.dataset.roleFilter; applyFilters();
+  }));
+  search.addEventListener('input', applyFilters);
+  resetButton.addEventListener('click', () => resetFilters(true));
+  document.getElementById('empty-reset').addEventListener('click', () => resetFilters(true));
+  document.querySelectorAll('a[data-topic]').forEach(link => link.addEventListener('click', () => {
+    if (!validTopics.has(link.dataset.topic)) return;
+    activeTopic = link.dataset.topic; activeRole = 'all'; search.value = ''; applyFilters();
+  }));
+  // News/deep links reveal the relevant paper even if either facet hid it.
+  document.addEventListener('click', event => {
+    const anchor = event.target.closest('a[href^="#paper-"]');
+    if (!anchor) return;
+    const target = document.getElementById(anchor.getAttribute('href').slice(1));
+    if (target && target.hidden) resetFilters();
+  });
+  function revealHashTarget() {
+    let hash;
+    try { hash = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    if (!hash.startsWith('paper-')) return;
+    const target = document.getElementById(hash);
+    if (target && target.hidden) { resetFilters(); target.scrollIntoView({ block: 'start' }); }
+  }
+  addEventListener('hashchange', revealHashTarget);
+  document.getElementById('pub-controls').hidden = false;
+  document.getElementById('results-row').hidden = false;
+  applyFilters();
+  revealHashTarget();
+
+  // Keep the complete author lists visible when printing.
+  let previouslyClosed = [];
+  addEventListener('beforeprint', () => {
+    previouslyClosed = [...document.querySelectorAll('.author-details:not([open])')];
+    previouslyClosed.forEach(details => { details.open = true; });
+  });
+  addEventListener('afterprint', () => {
+    previouslyClosed.forEach(details => { details.open = false; });
+    previouslyClosed = [];
+  });
+  const sectionIds = ['bio', 'education', 'experience', 'publications', 'projects', 'misc'];
+  const navigationLinks = [...nav.querySelectorAll('a')];
+  let navigationFrame = null;
+  function updateNavigation() {
+    let active = '';
+    sectionIds.forEach(id => { if (document.getElementById(id).getBoundingClientRect().top <= 125) active = id; });
+    navigationLinks.forEach(link => {
+      if (active && link.getAttribute('href') === `#${active}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    navigationFrame = null;
+  }
+  function scheduleNavigation() {
+    if (navigationFrame === null) navigationFrame = requestAnimationFrame(updateNavigation);
+  }
+  addEventListener('scroll', scheduleNavigation, { passive: true });
+  addEventListener('resize', scheduleNavigation);
+  updateNavigation();
+})();
+</script>
 </body>
 </html>
