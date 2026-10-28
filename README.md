@@ -4,8 +4,12 @@ Static GitHub Pages site. No build step or frontend dependencies.
 
 - `index.html`: profile, publication metadata, and the existing theme/filter behavior.
 - `assets/refinement.css`: responsive research rows, visual polish, and dark-mode authorship/leadership highlights.
-- `assets/refinement.js`: entrance/scroll reveals, publication filter transitions, and reading progress. Respects reduced-motion preferences and keeps content visible without JavaScript.
-- `assets/papers/`: original research figures. Thumbnails link to their full-size images.
+- `assets/refinement.js`: one-time positional reveals, interruptible publication filter transitions, and reading progress. Readable cards never fade back to transparent.
+- `assets/interactions.js`: interruptible anchor scrolling, sliding navigation marker, pointer lighting, and reversible author-list disclosures.
+- `assets/image-loader.js`: decode-aware image loading. Loaded images stay visible; loading and failure states retain their reserved frames.
+- `assets/papers/`: original research figures. Responsive WebP previews in `thumbs/` link to these full-size originals. Keep the image width/height and source-set descriptors accurate when adding figures.
+
+Motion respects reduced-motion preferences. Content remains visible without JavaScript. Preview requests begin early at low priority; the 17 paper previews total approximately 454 KB at 480 px or 1.24 MB at 960 px, compared with 9.37 MB of full-size originals.
 
 Preview locally with `python -m http.server 8766`, then open `http://localhost:8766`.
 

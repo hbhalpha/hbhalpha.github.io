@@ -574,9 +574,7 @@ html[data-theme="dark"] .site-backdrop .page-pattern { display: block; }
 html:not([data-theme="dark"]) .hero { border-color: #cbdfee; }
 /* Always show actual images. No BH portrait, filename card, or venue-cover substitutes. */
 .paper-card.has-paper-image { grid-template-columns: 148px minmax(0,1fr); }
-.paper-card.without-paper-image,
-.paper-card.has-paper-image.image-unavailable,
-.timeline-card.image-unavailable { grid-template-columns: minmax(0,1fr); }
+.paper-card.without-paper-image { grid-template-columns: minmax(0,1fr); }
 .paper-thumb {
   position: relative; width: 100%; align-self: start;
   overflow: hidden; aspect-ratio: 4 / 3;
@@ -591,9 +589,6 @@ html:not([data-theme="dark"]) .hero { border-color: #cbdfee; }
 .portrait-visual { aspect-ratio: 1 / 1.05; }
 .inst-logo { background: #fff; }
 .inst-logo-dark { background: #132b44; }
-.paper-thumb.asset-missing, .portrait-visual.asset-missing,
-.inst-logo.asset-missing, .brand-mark.asset-missing { display: none; }
-.portrait-card.image-unavailable { display: block; }
 /* Dark UI never inverts the original figures or logos. */
 html[data-theme="dark"] .paper-thumb { background: #fff; border-color: rgba(212,176,113,.34); }
 html[data-theme="dark"] .authors strong,
@@ -635,7 +630,7 @@ html[data-theme="dark"] .filter-button[aria-pressed="true"] .filter-count { colo
   .site-backdrop, .theme-toggle { display: none !important; }
   main { z-index: auto; }
   .paper-card.has-paper-image { grid-template-columns: 130px minmax(0,1fr); }
-  .paper-card.image-unavailable, .paper-card.without-paper-image { grid-template-columns: 1fr; }
+  .paper-card.without-paper-image { grid-template-columns: 1fr; }
   html[data-theme="dark"] body { background: white; color: #111; }
 }
 
@@ -869,7 +864,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
   .subtitle { font-size: 1.1875rem; }
   .paper-list { grid-template-columns: minmax(0,1fr); }
   .paper-card.has-paper-image { grid-template-columns: 180px minmax(0,1fr); }
-  .paper-card.has-paper-image.image-unavailable { grid-template-columns: minmax(0,1fr); }
+
   .updates { grid-template-columns: 135px minmax(0,1fr); }
 }
 @media screen and (max-width: 800px) {
@@ -926,8 +921,10 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
   .contact-links a { flex-wrap: wrap; }
 }
 </style>
-<link href="./assets/refinement.css?v=20261028" rel="stylesheet"/>
-<script defer src="./assets/refinement.js?v=20261028"></script>
+<link href="./assets/refinement.css?v=20261028-stable2" rel="stylesheet"/>
+<script defer src="./assets/image-loader.js?v=20261028-stable2"></script>
+<script defer src="./assets/refinement.js?v=20261028-stable2"></script>
+<script defer src="./assets/interactions.js?v=20261028-stable2"></script>
 </head>
 <body id="top">
 <svg aria-hidden="true" class="svg-definitions" focusable="false" height="0" width="0" xmlns="http://www.w3.org/2000/svg">
@@ -1057,24 +1054,9 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Filter publications by authorship; combines with research area and search" class="authorship-filters" id="authorship-filters" role="group"><span class="filter-caption">Authorship</span><button aria-controls="publication-list" aria-pressed="true" class="role-filter" data-role-filter="all" type="button">All authorship<span class="filter-count">18</span></button><button aria-controls="publication-list" aria-pressed="false" class="role-filter" data-role-filter="lead" type="button">First / Co-first / Core<span class="filter-count">13</span></button><button aria-controls="publication-list" aria-pressed="false" class="role-filter" data-role-filter="co-author" type="button">Co-author<span class="filter-count">5</span></button></div><div class="search-wrap"><label class="sr-only" for="pub-search">Search titles, authors, venues, or research topics</label><svg aria-hidden="true" fill="none" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input autocomplete="off" class="pub-search" id="pub-search" placeholder="Search publications…" spellcheck="false" type="search"/></div>
 </div>
 <div class="results-row" hidden="" id="results-row"><p aria-live="polite" id="result-count" role="status">18 of 18 publications</p><button class="text-button" hidden="" id="reset-filters" type="button">Clear filters</button></div>
-<div class="paper-list" id="publication-list"><span aria-hidden="true" class="anchor-alias" id="first-author-publications"></span><span aria-hidden="true" class="anchor-alias" id="publications2"></span><!-- Research-area labels live in data-topics (space-separated). A paper can belong to multiple areas. -->
-<article aria-labelledby="title-rynnvla-latent" class="paper-card has-paper-image lead-author" data-author-role="core" data-kind="preprint" data-search-alias="RynnVLA RynnLAM latent action flow matching" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnvla-latent">
-<a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvla-latent.png" rel="noopener" target="_blank"><img alt="RynnVLA-Latent latent-action pretraining and robot post-training architecture" class="original-asset" decoding="async" height="590" loading="lazy" src="./assets/papers/rynnvla-latent.png" width="2048"/></a>
-<div class="paper-body">
-<div class="paper-meta"><span class="authorship-badge">Core contributor</span><span class="venue">arXiv 2026</span><span class="type-label">New preprint</span></div>
-<h3 class="paper-title" id="title-rynnvla-latent"><a href="https://arxiv.org/abs/2610.34356">RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions</a></h3>
-<details class="author-details"><summary class="author-summary">Haoyu Zhao*, Xingyue Zhao*, Zhian Su*, <strong>Bohan Hou*</strong>, Yinzhou Tang*, …<span class="authors-toggle">Full author list</span></summary><p class="authors">Haoyu Zhao*, Xingyue Zhao*, Zhian Su*, <strong>Bohan Hou*</strong>, Yinzhou Tang*, Fengyi Wang, Kehan Li, Yuming Jiang, Siteng Huang†, Xin Li, Zhenyu Zeng, Mingxiu Chen, Deli Zhao, and Zhongyu Li†.</p></details>
-<p class="contribution-note">* Core contributors. † Corresponding authors.</p>
-<p class="paper-note">A 3D-grounded latent-action space turns human and heterogeneous robot videos into shared supervision for VLA pretraining, followed by adaptation to each robot’s native action space.</p>
-<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div>
-<div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2610.34356">Paper<span aria-hidden="true"> ↗</span></a>
-<a href="https://alibaba-damo-academy.github.io/RynnVLA-Latent.github.io/">Project<span aria-hidden="true"> ↗</span></a>
-<a href="https://github.com/alibaba-damo-academy/RynnVLA-Latent">Code<span aria-hidden="true"> ↗</span></a>
-</div><span class="paper-role">Core contributor</span></div>
-</div>
-</article>
+<div class="publication-stage"><div class="paper-list" id="publication-list"><span aria-hidden="true" class="anchor-alias" id="first-author-publications"></span><span aria-hidden="true" class="anchor-alias" id="publications2"></span><!-- Research-area labels live in data-topics (space-separated). A paper can belong to multiple areas. -->
 <article aria-labelledby="title-rynnunify" class="paper-card has-paper-image lead-author" data-author-role="core" data-kind="preprint" data-search-alias="RynnUnify unified embodied brain world action model WAM" data-topics="agent world-model mllms embodied" data-venue="arXiv 2026" id="paper-rynnunify">
-<a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnunify.png" rel="noopener" target="_blank"><img alt="RynnUnify teaser: embodied understanding, visual planning, agentic reasoning, and robot action" class="original-asset" decoding="async" height="908" loading="lazy" src="./assets/papers/rynnunify.png" width="2040"/></a>
+<a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnunify.png" rel="noopener" target="_blank"><img alt="RynnUnify teaser: embodied understanding, visual planning, agentic reasoning, and robot action" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnunify-480.webp" width="2040" height="908" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnunify-480.webp 480w, ./assets/papers/thumbs/rynnunify-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Core contributor</span><span class="leadership-badge">Project leader</span><span class="venue">arXiv 2026</span><span class="type-label">New preprint</span></div>
 <h3 class="paper-title" id="title-rynnunify"><a href="https://arxiv.org/abs/2610.32965">RynnUnify: Towards Unified Embodied Brain</a></h3>
@@ -1088,8 +1070,24 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div><span class="paper-role">Core contributor · Project leader</span></div>
 </div>
 </article>
+<article aria-labelledby="title-rynnvla-latent" class="paper-card has-paper-image lead-author" data-author-role="core" data-kind="preprint" data-search-alias="RynnVLA RynnLAM latent action flow matching" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnvla-latent">
+<a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvla-latent.png" rel="noopener" target="_blank"><img alt="RynnVLA-Latent latent-action pretraining and robot post-training architecture" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnvla-latent-480.webp" width="2048" height="590" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnvla-latent-480.webp 480w, ./assets/papers/thumbs/rynnvla-latent-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
+<div class="paper-body">
+<div class="paper-meta"><span class="authorship-badge">Core contributor</span><span class="venue">arXiv 2026</span><span class="type-label">New preprint</span></div>
+<h3 class="paper-title" id="title-rynnvla-latent"><a href="https://arxiv.org/abs/2610.34356">RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions</a></h3>
+<details class="author-details"><summary class="author-summary">Haoyu Zhao*, Xingyue Zhao*, Zhian Su*, <strong>Bohan Hou*</strong>, Yinzhou Tang*, …<span class="authors-toggle">Full author list</span></summary><p class="authors">Haoyu Zhao*, Xingyue Zhao*, Zhian Su*, <strong>Bohan Hou*</strong>, Yinzhou Tang*, Fengyi Wang, Kehan Li, Yuming Jiang, Siteng Huang†, Xin Li, Zhenyu Zeng, Mingxiu Chen, Deli Zhao, and Zhongyu Li†.</p></details>
+<p class="contribution-note">* Core contributors. † Corresponding authors.</p>
+<p class="paper-note">A 3D-grounded latent-action space turns human and heterogeneous robot videos into shared supervision for VLA pretraining, followed by adaptation to each robot’s native action space.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div>
+<div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2610.34356">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://alibaba-damo-academy.github.io/RynnVLA-Latent.github.io/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnVLA-Latent">Code<span aria-hidden="true"> ↗</span></a>
+</div><span class="paper-role">Core contributor</span></div>
+</div>
+</article>
+
 <article aria-labelledby="title-astra" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-search-alias="Astra GPT-GEAR GPT6 LIBERO-GeoMotion" data-topics="agent mllms embodied" data-venue="arXiv 2026" id="paper-astra">
-<a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/astra.png" rel="noopener" target="_blank"><img alt="GPT-6 Astra teaser: closed-loop control, embodied capabilities, benchmarks, and LIBERO-GeoMotion" class="original-asset" decoding="async" height="2003" loading="lazy" src="./assets/papers/astra.png" width="1850"/></a>
+<a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/astra.png" rel="noopener" target="_blank"><img alt="GPT-6 Astra teaser: closed-loop control, embodied capabilities, benchmarks, and LIBERO-GeoMotion" class="original-asset" decoding="async" src="./assets/papers/thumbs/astra-480.webp" width="1850" height="2003" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/astra-480.webp 480w, ./assets/papers/thumbs/astra-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span><span class="type-label">New preprint</span></div>
 <h3 class="paper-title" id="title-astra"><a href="https://arxiv.org/abs/2610.28259">Large Multimodal Models for Direct Robot Control: GPT-6 as a Beginning</a></h3>
@@ -1103,7 +1101,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div><span class="paper-role">Co-first author</span></div>
 </div>
 </article>
-<article aria-labelledby="title-interlv-search" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="conference" data-topics="agent retrieval mllms" data-venue="NeurIPS 2026" id="paper-interlv-search"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/interlv_search.png" rel="noopener" target="_blank"><img alt="InterLV-Search preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/interlv_search.png"/></a>
+<article aria-labelledby="title-interlv-search" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="conference" data-topics="agent retrieval mllms" data-venue="NeurIPS 2026" id="paper-interlv-search"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/interlv_search.png" rel="noopener" target="_blank"><img alt="InterLV-Search preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/interlv_search-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/interlv_search-480.webp 480w, ./assets/papers/thumbs/interlv_search-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">NeurIPS 2026</span><span class="status-label">Poster</span></div>
 <h3 class="paper-title" id="title-interlv-search"><a href="https://arxiv.org/abs/2605.07510">InterLV-Search: Benchmarking Interleaved Multimodal Agentic Search</a></h3>
@@ -1123,7 +1121,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <!-- ECL-Bench: insert verified Paper / Project / Code URLs here when available. -->
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><span class="link-status">Paper link pending</span><span class="paper-role">Co-first author</span></div></div>
 </article>
-<article aria-labelledby="title-rynnvla-002" class="paper-card has-paper-image" data-author-role="co-author" data-kind="conference" data-search-alias="WorldVLA RynnVLA 002" data-topics="world-model embodied" data-venue="NeurIPS 2026" id="paper-rynnvla-002"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvla002.png" rel="noopener" target="_blank"><img alt="RynnVLA-002 unified VLA and world model architecture" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnvla002.png"/></a>
+<article aria-labelledby="title-rynnvla-002" class="paper-card has-paper-image" data-author-role="co-author" data-kind="conference" data-search-alias="WorldVLA RynnVLA 002" data-topics="world-model embodied" data-venue="NeurIPS 2026" id="paper-rynnvla-002"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvla002.png" rel="noopener" target="_blank"><img alt="RynnVLA-002 unified VLA and world model architecture" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnvla002-480.webp" width="1244" height="586" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnvla002-480.webp 480w, ./assets/papers/thumbs/rynnvla002-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="venue">NeurIPS 2026</span><span class="status-label">Accepted</span></div>
 <h3 class="paper-title" id="title-rynnvla-002"><a href="https://arxiv.org/abs/2511.17502">RynnVLA-002: A Unified Vision-Language-Action and World Model</a></h3>
@@ -1132,7 +1130,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-world-model">World Model</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2511.17502">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/alibaba-damo-academy/RynnVLA-002">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
 </article>
-<article aria-labelledby="title-world-model-survey" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="journal" data-topics="world-model embodied" data-venue="IJRR" id="paper-world-model-survey"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/world_model_robot_learning.png" rel="noopener" target="_blank"><img alt="World Model for Robot Learning preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/world_model_robot_learning.png"/></a>
+<article aria-labelledby="title-world-model-survey" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="journal" data-topics="world-model embodied" data-venue="IJRR" id="paper-world-model-survey"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/world_model_robot_learning.png" rel="noopener" target="_blank"><img alt="World Model for Robot Learning preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/world_model_robot_learning-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/world_model_robot_learning-480.webp 480w, ./assets/papers/thumbs/world_model_robot_learning-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">IJRR</span><span class="status-label">Accepted</span></div>
 <h3 class="paper-title" id="title-world-model-survey"><a href="https://arxiv.org/abs/2605.00080">World Model for Robot Learning: A Comprehensive Survey</a></h3>
@@ -1141,7 +1139,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-world-model">World Model</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2605.00080">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://ntumars.github.io/wm-robot-survey/">Project<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
 </article>
-<article aria-labelledby="title-mars-policy" class="paper-card has-paper-image" data-author-role="co-author" data-kind="preprint" data-topics="embodied" data-venue="arXiv 2026" id="paper-mars-policy"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/marspolicy.png" rel="noopener" target="_blank"><img alt="MARS Policy overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/marspolicy.png"/></a>
+<article aria-labelledby="title-mars-policy" class="paper-card has-paper-image" data-author-role="co-author" data-kind="preprint" data-topics="embodied" data-venue="arXiv 2026" id="paper-mars-policy"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/marspolicy.png" rel="noopener" target="_blank"><img alt="MARS Policy overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/marspolicy-480.webp" width="1651" height="786" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/marspolicy-480.webp 480w, ./assets/papers/thumbs/marspolicy-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="venue">arXiv 2026</span></div>
 <h3 class="paper-title" id="title-mars-policy"><a href="https://arxiv.org/abs/2605.29766">MARS Policy: Multimodality Only When It Matters</a></h3>
@@ -1150,7 +1148,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2605.29766">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://jingliangli.com/MARS_Policy/">Project<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
 </article>
-<article aria-labelledby="title-videorover" class="paper-card has-paper-image" data-author-role="co-author" data-kind="preprint" data-topics="agent retrieval mllms" data-venue="arXiv 2026" id="paper-videorover"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/beyondvideo.png" rel="noopener" target="_blank"><img alt="Thinking Beyond Videos / VideoRover overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/beyondvideo.png"/></a>
+<article aria-labelledby="title-videorover" class="paper-card has-paper-image" data-author-role="co-author" data-kind="preprint" data-topics="agent retrieval mllms" data-venue="arXiv 2026" id="paper-videorover"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/beyondvideo.png" rel="noopener" target="_blank"><img alt="Thinking Beyond Videos / VideoRover overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/beyondvideo-480.webp" width="1780" height="640" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/beyondvideo-480.webp 480w, ./assets/papers/thumbs/beyondvideo-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="venue">arXiv 2026</span><span class="type-label">VideoRover</span></div>
 <h3 class="paper-title" id="title-videorover"><a href="https://arxiv.org/abs/2608.23329">Thinking Beyond Videos: Unifying Video Reasoning and Deep Research for Open-World Video Agents</a></h3>
@@ -1159,7 +1157,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-agent">Agent</span><span class="topic-label topic-retrieval">Information Retrieval</span><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2608.23329">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://liuwq-bit.github.io/VideoRover/">Project<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
 </article>
-<article aria-labelledby="title-data-pyramid" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="embodied" data-venue="arXiv 2026" id="paper-data-pyramid"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/data-pyramid.png" rel="noopener" target="_blank"><img alt="Embodied Data Pyramid overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/data-pyramid.png"/></a>
+<article aria-labelledby="title-data-pyramid" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="embodied" data-venue="arXiv 2026" id="paper-data-pyramid"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/data-pyramid.png" rel="noopener" target="_blank"><img alt="Embodied Data Pyramid overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/data-pyramid-480.webp" width="1250" height="455" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/data-pyramid-480.webp 480w, ./assets/papers/thumbs/data-pyramid-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
 <h3 class="paper-title" id="title-data-pyramid"><a href="https://arxiv.org/abs/2607.24744v1">Data Pyramid for Embodied Manipulation</a></h3>
@@ -1169,7 +1167,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <a href="https://jasper-aaa.github.io/embodied-data-pyramid/">Project<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/worldbench/awesome-embodied-data-pyramid">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
-<article aria-labelledby="title-rynnbrain-1-1" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain-1-1"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain11.png" rel="noopener" target="_blank"><img alt="RynnBrain 1.1 overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnbrain11.png"/></a>
+<article aria-labelledby="title-rynnbrain-1-1" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain-1-1"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain11.png" rel="noopener" target="_blank"><img alt="RynnBrain 1.1 overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnbrain11-480.webp" width="1162" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnbrain11-480.webp 480w, ./assets/papers/thumbs/rynnbrain11-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
 <h3 class="paper-title" id="title-rynnbrain-1-1"><a href="https://arxiv.org/abs/2607.17977">RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</a></h3>
@@ -1179,7 +1177,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
-<article aria-labelledby="title-rynnvalue" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="unspecified" data-topics="embodied" data-venue="2026" id="paper-rynnvalue"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvalue.png" rel="noopener" target="_blank"><img alt="RynnValue architecture overview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnvalue.png"/></a>
+<article aria-labelledby="title-rynnvalue" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="unspecified" data-topics="embodied" data-venue="2026" id="paper-rynnvalue"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvalue.png" rel="noopener" target="_blank"><img alt="RynnValue architecture overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnvalue-480.webp" width="2162" height="708" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnvalue-480.webp 480w, ./assets/papers/thumbs/rynnvalue-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">2026</span></div>
 <h3 class="paper-title" id="title-rynnvalue"><a href="https://github.com/hbhalpha/hbhalpha.github.io/blob/main/papers/RynnValue.pdf">RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance</a></h3>
@@ -1189,7 +1187,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <a href="https://alibaba-damo-academy.github.io/RynnValue.github.io/">Project<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/alibaba-damo-academy/RynnValue">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
-<article aria-labelledby="title-rynnbrain" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain.png" rel="noopener" target="_blank"><img alt="RynnBrain preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/rynnbrain.png"/></a>
+<article aria-labelledby="title-rynnbrain" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain.png" rel="noopener" target="_blank"><img alt="RynnBrain preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnbrain-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnbrain-480.webp 480w, ./assets/papers/thumbs/rynnbrain-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
 <h3 class="paper-title" id="title-rynnbrain"><a href="https://arxiv.org/abs/2602.14979">RynnBrain: Open Embodied Foundation Models</a></h3>
@@ -1199,7 +1197,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <a href="https://alibaba-damo-academy.github.io/RynnBrain.github.io/">Project<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
-<article aria-labelledby="title-fire" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval mllms" data-venue="SIGIR 2025" id="paper-fire"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/fire.png" rel="noopener" target="_blank"><img alt="FiRE preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/fire.png"/></a>
+<article aria-labelledby="title-fire" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval mllms" data-venue="SIGIR 2025" id="paper-fire"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/fire.png" rel="noopener" target="_blank"><img alt="FiRE preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/fire-480.webp" width="1284" height="589" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/fire-480.webp 480w, ./assets/papers/thumbs/fire-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">SIGIR 2025</span></div>
 <h3 class="paper-title" id="title-fire"><a href="https://dl.acm.org/doi/10.1145/3726302.3729979">FiRE: Enhancing MLLMs with Fine-Grained Context Learning for Complex Image Retrieval</a></h3>
@@ -1208,7 +1206,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://dl.acm.org/doi/10.1145/3726302.3729979">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/iLearn-Lab/SIGIR25-FIRE">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
 </article>
-<article aria-labelledby="title-visual-anchor" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="challenge" data-topics="retrieval" data-venue="WWW 2025 Challenge" id="paper-visual-anchor"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/mdr.png" rel="noopener" target="_blank"><img alt="Multimodal Document Retrieval preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/mdr.png"/></a>
+<article aria-labelledby="title-visual-anchor" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="challenge" data-topics="retrieval" data-venue="WWW 2025 Challenge" id="paper-visual-anchor"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/mdr.png" rel="noopener" target="_blank"><img alt="Multimodal Document Retrieval preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/mdr-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/mdr-480.webp 480w, ./assets/papers/thumbs/mdr-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">WWW 2025 Challenge</span><span class="status-label">Oral</span></div>
 <h3 class="paper-title" id="title-visual-anchor">Visual Anchor Point for Multimodal Document Retrieval</h3>
@@ -1216,7 +1214,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <p class="paper-note">Winner of the WWW’25 Multimodal Document Retrieval Challenge.</p>
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span></div><div class="paper-footer"><div class="paper-links"><a href="https://github.com/hbhalpha/MDR">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
 </article>
-<article aria-labelledby="title-ptg-fscir" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval" data-venue="IJCNN 2025" id="paper-ptg-fscir"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/ptg.png" rel="noopener" target="_blank"><img alt="PTG-FSCIR preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/ptg.png"/></a>
+<article aria-labelledby="title-ptg-fscir" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval" data-venue="IJCNN 2025" id="paper-ptg-fscir"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/ptg.png" rel="noopener" target="_blank"><img alt="PTG-FSCIR preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/ptg-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/ptg-480.webp 480w, ./assets/papers/thumbs/ptg-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">First author</span><span class="venue">IJCNN 2025</span></div>
 <h3 class="paper-title" id="title-ptg-fscir"><a href="https://arxiv.org/abs/2407.06001">Pseudo-triplet Guided Few-shot Composed Image Retrieval</a></h3>
@@ -1225,7 +1223,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2407.06001">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/hbhalpha/PTG-FSCIR">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">First author</span></div></div>
 </article>
-<article aria-labelledby="title-imgedit" class="paper-card has-paper-image" data-author-role="co-author" data-kind="conference" data-topics="mllms" data-venue="NeurIPS 2025" id="paper-imgedit"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/imgedit.png" rel="noopener" target="_blank"><img alt="ImgEdit preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/imgedit.png"/></a>
+<article aria-labelledby="title-imgedit" class="paper-card has-paper-image" data-author-role="co-author" data-kind="conference" data-topics="mllms" data-venue="NeurIPS 2025" id="paper-imgedit"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/imgedit.png" rel="noopener" target="_blank"><img alt="ImgEdit preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/imgedit-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/imgedit-480.webp 480w, ./assets/papers/thumbs/imgedit-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="venue">NeurIPS 2025</span></div>
 <h3 class="paper-title" id="title-imgedit"><a href="https://arxiv.org/abs/2505.20275">ImgEdit: A Unified Image Editing Dataset and Benchmark</a></h3>
@@ -1234,7 +1232,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2505.20275">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/PKU-YuanGroup/ImgEdit">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
 </article>
-<article aria-labelledby="title-cir-survey" class="paper-card has-paper-image" data-author-role="co-author" data-kind="journal" data-topics="retrieval" data-venue="TOIS" id="paper-cir-survey"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/cir_survey.png" rel="noopener" target="_blank"><img alt="Composed Image Retrieval survey preview" class="original-asset" decoding="async" loading="lazy" src="./assets/papers/cir_survey.png"/></a>
+<article aria-labelledby="title-cir-survey" class="paper-card has-paper-image" data-author-role="co-author" data-kind="journal" data-topics="retrieval" data-venue="TOIS" id="paper-cir-survey"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/cir_survey.png" rel="noopener" target="_blank"><img alt="Composed Image Retrieval survey preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/cir_survey-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/cir_survey-480.webp 480w, ./assets/papers/thumbs/cir_survey-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="venue">TOIS</span></div>
 <h3 class="paper-title" id="title-cir-survey"><a href="https://arxiv.org/abs/2502.18495">A Comprehensive Survey on Composed Image Retrieval</a></h3>
@@ -1243,7 +1241,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-retrieval">Information Retrieval</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2502.18495">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/haokunwen/Awesome-Composed-Image-Retrieval">Resource<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-author</span></div></div>
 </article>
-</div><div class="empty-results" hidden="" id="empty-results"><p>No papers match these filters.</p><button class="button" id="empty-reset" type="button">Show all publications</button></div>
+</div></div><div class="empty-results" hidden="" id="empty-results"><p>No papers match these filters.</p><button class="button" id="empty-reset" type="button">Show all publications</button></div>
 </section>
 <section aria-labelledby="projects-heading" id="projects">
 <div class="section-head"><div><span class="section-kicker">05 / Open Source</span><h2 id="projects-heading">Selected Project</h2></div></div>
@@ -1355,25 +1353,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
     if (event.key === 'Escape' && nav.classList.contains('is-open')) closeMenu(true);
   });
 
-  // Only original image URLs are used. A missing local asset never becomes a fabricated cover.
-  document.querySelectorAll('img.original-asset').forEach(img => {
-    const container = img.parentElement;
-    const owner = img.closest('.paper-card, .timeline-card, .portrait-card');
-    const markMissing = () => {
-      img.hidden = true;
-      container.classList.add('asset-missing');
-      if (owner) owner.classList.add('image-unavailable');
-    };
-    const markLoaded = () => {
-      img.hidden = false;
-      container.classList.remove('asset-missing');
-      if (owner) owner.classList.remove('image-unavailable');
-    };
-    img.addEventListener('error', markMissing);
-    img.addEventListener('load', markLoaded);
-    if (img.complete) img.naturalWidth > 0 ? markLoaded() : markMissing();
-  });
-
+  // Image lifecycle lives in assets/image-loader.js.
 
   const cards = [...document.querySelectorAll('.paper-card')];
   const topicButtons = [...document.querySelectorAll('.topic-filter')];
@@ -1388,6 +1368,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
   const validTopics = new Set(topicButtons.map(button => button.dataset.filter));
   let activeTopic = 'all';
   let activeRole = 'all';
+  let searchTimer = null;
   function matchesTopic(card, topic) { return topic === 'all' || topics.get(card).includes(topic); }
   function matchesRole(card, role) {
     if (role === 'all') return true;
@@ -1395,6 +1376,8 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
     return card.dataset.authorRole === role;
   }
   function applyFilters() {
+    clearTimeout(searchTimer);
+    searchTimer = null;
     document.dispatchEvent(new Event('publications:before-filter'));
     const query = normalize(search.value);
     const words = query.split(' ').filter(Boolean);
@@ -1431,7 +1414,10 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
   roleButtons.forEach(button => button.addEventListener('click', () => {
     activeRole = button.dataset.roleFilter; applyFilters();
   }));
-  search.addEventListener('input', applyFilters);
+  search.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(applyFilters, 140);
+  });
   resetButton.addEventListener('click', () => resetFilters(true));
   document.getElementById('empty-reset').addEventListener('click', () => resetFilters(true));
   document.querySelectorAll('a[data-topic]').forEach(link => link.addEventListener('click', () => {
