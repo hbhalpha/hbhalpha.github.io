@@ -3,7 +3,6 @@
   'use strict';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const ease = 'cubic-bezier(.25,.46,.45,.94)';
-  const animated = new WeakSet();
   const trackedAnimations = new Set();
   function play(element, frames, options) {
     if (reducedMotion.matches || !element.animate) return;
@@ -12,36 +11,6 @@
     animation.finished.catch(() => {}).finally(() => trackedAnimations.delete(animation));
     return animation;
   }
-  function reveal(element, delay = 0) {
-    if (animated.has(element)) return;
-    animated.add(element);
-    element.classList.add('is-in-view');
-    // The daylight edition reveals decorative ink rather than moving reading rows.
-    if (document.documentElement.dataset.theme === 'light') return;
-    if (element.getBoundingClientRect().top < innerHeight - 12) return;
-    play(element, [{ translate: '0 12px' }, { translate: '0 0' }],
-      { duration: 1150, easing: ease, delay, fill: 'backwards' });
-  }
-
-  // First-paint choreography and one-time reveals, with no hidden-content class.
-  document.querySelectorAll('.hero-copy > *, .portrait-card').forEach((element, i) => {
-    const bounds = element.getBoundingClientRect();
-    if (bounds.top < innerHeight && bounds.bottom > 0) reveal(element, Math.min(i * 65, 325));
-  });
-  let observer;
-  if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    observer = new IntersectionObserver(entries => {
-      let stagger = 0;
-      entries.forEach(entry => {
-        if (!entry.isIntersecting || entry.target.hidden) return;
-        reveal(entry.target, Math.min(stagger++ * 55, 165));
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0, rootMargin: '0px 0px 170px 0px' });
-    document.querySelectorAll('.section-head, .bio-card, .timeline-card, .paper-card, .project-card, .simple-card, .updates')
-      .forEach(element => observer.observe(element));
-  }
-
   // FLIP positions only for cards close to the viewport; no per-frame layout work.
   const cards = [...document.querySelectorAll('.paper-card')];
   const list = document.getElementById('publication-list');
@@ -66,8 +35,6 @@
       if (card.hidden) return;
       const next = card.getBoundingClientRect();
       if (next.bottom < -150 || next.top > innerHeight + 150) return;
-      animated.add(card);
-      if (observer) observer.unobserve(card);
       const previous = previousPositions.get(card);
       const distance = previous && previous.bottom > 70 && previous.top < innerHeight ? previous.top - next.top : 12;
       if (Math.abs(distance) < .5) return;
@@ -114,7 +81,6 @@
   reducedMotion.addEventListener('change', () => {
     if (reducedMotion.matches) {
       trackedAnimations.forEach(animation => animation.cancel());
-      observer?.disconnect();
       if (stage) stage.style.overflow = '';
     }
   });

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -18,7 +18,7 @@
   try { saved = localStorage.getItem('bohan-homepage-theme'); } catch (_) {}
   const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  document.getElementById('theme-color-meta').content = dark ? '#0d0b08' : '#ffffff';
+  document.getElementById('theme-color-meta').content = dark ? '#101010' : '#ffffff';
 })();
 
 </script>
@@ -925,11 +925,12 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </style>
 <link href="./assets/refinement.css?v=20261112-margins" rel="stylesheet"/>
 <script defer src="./assets/image-loader.js?v=20261028-stable2"></script>
-<script defer src="./assets/refinement.js?v=20261112-margins"></script>
+<script defer src="./assets/refinement.js?v=20261112-gilt"></script>
 <script defer src="./assets/interactions.js?v=20261112-margins"></script>
 <link href="./assets/daylight.css?v=20261112-margins" rel="stylesheet"/>
-<link href="./assets/folio.css?v=20261112-paper" rel="stylesheet"/>
-<script defer src="./assets/daylight.js?v=20261112-margins"></script>
+<link href="./assets/folio.css?v=20261112-gilt" rel="stylesheet"/>
+<link href="./assets/nocturne.css?v=20261112-gilt" rel="stylesheet"/>
+<script defer src="./assets/daylight.js?v=20261112-gilt"></script>
 </head>
 <body id="top">
 <svg aria-hidden="true" class="svg-definitions" focusable="false" height="0" width="0" xmlns="http://www.w3.org/2000/svg">
@@ -972,7 +973,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </header>
 <main id="main-content">
 <section aria-labelledby="profile-name" class="hero"><svg aria-hidden="true" class="hero-landscape" focusable="false" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 380"><use href="#quiet-mountains"></use></svg>
-<svg class="margin-art margin-fold" viewBox="0 0 600 360" aria-hidden="true" focusable="false"><use class="art-plane" href="./assets/margin-art.svg#fold-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#fold-stroke"></use></svg>
+<svg class="margin-art margin-fold" viewBox="0 0 600 360" aria-hidden="true" focusable="false"><g class="art-light"><use class="art-plane" href="./assets/margin-art.svg#fold-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#fold-stroke"></use></g><g class="art-dark"><use class="art-plane" href="./assets/gilded-art.svg#moon-plane"></use><use class="art-stroke" href="./assets/gilded-art.svg#moon-stroke"></use></g></svg>
 <div class="hero-copy">
 <p class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</p>
 <h1 id="profile-name">Bohan Hou <span class="cn-name" lang="zh-Hans">侯博涵</span></h1>
@@ -1029,7 +1030,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div>
 </article>
 </div>
-<div aria-hidden="true" class="timeline-joint"><span class="margin-rule"></span><svg class="margin-art margin-balance" viewBox="0 0 570 138" aria-hidden="true" focusable="false"><g class="suspended-arm"><use class="art-plane" href="./assets/margin-art.svg#balance-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#balance-stroke"></use></g></svg></div>
+<div aria-hidden="true" class="timeline-joint"><span class="margin-rule"></span><svg class="margin-art margin-balance" viewBox="0 0 570 138" aria-hidden="true" focusable="false"><g class="art-light"><g class="suspended-arm"><use class="art-plane" href="./assets/margin-art.svg#balance-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#balance-stroke"></use></g></g><g class="art-dark"><g transform="translate(87 6) scale(.77)"><use class="art-plane" href="./assets/gilded-art.svg#astrolabe-plane"></use><use class="art-stroke" href="./assets/gilded-art.svg#astrolabe-stroke"></use></g></g></svg></div>
 </section>
 <section aria-labelledby="experience-heading" id="experience">
 <div class="section-head"><div><span class="section-kicker">03 / Appointments</span><h2 id="experience-heading">Experience</h2></div><p class="section-note">Research appointments and internships.</p></div>
@@ -1056,7 +1057,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div>
 </section>
 <section aria-labelledby="publications-heading" id="publications">
-<div class="publication-edge" aria-hidden="true"><svg class="margin-art margin-pool" viewBox="0 0 720 110" aria-hidden="true" focusable="false"><use class="art-plane" href="./assets/margin-art.svg#pool-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#pool-stroke"></use></svg></div>
+<div class="publication-edge" aria-hidden="true"><svg class="margin-art margin-pool" viewBox="0 0 720 110" aria-hidden="true" focusable="false"><g class="art-light"><use class="art-plane" href="./assets/margin-art.svg#pool-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#pool-stroke"></use></g><g class="art-dark"><use class="art-plane" href="./assets/gilded-art.svg#seam-plane"></use><use class="art-stroke" href="./assets/gilded-art.svg#seam-stroke"></use></g></svg></div>
 <div class="section-head"><div><span class="section-kicker">04 / Research</span><h2 id="publications-heading">Publications</h2></div><p class="section-note">* Equal or core contribution, as specified by each paper.</p></div>
 <div class="pub-controls" hidden="" id="pub-controls">
 <div aria-label="Filter publications by research area" class="filter-list" id="topic-filters" role="group"><button aria-controls="publication-list" aria-pressed="true" class="filter-button topic-filter" data-filter="all" type="button"><span aria-hidden="true" class="filter-dot"></span>All work<span class="filter-count">18</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-agent topic-filter" data-filter="agent" type="button"><span aria-hidden="true" class="filter-dot"></span>Agent<span class="filter-count">4</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-retrieval topic-filter" data-filter="retrieval" type="button"><span aria-hidden="true" class="filter-dot"></span>Information Retrieval<span class="filter-count">6</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-world-model topic-filter" data-filter="world-model" type="button"><span aria-hidden="true" class="filter-dot"></span>World Model<span class="filter-count">3</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-mllms topic-filter" data-filter="mllms" type="button"><span aria-hidden="true" class="filter-dot"></span>MLLMs<span class="filter-count">10</span></button><button aria-controls="publication-list" aria-pressed="false" class="filter-button topic-embodied topic-filter" data-filter="embodied" type="button"><span aria-hidden="true" class="filter-dot"></span>Embodied AI<span class="filter-count">11</span></button></div>
@@ -1254,7 +1255,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <section aria-labelledby="projects-heading" id="projects">
 <div class="section-head"><div><span class="section-kicker">05 / Open Source</span><h2 id="projects-heading">Selected Project</h2></div></div>
 <article aria-labelledby="guide-title" class="project-card">
-<svg class="margin-art margin-reed" viewBox="0 0 360 125" aria-hidden="true" focusable="false"><use class="art-plane" href="./assets/margin-art.svg#reed-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#reed-stroke"></use></svg>
+<svg class="margin-art margin-reed" viewBox="0 0 360 125" aria-hidden="true" focusable="false"><g class="art-light"><use class="art-plane" href="./assets/margin-art.svg#reed-plane"></use><use class="art-stroke" href="./assets/margin-art.svg#reed-stroke"></use></g><g class="art-dark"><use class="art-plane" href="./assets/gilded-art.svg#arcade-plane"></use><use class="art-stroke" href="./assets/gilded-art.svg#arcade-stroke"></use></g></svg>
 <div class="project-top">
 <h3 id="guide-title">Embodied-AI-Guide</h3>
 <span class="project-badge">Open source</span>
@@ -1323,7 +1324,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
       if (icon) icon.textContent = isDark ? '☀' : '☾';
       if (label) label.textContent = isDark ? 'Light' : 'Dark';
     }
-    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#0d0b08' : '#ffffff');
+    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#101010' : '#ffffff');
   }
   function currentPreferredTheme() {
     const stored = readThemePreference();

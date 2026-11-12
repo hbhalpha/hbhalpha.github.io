@@ -6,7 +6,7 @@
   const page = document.documentElement;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const ornaments = document.querySelectorAll('.margin-art, .margin-rule');
-  const printed = new WeakSet();
+  const printed = { light: new WeakSet(), dark: new WeakSet() };
   const active = new Set();
   const easing = 'cubic-bezier(.22,.58,.25,1)';
 
@@ -23,6 +23,29 @@
         { scale: '.08 1', transformOrigin: 'left center' },
         { scale: '1 1', transformOrigin: 'left center' }
       ], 1450);
+      return;
+    }
+
+    if (page.dataset.theme === 'dark') {
+      const ink = ornament.querySelector('.art-dark');
+      if (!ink) return;
+      if (ornament.matches('.margin-pool, .margin-reed')) {
+        const isSeam = ornament.matches('.margin-pool');
+        animate(ink, [
+          { clipPath: isSeam ? 'inset(0 100% 0 0)' : 'inset(0 0 0 100%)' },
+          { clipPath: 'inset(0 0 0 0)' }
+        ], isSeam ? 1940 : 1680);
+        return;
+      }
+      const rise = ornament.matches('.margin-fold') ? '0 5px' : '0 0';
+      animate(ink, [{ opacity: .14, translate: rise }, { opacity: 1, translate: '0 0' }], 1650);
+      if (ornament.matches('.margin-balance')) {
+        const orbit = ink.querySelector('.art-stroke');
+        if (orbit) animate(orbit, [
+          { rotate: '-3deg', transformBox: 'fill-box', transformOrigin: 'center' },
+          { rotate: '0deg', transformBox: 'fill-box', transformOrigin: 'center' }
+        ], 1880);
+      }
       return;
     }
 
@@ -53,21 +76,22 @@
       { clipPath: 'polygon(-10% -10%,8% -10%,-4% 110%,-10% 110%)' },
       { clipPath: 'polygon(-10% -10%,125% -10%,113% 110%,-10% 110%)' }
     ], 1820);
-    ornament.querySelectorAll('.art-plane').forEach((plane, index) => {
+    const ink = ornament.querySelector('.art-light') || ornament;
+    ink.querySelectorAll('.art-plane').forEach((plane, index) => {
       animate(plane, [{ translate: '-20px 7px' }, { translate: '0 0' }],
         1710, Math.min(index, 3) * 70);
     });
-    ornament.querySelectorAll('.art-stroke').forEach((stroke, index) => {
+    ink.querySelectorAll('.art-stroke').forEach((stroke, index) => {
       animate(stroke, [{ translate: '14px -3px' }, { translate: '0 0' }],
         1760, 100 + Math.min(index, 4) * 70);
     });
   }
 
   const observer = new IntersectionObserver(entries => {
-    if (reducedMotion.matches || page.dataset.theme !== 'light') return;
+    if (reducedMotion.matches) return;
     for (const { target, isIntersecting } of entries) {
-      if (!isIntersecting || printed.has(target)) continue;
-      printed.add(target);
+      if (!isIntersecting || printed[page.dataset.theme].has(target)) continue;
+      printed[page.dataset.theme].add(target);
       observer.unobserve(target);
       print(target);
     }
@@ -80,8 +104,8 @@
   }
   function watch() {
     stop();
-    if (reducedMotion.matches || page.dataset.theme !== 'light') return;
-    ornaments.forEach(element => { if (!printed.has(element)) observer.observe(element); });
+    if (reducedMotion.matches) return;
+    ornaments.forEach(element => { if (!printed[page.dataset.theme].has(element)) observer.observe(element); });
   }
 
   watch();
