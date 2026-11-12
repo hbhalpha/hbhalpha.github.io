@@ -1,0 +1,62 @@
+/* Handwritten name fonts are self-hosted, three-glyph subsets, under SIL OFL. */
+@font-face { font-family: 'Bohan Kai'; src: url('./fonts/bohan-kai.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; unicode-range: U+4FAF,U+535A,U+6DB5; }
+.cn-name { font-family: 'Bohan Kai','KaiTi','STKaiti',cursive; font-weight: 400; }
+@media screen {
+  html[data-theme="light"] .daylight-composition { color: #1858da; width: 52%; right: 80px; bottom: -4px; }
+  html[data-theme="light"] .blue-slab { opacity: .91; }
+  html[data-theme="light"] .daylight-rule { opacity: .26; }
+  html[data-theme="light"] .daylight-cinnabar { color: #9cbcff; opacity: 1; }
+  html[data-theme="light"] .hero { border-bottom: 2px solid #174fb7; }
+  html[data-theme="light"] .hero h1 { color: #123b8d; }
+  html[data-theme="light"] .cn-name { font-synthesis: none; }
+  html[data-theme="light"] .section-head::after { width: 132px; height: 7px; background: #1555cc; }
+  html[data-theme="light"] .paper-card { --ink-surface: #fff; }
+  html[data-theme="light"] .paper-card[data-pinned="true"] { border-left-width: 3px; }
+  html[data-theme="light"] :is(.hero,.updates,#bio,#education,#experience,#publications,#projects,#misc) { position: relative; isolation: isolate; }
+  html[data-theme="light"] [data-ink-panel] { position: relative; z-index: 1; }
+  /* Pending content is clipped before its first paint, never reset after it has appeared. */
+  html[data-theme="light"].blue-ink-boot [data-ink-panel]:not(.ink-seen) { clip-path: circle(0 at 8% 36px); }
+  .chapter-ink-field { display: none; }
+  html[data-theme="light"] .chapter-ink-field {
+    display: block; position: absolute; top: -64px; left: 0; right: 0; height: 440px;
+    overflow: clip; pointer-events: none; z-index: 0;
+  }
+  html[data-theme="light"] .chapter-ink {
+    display: block; position: absolute; top: 0; left: -30px; width: min(1060px,100%); height: 330px;
+    pointer-events: none; z-index: 0; background: #1555cc; opacity: 0;
+    mask: url('./ink-splash.svg') 0 50% / 100% 100% no-repeat;
+    -webkit-mask: url('./ink-splash.svg') 0 50% / 100% 100% no-repeat;
+    transform-origin: 12% 48%;
+  }
+  html[data-theme="light"] .paper-card::after {
+    width: 100%; height: 230px; top: -30px; left: -12px; background: #1555cc;
+    mask: url('./ink-splash.svg') 0 0 / 100% 100% no-repeat;
+    -webkit-mask: url('./ink-splash.svg') 0 0 / 100% 100% no-repeat;
+    clip-path: none; opacity: 0;
+  }
+  html[data-theme="light"] .paper-card.ink-seen::after { animation: blue-entry-wash 1550ms cubic-bezier(.2,.65,.3,1) both; }
+  @media (max-width:1040px) { html[data-theme="light"] .daylight-composition { right: -10px; width: 260px; bottom: 0; } }
+  @media (max-width:760px) { html[data-theme="light"] .daylight-composition { right: 0; width: 190px; } }
+  @media (max-width:620px) {
+    html[data-theme="light"] .daylight-composition { right: -12px; width: 64%; height: 170px; bottom: 0; opacity: .75; }
+    html[data-theme="light"] .chapter-ink-field { top: -30px; height: 300px; }
+    html[data-theme="light"] .chapter-ink { left: -12px; width: calc(100% + 12px); height: 210px; }
+    html[data-theme="light"] .paper-card::after { top: -10px; height: 170px; }
+    html[data-theme="light"] .cn-name { font-size: .64em; margin-top: 14px; }
+  }
+}
+@keyframes blue-entry-wash {
+  0% { opacity: 0; transform: scale(.03,.12) rotate(-12deg); }
+  26% { opacity: .14; }
+  75% { opacity: .045; transform: scale(1.04,1.14) rotate(0); }
+  100% { opacity: 0; transform: scale(1.08,1.17) rotate(0); }
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-theme="light"].blue-ink-boot [data-ink-panel] { clip-path: none !important; }
+  html[data-theme="light"] .paper-card.ink-seen::after { animation: none; opacity: 0; }
+  .chapter-ink-field { display: none !important; }
+}
+@media print {
+  [data-ink-panel] { clip-path: none !important; }
+  .chapter-ink-field { display: none !important; }
+}

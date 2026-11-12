@@ -7,10 +7,13 @@ Static GitHub Pages site. No build step or frontend dependencies.
 - `assets/refinement.js`: one-time positional reveals, interruptible publication filter transitions, and reading progress. Readable cards never fade back to transparent.
 - `assets/interactions.js`: interruptible anchor scrolling, sliding navigation marker, pointer lighting, and reversible author-list disclosures.
 - `assets/image-loader.js`: decode-aware image loading. Loaded images stay visible; loading and failure states retain their reserved frames.
-- `assets/daylight.css` and `assets/daylight.js`: light-theme paper surfaces, angular ink composition, decorative ink spreading, and subtle page-edge turns. Original portrait and research figures remain unchanged. Dark-theme styling is retained.
+- `assets/daylight.css` and `assets/blue-ink.css`: white surfaces, cobalt geometry, sharp modernist typography, and localized paper details for the light theme. Original portrait and research figures remain unchanged. Dark-theme styling is retained.
+- `assets/daylight.js`: irregular ink-boundary reveals on first entry, with a larger blue splash when entering a chapter. Read content is never clipped again; interrupted filters, keyboard focus, resizing, and reduced-motion preferences immediately resolve pending reveals.
+- `assets/ink-splash.svg`: original decorative ink silhouette, used only as a mask.
+- `assets/fonts/bohan-kai.woff2`: self-hosted three-glyph subset for 侯博涵, derived from [Ma Shan Zheng](https://github.com/google/fonts/tree/main/ofl/mashanzheng). The subset is renamed Bohan Kai; original copyright and SIL Open Font License are included in `bohan-kai-OFL.txt`.
 - `assets/papers/`: original research figures. Responsive WebP previews in `thumbs/` link to these full-size originals. Keep the image width/height and source-set descriptors accurate when adding figures.
 
-Motion respects reduced-motion preferences. Content remains visible without JavaScript. Preview requests begin early at low priority; the 17 paper previews total approximately 454 KB at 480 px or 1.24 MB at 960 px, compared with 9.37 MB of full-size originals.
+Motion respects reduced-motion preferences. A pre-paint gate prevents already painted content from disappearing; it automatically releases if the motion module fails to initialize. Content remains visible without JavaScript. Preview requests begin early at low priority; the 17 paper previews total approximately 454 KB at 480 px or 1.24 MB at 960 px, compared with 9.37 MB of full-size originals.
 
 Preview locally with `python -m http.server 8766`, then open `http://localhost:8766`.
 
