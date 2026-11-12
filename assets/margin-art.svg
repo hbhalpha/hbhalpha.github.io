@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Seven folded leaves meet at a pivot. The open guard extends to the left. -->
+    <path id="fold-lit" d="
+      M94 75 125 69 177 251 165 250Z
+      M177 26 211 29 207 245 195 241Z
+      M284 6 317 25 240 249 230 241Z
+      M396 32 428 55 270 264 263 253Z
+      M505 98 527 132 296 288 293 276Z
+      M584 189 599 230 312 317 313 304Z
+      M633 313 639 350 319 350 323 340Z"/>
+    <path id="fold-shade" d="
+      M125 69 177 26 195 241 177 251Z
+      M211 29 284 6 230 241 207 245Z
+      M317 25 396 32 263 253 240 249Z
+      M428 55 505 98 293 276 270 264Z
+      M527 132 584 189 313 304 296 288Z
+      M599 230 633 313 323 340 312 317Z
+      M639 350 643 427 324 371 319 350Z"/>
+    <clipPath id="fold-lit-clip"><use href="#fold-lit"/></clipPath>
+    <clipPath id="fold-shade-clip"><use href="#fold-shade"/></clipPath>
+    <path id="fold-brush" d="M66 156C157 123 238 101 291 105 329 107 351 122 335 148
+      318 174 280 212 284 234 287 255 326 267 372 266 461 265 550 228 644 185
+      L646 192 621 207 641 200C522 268 405 305 325 291 279 283 251 263 252 236
+      253 213 268 191 289 164 302 148 313 133 305 127 283 112 196 127 132 145Z"/>
+    <g id="fold-plane">
+      <g fill="#244570">
+        <path d="M204 352 45 285 43 282 205 345Z"/>
+        <path d="M205 354 93 74 97 74 210 348Z"/>
+        <path d="M203 350 193 237 196 238 207 350Z"/>
+        <path d="M204 350 230 237 233 238 208 350Z"/>
+        <path d="M204 350 263 249 266 251 208 350Z"/>
+        <path d="M205 349 294 272 297 274 208 352Z"/>
+        <path d="M204 350 316 300 317 303 208 352Z"/>
+        <path d="M204 349 326 337 327 340 205 353Z"/>
+      </g>
+      <g fill="#e8f0ff"><use href="#fold-lit"/></g>
+      <g fill="#b9d2f8"><use href="#fold-shade"/></g>
+      <path fill="#d3e3fa" d="M125 69 177 26 195 241 177 251Z"/>
+      <path fill="#a5c4f2" d="M317 25 396 32 263 253 240 249Z"/>
+      <path fill="#b0c8ef" d="M599 230 633 313 323 340 312 317Z"/>
+      <circle cx="205" cy="350" r="5.1" fill="#183766"/>
+      <circle cx="205" cy="350" r="1.85" fill="#fff"/>
+    </g>
+    <g id="fold-stroke">
+      <g clip-path="url(#fold-shade-clip)">
+        <use href="#fold-brush" fill="#143b89"/>
+        <path fill="#fff" d="M255 234C259 220 265 210 272 201 264 214 261 224 259 234ZM324 280C353 287 397 280 431 273 392 285 348 290 324 280Z"/>
+      </g>
+      <g clip-path="url(#fold-lit-clip)">
+        <use href="#fold-brush" fill="#2a59c9" transform="translate(-3 -7)"/>
+        <path fill="#fff" d="M296 172C309 153 324 140 323 132 327 140 314 156 296 172ZM361 273C404 275 464 258 506 242 454 264 408 277 361 273Z"/>
+      </g>
+      <g fill="none" stroke="#587ca9" stroke-width=".78">
+        <path d="M127 78 139 119M130 79 138 103M212 34 211 84"/>
+        <path d="M321 31 313 51M325 32 314 61M329 32 323 45"/>
+        <path d="M527 140 509 152M531 143 518 151M584 199 557 213"/>
+      </g>
+      <g fill="none" stroke="#fff" stroke-width="1.15">
+        <path d="M232 234 253 161M266 249 291 206M295 273 327 247"/>
+      </g>
+    </g>
+
+    <!-- A contour doubles back and leaves a long channel of unprinted paper. -->
+    <g id="pool-plane">
+      <path fill="#c0d5fa" d="M2 96C118 90 207 75 298 45 375 20 427 12 478 18 429 16 382 29 316 51 202 89 116 95 2 96Z"/>
+      <path fill="#204fc3" d="M18 96C171 92 270 68 355 40 405 24 437 15 463 15 488 15 500 21 498 27 493 40 455 46 402 61 470 56 549 38 626 21L734-3 731 4C642 27 545 51 445 64 399 70 363 71 359 67 355 62 381 53 420 40 448 31 462 25 460 22 458 19 432 23 400 32 371 40 330 55 301 63 208 89 103 97 18 96Z"/>
+      <path fill="#12316c" d="M368 69C416 65 474 52 521 40 498 48 452 60 413 66 391 70 375 71 368 69Z"/>
+    </g>
+    <g id="pool-stroke" fill="none" stroke-linecap="round">
+      <path stroke="#2a56ac" stroke-width="1.1" d="M111 98C194 94 248 83 306 65"/>
+      <path stroke="#507fc9" stroke-width=".9" d="M414 14C453 4 487 4 507 11 529 20 509 31 490 37"/>
+      <path stroke="#1b438c" stroke-width="1.15" d="M376 75C448 75 576 50 676 28"/>
+      <path stroke="#91b6e7" stroke-width="1.5" d="M457 70C521 63 566 53 596 46"/>
+    </g>
+
+    <!-- Two steep incisions and a low blade with a cut-in spine. -->
+    <g id="reed-plane">
+      <path fill="#aecbfa" d="M78 102C108 92 137 65 165 24L178 9 172 33C154 65 115 97 78 102Z"/>
+      <path fill="#2154c9" d="M28 115C79 104 129 83 164 58 185 43 203 26 229 7L213 32 225 25C201 53 181 64 155 77 109 98 72 109 28 115Z"/>
+      <path fill="#142f64" d="M109 98C149 82 180 69 211 53 242 37 268 28 297 25 278 37 263 48 242 55 201 68 166 79 109 98Z"/>
+      <path fill="#507cde" d="M154 88C196 84 223 76 255 68L318 57C293 71 263 79 235 81Z"/>
+    </g>
+    <g id="reed-stroke">
+      <path fill="#fff" d="M129 91C166 74 193 64 228 47 198 64 163 77 129 91Z"/>
+      <g fill="none" stroke="#254989" stroke-linecap="round">
+        <path stroke-width="1.25" d="M2 121C45 113 72 107 103 96"/>
+        <path stroke-width=".85" d="M180 85C226 79 257 70 289 64"/>
+        <path stroke-width="1.1" d="M191 72C223 59 258 52 288 48"/>
+      </g>
+    </g>
+  <!-- Suspended shapes share a pivot with the rule between the two timelines. -->
+<g id="balance-stroke" fill="none" stroke="#25405f" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke-width="1.9" d="M314 -3 312 18 M102 50Q224 31 312 18 368 27 434 39"/>
+  <path stroke-width="1.35" d="M103 49 102 66 M43 91Q82 79 102 66 128 70 161 73 M161 73 160 82
+     M434 39 432 55 M360 83Q405 68 432 55 465 59 506 61 M506 61 504 67"/>
+  <path stroke-width=".9" d="M49 89 44 100 M361 82 360 99 M306 19Q312 12 318 19"/>
+</g>
+<g id="balance-plane">
+  <path fill="#1849ae" d="M104 49C90 29 72 21 50 18L23 18 39 44C54 60 83 56 104 49Z"/>
+  <path fill="#a6c5ee" d="M44 96C23 88 10 96 6 107 3 116 12 123 25 119 36 116 44 107 44 96Z"/>
+  <circle fill="#213c64" cx="160" cy="87" r="8"/>
+  <path fill="#285ec6" d="M360 94C329 81 303 91 284 106L266 129C293 134 314 130 326 120 341 109 346 103 360 101Z"/>
+  <path fill="#142f5a" d="M505 66C523 60 546 66 566 82 541 77 530 88 513 84 505 81 503 75 505 66Z"/>
+</g>
+
+  </defs>
+</svg>
