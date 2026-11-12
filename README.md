@@ -7,9 +7,8 @@ Static GitHub Pages site. No build step or frontend dependencies.
 - `assets/refinement.js`: one-time positional reveals, interruptible publication filter transitions, and reading progress. Readable cards never fade back to transparent.
 - `assets/interactions.js`: interruptible anchor scrolling, sliding navigation marker, pointer lighting, and reversible author-list disclosures.
 - `assets/image-loader.js`: decode-aware image loading. Loaded images stay visible; loading and failure states retain their reserved frames.
-- `assets/daylight.css` and `assets/folio.css`: white-paper daylight palette, blue first/co-first authorship labels, and the portrait paired with an independent print.
-- `assets/shoreline.webp`: *Across the water*, an AI-assisted digital print study derived from the waterfront, boats and railing in the site's avatar. Its near/far composition takes inspiration from [Hiroshige's Returning Sails at Yabase](https://www.metmuseum.org/art/collection/search/36534). No museum artwork is embedded. The original avatar and paper figures are unchanged.
-- `assets/daylight.js`: a sheet lifts from a different crop of the print at each chapter heading. Reading content and images always remain visible, including when JavaScript or motion is disabled.
+- `assets/daylight.css` and `assets/folio.css` style the daylight edition. The name, chapter numbers, dates and hanging indents form a blue-and-white typographic grid.
+- `assets/daylight.js` briefly separates and registers bands of live display type. Section entrances, dates and publication text use interruptible Web Animations. Original figures stay in their reserved frames.
 - `assets/fonts/bohan-kai.woff2`: self-hosted three-glyph subset for 侯博涵, derived from [Ma Shan Zheng](https://github.com/google/fonts/tree/main/ofl/mashanzheng). The subset is renamed Bohan Kai; original copyright and SIL Open Font License are included in `bohan-kai-OFL.txt`.
 - `assets/papers/`: original research figures. Responsive WebP previews in `thumbs/` link to these full-size originals. Keep the image width/height and source-set descriptors accurate when adding figures.
 
