@@ -29,6 +29,18 @@
     if (page.dataset.theme === 'dark') {
       const ink = ornament.querySelector('.art-dark');
       if (!ink) return;
+      if (ornament.matches('.margin-fold')) {
+        const distance = ink.querySelector('.sky-distance');
+        const wind = ink.querySelector('.sky-wind');
+        const stars = ink.querySelector('.sky-stars');
+        if (distance) animate(distance, [{ opacity: .78 }, { opacity: 1 }], 840);
+        if (wind) animate(wind, [
+          { clipPath: 'ellipse(14% 62% at -8% 68%)', translate: '-7px 3px' },
+          { clipPath: 'ellipse(135% 138% at 7% 44%)', translate: '0 0' }
+        ], 1850);
+        if (stars) animate(stars, [{ opacity: .22 }, { opacity: 1 }], 1390, 640);
+        return;
+      }
       if (ornament.matches('.margin-pool, .margin-reed')) {
         const isSeam = ornament.matches('.margin-pool');
         animate(ink, [
@@ -37,8 +49,7 @@
         ], isSeam ? 1940 : 1680);
         return;
       }
-      const rise = ornament.matches('.margin-fold') ? '0 5px' : '0 0';
-      animate(ink, [{ opacity: .14, translate: rise }, { opacity: 1, translate: '0 0' }], 1650);
+      animate(ink, [{ opacity: .14 }, { opacity: 1 }], 1650);
       if (ornament.matches('.margin-balance')) {
         const orbit = ink.querySelector('.art-stroke');
         if (orbit) animate(orbit, [
@@ -105,7 +116,20 @@
   function watch() {
     stop();
     if (reducedMotion.matches) return;
-    ornaments.forEach(element => { if (!printed[page.dataset.theme].has(element)) observer.observe(element); });
+    const seen = printed[page.dataset.theme];
+    ornaments.forEach(element => {
+      if (seen.has(element)) return;
+      // Start the visible night sky in the same frame as a theme switch.
+      if (page.dataset.theme === 'dark' && element.matches('.margin-fold')) {
+        const bounds = element.getBoundingClientRect();
+        if (bounds.height > 0 && bounds.bottom > 0 && bounds.top < innerHeight) {
+          seen.add(element);
+          print(element);
+          return;
+        }
+      }
+      observer.observe(element);
+    });
   }
 
   watch();

@@ -8,7 +8,7 @@ Static GitHub Pages site. No build step or frontend dependencies.
 - `assets/interactions.js`: interruptible anchor scrolling, sliding navigation marker, pointer lighting, and reversible author-list disclosures.
 - `assets/image-loader.js`: decode-aware image loading. Loaded images stay visible; loading and failure states retain their reserved frames.
 - `assets/daylight.css` and `assets/folio.css` keep the academic type scale and position the artwork around the text in both themes.
-- `assets/margin-art.svg` contains the daylight ornaments. `assets/gilded-art.svg` contains the gold-leaf moon, astrolabe, repaired lacquer seam and arcade for dark mode. `assets/nocturne.css` sets the dark palette and authorship highlights. `assets/daylight.js` reveals each theme’s ornaments once as they enter view.
+- `assets/margin-art.svg` contains the daylight ornaments. `assets/gilded-art.svg` contains the astrolabe, repaired lacquer seam and arcade for dark mode. The dark hero uses three layers of original brushwork in `assets/starry-night.svg`, inspired by Van Gogh’s [The Starry Night](https://www.moma.org/collection/works/79802). `assets/nocturne.css` sets the dark palette and authorship highlights. `assets/daylight.js` reveals each theme’s ornaments once as they enter view.
 - `assets/fonts/bohan-kai.woff2`: self-hosted three-glyph subset for 侯博涵, derived from [Ma Shan Zheng](https://github.com/google/fonts/tree/main/ofl/mashanzheng). The subset is renamed Bohan Kai; original copyright and SIL Open Font License are included in `bohan-kai-OFL.txt`.
 - `assets/papers/`: original research figures. Responsive WebP previews in `thumbs/` link to these full-size originals. Keep the image width/height and source-set descriptors accurate when adding figures.
 

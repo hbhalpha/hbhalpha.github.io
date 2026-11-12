@@ -104,7 +104,28 @@
     }
     & .hero { border-bottom: 1px solid var(--brass); }
     & main { padding-top: 22px; }
-    & .margin-fold { overflow: visible; }
+    /* The sky occupies the free column below the research focus. */
+    & .hero {
+      grid-template-areas:
+        "portrait eyebrow focus"
+        "portrait name    focus"
+        "intro    intro   sky"
+        "topics   topics  sky"
+        "actions  actions sky"
+        "affils   affils  sky";
+    }
+    & .hero .margin-fold {
+      grid-area: sky;
+      position: relative;
+      inset: auto;
+      align-self: end;
+      justify-self: end;
+      width: 100%;
+      height: auto;
+      max-height: none;
+      overflow: visible;
+      mask-image: linear-gradient(to right, transparent, #000 9%, #000 92%, transparent);
+    }
     & .quick-meta-label { font-size: .65rem; }
     & .quick-meta strong { font-size: .875rem; }
     & .quick-meta p { font-size: .75rem; }
@@ -224,9 +245,45 @@
     & .paper-card:hover .authorship-badge::after { animation: none; }
   }
 
+  @media (min-width: 901px) {
+    html[data-theme="dark"] .hero .margin-fold {
+      width: calc(100% + clamp(32px,6.3vw,96px));
+      max-width: none;
+    }
+  }
+  @media (min-width: 621px) and (max-width: 900px) {
+    html[data-theme="dark"] .hero {
+      grid-template-columns: clamp(90px,12vw,108px) minmax(0,1.1fr) minmax(0,1fr);
+    }
+    html[data-theme="dark"] .hero .eyebrow { font-size: .72rem; letter-spacing: 0; }
+    html[data-theme="dark"] .hero-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 26rem;
+    }
+    html[data-theme="dark"] .hero .margin-fold { align-self: center; }
+  }
+
   @media (max-width: 620px) {
     html[data-theme="dark"] main { padding-top: 10px; }
-    html[data-theme="dark"] .margin-fold { width: 59%; max-height: 132px; right: -4%; }
+    html[data-theme="dark"] .hero {
+      grid-template-areas:
+        "eyebrow  eyebrow"
+        "portrait name"
+        "sky      sky"
+        "intro    intro"
+        "topics   topics"
+        "actions  actions"
+        "affils   affils"
+        "focus    focus";
+    }
+    html[data-theme="dark"] .hero .margin-fold {
+      width: min(100%, 425px);
+      justify-self: center;
+      margin-top: 7px;
+    }
+    html[data-theme="dark"] .hero .subtitle { margin-top: 7px; }
+    html[data-theme="dark"] .hero .quick-meta { max-width: 100%; min-height: 0; }
     html[data-theme="dark"] .section-head h2 { font-size: 1.75rem; }
     html[data-theme="dark"] .hero .tag { padding-inline: 8px; }
     html[data-theme="dark"] .hero .quick-meta { border-inline-start-color: var(--brass); }
