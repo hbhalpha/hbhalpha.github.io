@@ -1,5 +1,6 @@
 /* One reading column, stable figures, and compact publication controls. */
 @media screen {
+  html.selected-pending .paper-card:not([data-selected="true"]) { display: none; }
   html[data-theme] #publications {
     --publication-wash: #f6f9fe;
     --publication-rule: #d4e0ef;
