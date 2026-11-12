@@ -15,42 +15,105 @@
     pointer-events: none;
     user-select: none;
   }
+  html[data-theme="light"] .site-backdrop {
+    background:
+      url('./paper-fiber.svg') 0 0 / 180px 180px repeat,
+      radial-gradient(ellipse at 0% 96%, #deebf6, transparent 47%),
+      linear-gradient(115deg, #f5f9fc, #fff 48%, #edf4fa);
+  }
+  html[data-theme="light"] .site-backdrop::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -6vw; bottom: -3vw;
+    width: min(52vw, 680px);
+    aspect-ratio: 1100 / 460;
+    background: url('./water-paper.svg') center / 100% 100% no-repeat;
+    transform: rotate(180deg);
+    opacity: .68;
+  }
+  html[data-theme="light"] main::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0; right: 0;
+    width: min(88%, 1060px);
+    aspect-ratio: 1100 / 460;
+    background: url('./water-paper.svg') top right / contain no-repeat;
+    mask-image: radial-gradient(ellipse 210px 100px at calc(100% - 145px) clamp(92px, 9vw, 124px),
+      transparent 59%, #000 119%);
+    pointer-events: none;
+  }
   html[data-theme="light"] .hero {
     isolation: isolate;
+    grid-template-columns: clamp(100px, 11.3vw, 144px) minmax(0, 1.04fr) minmax(0, .92fr);
+    grid-template-areas:
+      "portrait eyebrow  focus"
+      "portrait name     focus"
+      "intro    intro    ."
+      "topics   topics   ."
+      "actions  actions  ."
+      "affils   affils   .";
     align-items: start;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-    gap: clamp(18px, 4vw, 64px);
-    padding: clamp(25px, 3.2vw, 48px) 0 29px;
-    border-bottom: 1px solid #93abc8;
-    background: white;
+    gap: 0 clamp(18px, 2.25vw, 32px);
+    padding: clamp(26px, 3.5vw, 52px) 0 30px;
+    border-bottom: 1px solid #9ab1c9;
+    background: transparent;
     overflow: clip;
   }
-  html[data-theme="light"] .hero h1 { font-size: clamp(2.875rem, 5.2vw, 4.5rem); }
+  /* Keep one photograph and the existing dark and print document order. */
+  html[data-theme="light"] .hero :is(.hero-copy, .portrait-card) { display: contents; }
+  html[data-theme="light"] :is(.hero-copy, .portrait-card) > * {
+    position: relative;
+    z-index: 1;
+  }
+  html[data-theme="light"] .hero .eyebrow {
+    grid-area: eyebrow;
+    align-self: end;
+    margin: 0 0 8px;
+  }
+  html[data-theme="light"] .hero h1 {
+    grid-area: name;
+    margin: 0;
+    font-size: clamp(2.875rem, 5.2vw, 4.5rem);
+  }
+
   html[data-theme="light"] .hero .cn-name {
     margin: 8px 0 0; transform: none; font-size: clamp(1.4rem, 2.25vw, 2rem);
     letter-spacing: .12em; font-synthesis: none;
   }
-  html[data-theme="light"] .hero .subtitle { max-width: 47ch; }
-  html[data-theme="light"] .hero .affiliations { flex-wrap: wrap; }
+  html[data-theme="light"] .hero .subtitle {
+    grid-area: intro;
+    max-width: 48ch;
+    margin: 24px 0 0;
+  }
+  html[data-theme="light"] .hero .research-tags { grid-area: topics; }
+  html[data-theme="light"] .hero .hero-actions { grid-area: actions; }
+  html[data-theme="light"] .hero .affiliations { grid-area: affils; flex-wrap: wrap; }
   html[data-theme="light"] .margin-fold {
     position: absolute;
-    right: -2.5%;
-    bottom: -2%;
-    width: 55%;
-    max-height: 88%;
+    right: -2.5%; bottom: -2%;
+    width: 51%;
+    max-height: 83%;
   }
-  html[data-theme="light"] .portrait-card {
-    display: grid;
-    grid-template-columns: clamp(67px, 7vw, 98px) minmax(0, 1fr);
-    gap: 14px;
-    align-self: start; align-items: center; justify-self: end;
-    max-width: 310px;
-    border: none; box-shadow: none; border-radius: 0;
-    margin: 0; padding: 0 0 10px 12px;
-    background: white;
+  html[data-theme="light"] .portrait-visual {
+    grid-area: portrait;
+    align-self: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 260 / 280;
+    outline: 1px solid #b5c8d8;
+    outline-offset: -1px;
   }
-  html[data-theme="light"] .portrait-visual { width: 100%; height: auto; aspect-ratio: 260 / 280; }
-  html[data-theme="light"] .quick-meta { padding: 0; }
+  html[data-theme="light"] .hero .quick-meta {
+    grid-area: focus;
+    justify-self: end;
+    align-self: start;
+    max-width: 240px;
+    padding: 3px 0 3px 13px;
+    border-left: 1px solid #9db5cb;
+  }
+
   html[data-theme="light"] .selected-research { padding-inline: 0; gap: 7px clamp(12px, 2vw, 28px); }
   .selected-research a { white-space: nowrap; }
 
@@ -105,21 +168,48 @@
  html[data-theme="light"] .paper-card:not(.lead-author) :is(.authors,.author-summary) strong{background:none;color:inherit}
 
   @media (max-width: 900px) {
-    html[data-theme="light"] .hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
-    html[data-theme="light"] .portrait-card { gap: 10px; }
-    html[data-theme="light"] .margin-fold { width: 45%; }
+    html[data-theme="light"] .hero {
+      grid-template-columns: clamp(90px, 12vw, 108px) minmax(0, 1.22fr) minmax(0, .78fr);
+      column-gap: 18px;
+    }
+    html[data-theme="light"] .margin-fold { width: 42%; }
+    html[data-theme="light"] .hero .quick-meta { max-width: 190px; }
   }
   @media (max-width: 620px) {
-    html[data-theme="light"] .hero { grid-template-columns: 1fr; gap: 14px; padding: 22px 0 18px; }
-    html[data-theme="light"] .hero h1 { font-size: clamp(2.625rem, 10vw, 3.25rem); }
+    html[data-theme="light"] main::before {
+      width: 100%;
+      mask-image: linear-gradient(120deg, transparent, #000 78%);
+      opacity: .82;
+    }
+    html[data-theme="light"] .site-backdrop::before { width: 76vw; left: -16vw; }
+    html[data-theme="light"] .hero {
+      grid-template-columns: clamp(68px, 21vw, 96px) minmax(0, 1fr);
+      grid-template-areas:
+        "eyebrow  eyebrow"
+        "portrait name"
+        "intro    intro"
+        "topics   topics"
+        "actions  actions"
+        "affils   affils"
+        "focus    focus";
+      gap: 0 clamp(12px, 3.4vw, 18px);
+      padding: 24px 0 18px;
+    }
+    html[data-theme="light"] .hero .eyebrow { margin-bottom: 14px; }
+    html[data-theme="light"] .hero h1 { align-self: center; font-size: clamp(2.15rem, 10.8vw, 3.25rem); }
+    html[data-theme="light"] .hero .subtitle { margin-top: 17px; }
     html[data-theme="light"] .hero-actions {
       display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 25rem;
     }
-    html[data-theme="light"] .portrait-card {
-      grid-template-columns: 52px minmax(0,1fr); width: 64%; min-width: 180px;
-      justify-self: start; padding: 0 4px 0 0; background: white;
+    html[data-theme="light"] .hero .quick-meta {
+      justify-self: start;
+      max-width: 58%;
+      min-height: 68px;
+      margin-top: 18px;
+      padding: 0 0 0 9px;
     }
     html[data-theme="light"] .margin-fold { width: 44%; max-height: 100px; bottom: -1px; }
+
     html[data-theme="light"] .selected-research { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
     html[data-theme="light"] .selected-research > span { grid-column: 1/-1; }
     html[data-theme="light"] .selected-research > a { padding: 5px 0; }
