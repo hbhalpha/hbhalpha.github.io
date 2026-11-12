@@ -5,12 +5,18 @@
     --publication-wash: #f6f9fe;
     --publication-rule: #d4e0ef;
     --publication-caption: #5b6e88;
+    --publication-control-border: #b9c9df;
+    --publication-control-bg: #17365f;
+    --publication-control-text: #ffffff;
     position: relative;
   }
   html[data-theme="dark"] #publications {
     --publication-wash: #151616;
     --publication-rule: #383a37;
     --publication-caption: #b2b2a8;
+    --publication-control-border: #777268;
+    --publication-control-bg: #e6c786;
+    --publication-control-text: #171510;
   }
   html[data-theme] #publications .publication-edge {
     position: absolute; inset: -5px 250px auto auto;
@@ -18,56 +24,58 @@
   }
   html[data-theme] #publications .margin-pool { width: 100%; }
   html[data-theme] #publications .section-head {
-    margin-bottom: 14px; padding-bottom: 17px;
+    margin-bottom: 24px; padding-bottom: 20px;
     align-items: end;
   }
+  html[data-theme] #publications .section-head h2 { font-size: 2.1rem; font-weight: 750; }
+  html[data-theme] #publications .section-kicker { font-size: .76rem; font-weight: 700; }
   html[data-theme] #publications .section-note { max-width: 33ch; font-size: .7rem; }
   html[data-theme] #publications .pub-controls {
     display: grid;
-    grid-template-columns: minmax(0,1fr) 235px;
-    grid-template-areas: "topics search" "roles roles";
+    grid-template-columns: minmax(0,1fr) 260px;
+    grid-template-areas: "topics topics" "roles search";
     align-items: center;
-    gap: 8px 22px; padding: 0 0 12px;
+    gap: 14px 24px; padding: 8px 0 16px;
     margin-bottom: 0;
   }
   html[data-theme] #publications #topic-filters {
     grid-area: topics; min-width: 0;
     display: flex; flex-wrap: nowrap; align-items: center;
-    overflow-x: auto; gap: 4px; padding: 2px 0 4px;
+    overflow-x: auto; gap: 10px; padding: 2px 0 4px;
     scrollbar-width: none;
   }
   html[data-theme] #publications .filter-button {
-    flex: none; gap: 5px; min-height: 36px;
-    padding: 5px 8px; font-size: .76rem;
-    background: transparent; border: 1px solid transparent;
-    border-radius: 3px; color: var(--muted);
+    flex: none; gap: 8px; min-height: 52px;
+    padding: 11px 16px; font-size: 1.05rem; font-weight: 700;
+    background: var(--surface); border: 1px solid var(--publication-control-border);
+    border-radius: 2px; color: var(--ink);
   }
   html[data-theme] #publications .filter-button[aria-pressed="true"] {
-    color: var(--ink); border-color: var(--line); background: var(--publication-wash);
+    color: var(--publication-control-text); border-color: var(--publication-control-bg); background: var(--publication-control-bg);
   }
   html[data-theme] #publications .filter-button:hover { color: var(--accent); }
-  html[data-theme] #publications .filter-count { font-size: .67rem; font-weight: 500; color: inherit; }
+  html[data-theme] #publications .filter-count { font-size: .9rem; font-weight: 650; color: inherit; }
   html[data-theme] #publications .authorship-filters {
-    grid-area: roles; flex-wrap: nowrap; min-width: 0; gap: 4px;
+    grid-area: roles; flex-wrap: nowrap; min-width: 0; gap: 10px;
     overflow-x: auto; padding: 0 0 2px; scrollbar-width: none;
   }
   html[data-theme] #publications :is(#topic-filters,.authorship-filters)::-webkit-scrollbar { display: none; }
-  html[data-theme] #publications .filter-caption { font-size: .7rem; margin-right: 8px; flex: none; }
+  html[data-theme] #publications .filter-caption { font-size: .9rem; font-weight: 700; margin-right: 5px; flex: none; }
   html[data-theme] #publications .role-filter {
-    flex: none; min-height: 32px; padding: 3px 8px; font-size: .73rem;
-    border: 1px solid transparent; background: transparent; color: var(--muted);
-    border-radius: 3px;
+    flex: none; min-height: 50px; padding: 9px 15px; font-size: 1rem; font-weight: 650;
+    border: 1px solid var(--publication-control-border); background: var(--surface); color: var(--ink);
+    border-radius: 2px;
   }
   html[data-theme] #publications .role-filter[aria-pressed="true"] {
-    background: var(--publication-wash); border-color: var(--line); color: var(--accent);
+    background: var(--publication-wash); border-color: var(--accent); color: var(--accent);
   }
   html[data-theme] #publications .search-wrap {
     grid-area: search; width: 100%; margin: 0;
   }
-  html[data-theme] #publications .pub-search { height: 37px; font-size: .8rem; border-color: var(--line); }
-  html[data-theme] #publications .search-wrap svg { top: 11px; }
+  html[data-theme] #publications .pub-search { height: 50px; font-size: 1rem; border-color: var(--publication-control-border); }
+  html[data-theme] #publications .search-wrap svg { top: 18px; }
   html[data-theme] #publications .results-row {
-    margin: 9px 0 11px; font-size: .72rem; min-height: 22px; color: var(--quiet);
+    margin: 12px 0 15px; font-size: .85rem; min-height: 24px; color: var(--quiet);
   }
   html[data-theme] #publications .paper-card,
   html[data-theme] #publications .paper-card:hover {
@@ -93,9 +101,9 @@
     font-weight: 650; letter-spacing: -.02em;
   }
   html[data-theme] #publications :is(.authors,.author-summary) {
-    color: var(--muted); font-size: .85rem; line-height: 1.8;
+    color: var(--muted); font-size: 1.0625rem; line-height: 1.8;
   }
-  html[data-theme] #publications .authors-toggle { font-size: .7rem; margin-inline-start: 6px; white-space: nowrap; }
+  html[data-theme] #publications .authors-toggle { font-size: 1.0625rem; margin-inline-start: 8px; white-space: nowrap; }
   html[data-theme] #publications .author-details[open] .author-preview { display: none; }
   html[data-theme] #publications .paper-meta {
     gap: 6px 9px; margin: 9px 0 0; min-height: 23px; align-items: center;
@@ -159,10 +167,10 @@
       grid-template-areas: "search" "topics" "roles";
       gap: 5px; padding-bottom: 8px;
     }
-    html[data-theme] #publications .filter-caption { display: none; }
-    html[data-theme] #publications .filter-button { min-height: 36px; padding-inline: 7px; }
-    html[data-theme] #publications .role-filter { min-height: 34px; font-size: .7rem; }
-    html[data-theme] #publications .results-row { margin: 7px 0 8px; font-size: .67rem; }
+    html[data-theme] #publications .filter-caption { display: inline; font-size: .85rem; }
+    html[data-theme] #publications .filter-button { min-height: 44px; padding: 8px 11px; font-size: .9rem; }
+    html[data-theme] #publications .role-filter { min-height: 44px; padding: 8px 11px; font-size: .9rem; }
+    html[data-theme] #publications .results-row { margin: 9px 0 10px; font-size: .8rem; }
     html[data-theme] #publications .paper-card,
     html[data-theme] #publications .paper-card.without-paper-image {
       display: flex; flex-direction: column; gap: 0;
