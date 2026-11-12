@@ -29,12 +29,12 @@
     transform-origin: 12% 48%;
   }
   html[data-theme="light"] .paper-card::after {
-    width: 100%; height: 230px; top: -30px; left: -12px; background: #1555cc;
+    width: 88%; height: 230px; top: -30px; left: -12px; background: #1555cc;
     mask: url('./ink-splash.svg') 0 0 / 100% 100% no-repeat;
     -webkit-mask: url('./ink-splash.svg') 0 0 / 100% 100% no-repeat;
     clip-path: none; opacity: 0;
   }
-  html[data-theme="light"] .paper-card.ink-seen::after { animation: blue-entry-wash 1550ms cubic-bezier(.2,.65,.3,1) both; }
+  html[data-theme="light"] .paper-card.ink-seen::after { animation: blue-entry-wash 1550ms cubic-bezier(.2,.65,.3,1); }
   @media (max-width:1040px) { html[data-theme="light"] .daylight-composition { right: -10px; width: 260px; bottom: 0; } }
   @media (max-width:760px) { html[data-theme="light"] .daylight-composition { right: 0; width: 190px; } }
   @media (max-width:620px) {
