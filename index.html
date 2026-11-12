@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="Bohan Hou is a PhD student at Nanyang Technological University researching multimodal foundation models, embodied intelligence, world models, and robot learning." name="description"/>
-<meta content="#f4f8fd" id="theme-color-meta" name="theme-color"/>
+<meta content="#f6f4ed" id="theme-color-meta" name="theme-color"/>
 <meta content="website" property="og:type"/>
 <meta content="Bohan Hou | Multimodal &amp; Embodied Intelligence" property="og:title"/>
 <meta content="Research in multimodal foundation models, embodied intelligence, world models, and robot learning." property="og:description"/>
@@ -18,7 +18,7 @@
   try { saved = localStorage.getItem('bohan-homepage-theme'); } catch (_) {}
   const dark = saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  document.getElementById('theme-color-meta').content = dark ? '#0d0b08' : '#f4f8fd';
+  document.getElementById('theme-color-meta').content = dark ? '#0d0b08' : '#f6f4ed';
 })();
 </script>
 <style>
@@ -730,7 +730,7 @@ html[data-theme="dark"] .lead-author .author-summary strong {
 }
 html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 /* The original thumbnail must remain entirely visible in either theme. */
-.paper-thumb img { filter: none !important; mix-blend-mode: normal !important; opacity: 1 !important; }
+.paper-thumb img { filter: none !important; mix-blend-mode: normal !important; opacity: 1; }
 @media (max-width: 800px) {
   .search-wrap { flex: 1 1 190px; }
 }
@@ -921,10 +921,12 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
   .contact-links a { flex-wrap: wrap; }
 }
 </style>
-<link href="./assets/refinement.css?v=20261028-stable2" rel="stylesheet"/>
+<link href="./assets/refinement.css?v=20261112-paper" rel="stylesheet"/>
 <script defer src="./assets/image-loader.js?v=20261028-stable2"></script>
-<script defer src="./assets/refinement.js?v=20261028-stable2"></script>
-<script defer src="./assets/interactions.js?v=20261028-stable2"></script>
+<script defer src="./assets/refinement.js?v=20261112-paper"></script>
+<script defer src="./assets/interactions.js?v=20261112-paper"></script>
+<link href="./assets/daylight.css?v=20261112-paper" rel="stylesheet"/>
+<script defer src="./assets/daylight.js?v=20261112-paper"></script>
 </head>
 <body id="top">
 <svg aria-hidden="true" class="svg-definitions" focusable="false" height="0" width="0" xmlns="http://www.w3.org/2000/svg">
@@ -967,6 +969,18 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </header>
 <main id="main-content">
 <section aria-labelledby="profile-name" class="hero"><svg aria-hidden="true" class="hero-landscape" focusable="false" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 380"><use href="#quiet-mountains"></use></svg>
+<svg aria-hidden="true" class="daylight-composition" focusable="false" viewBox="0 0 620 420" fill="none">
+  <path class="daylight-rule" d="M38 340H590M486 28V366" stroke="currentColor" stroke-width="1"/>
+  <g class="daylight-ink-field">
+    <path d="M168 330 261 258 329 275 425 108 459 159 486 153 535 330Z" fill="currentColor" opacity=".075"/>
+    <path d="m223 330 67-51 40 15 98-185-48 147-34-8-42 82Z" fill="currentColor" opacity=".17"/>
+    <path d="m118 330 143-73 68 19 96-167 34 51 27-7 49 177" stroke="currentColor" stroke-width="1.5"/>
+    <path d="m128 336 131-69 70 18 96-169" stroke="currentColor" stroke-width=".5" opacity=".36"/>
+    <path d="m247 330 82-53 18 18 78-153-54 149-23-12-36 51Z" fill="currentColor" opacity=".055"/>
+  </g>
+  <path class="daylight-cinnabar" d="m335 306 34 1-2 28-31-1Z" fill="currentColor"/>
+  <g class="daylight-fine-marks" stroke="currentColor" stroke-width=".8" opacity=".45"><path d="M91 330v17m81-17v10m87-10v17m70-17v10m96-10v17m110-17v10"/></g>
+</svg>
 <div class="hero-copy">
 <p class="eyebrow">PhD Student · Multimodal AI · Embodied Intelligence</p>
 <h1 id="profile-name">Bohan Hou <span class="cn-name" lang="zh-Hans">侯博涵</span></h1>
@@ -990,6 +1004,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div class="quick-meta"><span class="quick-meta-label">Current focus</span><strong>Embodied Foundation Models</strong><p>Multimodal agents · World models · Robot learning</p></div>
 </aside>
 </section>
+<nav class="selected-research" aria-label="Selected research projects"><span>Selected projects</span><a href="#paper-rynnunify">RynnUnify<span aria-hidden="true">↗</span></a><a href="#paper-rynnbrain-1-1">RynnBrain 1.1<span aria-hidden="true">↗</span></a><a href="#paper-rynnbrain">RynnBrain<span aria-hidden="true">↗</span></a></nav>
 <section aria-labelledby="updates-heading" class="updates" id="news"><div class="updates-header"><h2 id="updates-heading">Recent updates</h2></div>
 <div class="news-lines">
 <p><span aria-hidden="true" class="news-dot jade"></span><span><span class="news-date">Oct. 2026</span> New preprints: <a href="#paper-rynnvla-latent">RynnVLA-Latent</a>, <a href="#paper-rynnunify">RynnUnify</a>, and <a href="#paper-astra">GPT-GEAR / Astra</a>.</span></p>
@@ -1055,10 +1070,10 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div>
 <div class="results-row" hidden="" id="results-row"><p aria-live="polite" id="result-count" role="status">18 of 18 publications</p><button class="text-button" hidden="" id="reset-filters" type="button">Clear filters</button></div>
 <div class="publication-stage"><div class="paper-list" id="publication-list"><span aria-hidden="true" class="anchor-alias" id="first-author-publications"></span><span aria-hidden="true" class="anchor-alias" id="publications2"></span><!-- Research-area labels live in data-topics (space-separated). A paper can belong to multiple areas. -->
-<article aria-labelledby="title-rynnunify" class="paper-card has-paper-image lead-author" data-author-role="core" data-kind="preprint" data-search-alias="RynnUnify unified embodied brain world action model WAM" data-topics="agent world-model mllms embodied" data-venue="arXiv 2026" id="paper-rynnunify">
+<article data-pinned="true" aria-labelledby="title-rynnunify" class="paper-card has-paper-image lead-author" data-author-role="core" data-kind="preprint" data-search-alias="RynnUnify unified embodied brain world action model WAM" data-topics="agent world-model mllms embodied" data-venue="arXiv 2026" id="paper-rynnunify">
 <a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnunify.png" rel="noopener" target="_blank"><img alt="RynnUnify teaser: embodied understanding, visual planning, agentic reasoning, and robot action" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnunify-480.webp" width="2040" height="908" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnunify-480.webp 480w, ./assets/papers/thumbs/rynnunify-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
-<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="leadership-badge">Project leader</span><span class="venue">arXiv 2026</span><span class="type-label">New preprint</span></div>
+<div class="paper-meta"><span class="pinned-badge">Pinned</span><span class="authorship-badge">Co-first author</span><span class="leadership-badge">Project leader</span><span class="venue">arXiv 2026</span><span class="type-label">New preprint</span></div>
 <h3 class="paper-title" id="title-rynnunify"><a href="https://arxiv.org/abs/2610.32965">RynnUnify: Towards Unified Embodied Brain</a></h3>
 <details class="author-details"><summary class="author-summary">Minghao Zhu*‡, <strong>Bohan Hou*‡</strong>, Kun Xiang*, Zixuan Wang*, Yinzhou Tang*‡, …<span class="authors-toggle">Full author list</span></summary><p class="authors">Minghao Zhu*‡, <strong>Bohan Hou*‡</strong>, Kun Xiang*, Zixuan Wang*, Yinzhou Tang*‡, Yifei Yang*, Zhikai Wang*, Tianyi Zhang*, Kehan Li*, Haoyu Zhao, Siteng Huang, Leigang Qu, Sicong Leng, Dongchi Huang, Mingxiu Chen, Shijian Lu, Yue Wang, Xiaodan Liang, Zhenyu Zeng, Deli Zhao, Chengju Liu†, Jianfei Yang†, and Xin Li‡.</p></details>
 <p class="contribution-note">* Core contributors. ‡ Project leaders. † Co-corresponding authors.</p>
@@ -1069,6 +1084,26 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <a href="https://github.com/alibaba-damo-academy/RynnUnify">Code<span aria-hidden="true"> ↗</span></a>
 </div><span class="paper-role">Co-first author · Project leader</span></div>
 </div>
+</article>
+<article data-pinned="true" aria-labelledby="title-rynnbrain-1-1" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain-1-1"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain11.png" rel="noopener" target="_blank"><img alt="RynnBrain 1.1 overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnbrain11-480.webp" width="1162" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnbrain11-480.webp 480w, ./assets/papers/thumbs/rynnbrain11-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
+<div class="paper-body">
+<div class="paper-meta"><span class="pinned-badge">Pinned</span><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
+<h3 class="paper-title" id="title-rynnbrain-1-1"><a href="https://arxiv.org/abs/2607.17977">RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</a></h3>
+<p class="authors">Kehan Li*, <strong>Bohan Hou*</strong>, Minghao Zhu*, Tianyi Zhang*, Zesen Cheng*, Zhikai Wang*, Sicong Leng*, Xin Li*, et al.</p>
+<p class="paper-note">An embodied foundation-model family spanning 2B, 9B, and 122B-A10B scales, with stronger cognition and localization, native 3D grounding, contact-point prediction, and cross-embodiment VLA capabilities.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2607.17977">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
+</article>
+<article data-pinned="true" aria-labelledby="title-rynnbrain" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain.png" rel="noopener" target="_blank"><img alt="RynnBrain preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnbrain-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnbrain-480.webp 480w, ./assets/papers/thumbs/rynnbrain-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
+<div class="paper-body">
+<div class="paper-meta"><span class="pinned-badge">Pinned</span><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
+<h3 class="paper-title" id="title-rynnbrain"><a href="https://arxiv.org/abs/2602.14979">RynnBrain: Open Embodied Foundation Models</a></h3>
+<p class="authors">Ronghao Dang*, Jiayan Guo*, <strong>Bohan Hou*</strong>, Sicong Leng*, Kehan Li*, Xin Li*, et al.</p>
+<p class="paper-note">An open embodied foundation model family for egocentric understanding, spatiotemporal localization, physical reasoning, and planning.</p>
+<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2602.14979">Paper<span aria-hidden="true"> ↗</span></a>
+<a href="https://alibaba-damo-academy.github.io/RynnBrain.github.io/">Project<span aria-hidden="true"> ↗</span></a>
+<a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
 <article aria-labelledby="title-rynnvla-latent" class="paper-card has-paper-image lead-author" data-author-role="core" data-kind="preprint" data-search-alias="RynnVLA RynnLAM latent action flow matching" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnvla-latent">
 <a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvla-latent.png" rel="noopener" target="_blank"><img alt="RynnVLA-Latent latent-action pretraining and robot post-training architecture" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnvla-latent-480.webp" width="2048" height="590" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnvla-latent-480.webp 480w, ./assets/papers/thumbs/rynnvla-latent-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
@@ -1085,7 +1120,6 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div><span class="paper-role">Co-first author</span></div>
 </div>
 </article>
-
 <article aria-labelledby="title-astra" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-search-alias="Astra GPT-GEAR GPT6 LIBERO-GeoMotion" data-topics="agent mllms embodied" data-venue="arXiv 2026" id="paper-astra">
 <a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/astra.png" rel="noopener" target="_blank"><img alt="GPT-6 Astra teaser: closed-loop control, embodied capabilities, benchmarks, and LIBERO-GeoMotion" class="original-asset" decoding="async" src="./assets/papers/thumbs/astra-480.webp" width="1850" height="2003" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/astra-480.webp 480w, ./assets/papers/thumbs/astra-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
@@ -1167,16 +1201,6 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <a href="https://jasper-aaa.github.io/embodied-data-pyramid/">Project<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/worldbench/awesome-embodied-data-pyramid">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
-<article aria-labelledby="title-rynnbrain-1-1" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain-1-1"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain11.png" rel="noopener" target="_blank"><img alt="RynnBrain 1.1 overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnbrain11-480.webp" width="1162" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnbrain11-480.webp 480w, ./assets/papers/thumbs/rynnbrain11-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
-<div class="paper-body">
-<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
-<h3 class="paper-title" id="title-rynnbrain-1-1"><a href="https://arxiv.org/abs/2607.17977">RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model</a></h3>
-<p class="authors">Kehan Li*, <strong>Bohan Hou*</strong>, Minghao Zhu*, Tianyi Zhang*, Zesen Cheng*, Zhikai Wang*, Sicong Leng*, Xin Li*, et al.</p>
-<p class="paper-note">An embodied foundation-model family spanning 2B, 9B, and 122B-A10B scales, with stronger cognition and localization, native 3D grounding, contact-point prediction, and cross-embodiment VLA capabilities.</p>
-<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2607.17977">Paper<span aria-hidden="true"> ↗</span></a>
-<a href="https://alibaba-damo-academy.github.io/RynnBrain/">Project<span aria-hidden="true"> ↗</span></a>
-<a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
-</article>
 <article aria-labelledby="title-rynnvalue" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="unspecified" data-topics="embodied" data-venue="2026" id="paper-rynnvalue"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnvalue.png" rel="noopener" target="_blank"><img alt="RynnValue architecture overview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnvalue-480.webp" width="2162" height="708" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnvalue-480.webp 480w, ./assets/papers/thumbs/rynnvalue-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
 <div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">2026</span></div>
@@ -1186,16 +1210,6 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 <div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://github.com/hbhalpha/hbhalpha.github.io/blob/main/papers/RynnValue.pdf">Paper<span aria-hidden="true"> ↗</span></a>
 <a href="https://alibaba-damo-academy.github.io/RynnValue.github.io/">Project<span aria-hidden="true"> ↗</span></a>
 <a href="https://github.com/alibaba-damo-academy/RynnValue">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
-</article>
-<article aria-labelledby="title-rynnbrain" class="paper-card has-paper-image lead-author" data-author-role="co-first" data-kind="preprint" data-topics="mllms embodied" data-venue="arXiv 2026" id="paper-rynnbrain"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/rynnbrain.png" rel="noopener" target="_blank"><img alt="RynnBrain preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/rynnbrain-480.webp" width="1200" height="630" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/rynnbrain-480.webp 480w, ./assets/papers/thumbs/rynnbrain-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
-<div class="paper-body">
-<div class="paper-meta"><span class="authorship-badge">Co-first author</span><span class="venue">arXiv 2026</span></div>
-<h3 class="paper-title" id="title-rynnbrain"><a href="https://arxiv.org/abs/2602.14979">RynnBrain: Open Embodied Foundation Models</a></h3>
-<p class="authors">Ronghao Dang*, Jiayan Guo*, <strong>Bohan Hou*</strong>, Sicong Leng*, Kehan Li*, Xin Li*, et al.</p>
-<p class="paper-note">An open embodied foundation model family for egocentric understanding, spatiotemporal localization, physical reasoning, and planning.</p>
-<div aria-label="Research areas" class="paper-topics"><span class="topic-label topic-mllms">MLLMs</span><span class="topic-label topic-embodied">Embodied AI</span></div><div class="paper-footer"><div class="paper-links"><a href="https://arxiv.org/abs/2602.14979">Paper<span aria-hidden="true"> ↗</span></a>
-<a href="https://alibaba-damo-academy.github.io/RynnBrain.github.io/">Project<span aria-hidden="true"> ↗</span></a>
-<a href="https://github.com/alibaba-damo-academy/RynnBrain">Code<span aria-hidden="true"> ↗</span></a></div><span class="paper-role">Co-first author</span></div></div>
 </article>
 <article aria-labelledby="title-fire" class="paper-card has-paper-image lead-author" data-author-role="first" data-kind="conference" data-topics="retrieval mllms" data-venue="SIGIR 2025" id="paper-fire"><a aria-label="Open full-size research figure" class="paper-thumb" href="./assets/papers/fire.png" rel="noopener" target="_blank"><img alt="FiRE preview" class="original-asset" decoding="async" src="./assets/papers/thumbs/fire-480.webp" width="1284" height="589" loading="eager" fetchpriority="low" srcset="./assets/papers/thumbs/fire-480.webp 480w, ./assets/papers/thumbs/fire-960.webp 960w" sizes="(max-width:620px) calc(100vw - 80px), (max-width:760px) 160px, (max-width:1040px) 200px, 242px"/></a>
 <div class="paper-body">
@@ -1278,7 +1292,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
 </div></div>
 </div>
 </section>
-<footer class="footer-note"><p>© 2026 Bohan Hou · Last updated October 28, 2026 · GitHub Pages</p><a class="back-top" href="#top">Back to top ↑</a></footer>
+<footer class="footer-note"><p>© 2026 Bohan Hou · Last updated November 12, 2026 · GitHub Pages</p><a class="back-top" href="#top">Back to top ↑</a></footer>
 </main>
 <script>
 /* Progressive enhancement: all publications and links remain in the HTML.
@@ -1314,7 +1328,7 @@ html[data-theme="dark"] .lead-author .paper-role { color: #daba7c; }
       if (icon) icon.textContent = isDark ? '☀' : '☾';
       if (label) label.textContent = isDark ? 'Light' : 'Dark';
     }
-    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#0d0b08' : '#f4f8fd');
+    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#0d0b08' : '#f6f4ed');
   }
   function currentPreferredTheme() {
     const stored = readThemePreference();

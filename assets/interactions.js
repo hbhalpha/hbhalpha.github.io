@@ -5,7 +5,25 @@
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
   const ease = 'cubic-bezier(.25,.46,.45,.94)';
   let travel = null;
-  function stopTravel() { if (travel !== null) cancelAnimationFrame(travel); travel = null; }
+  let initialAlignmentCancelled = false;
+  function stopTravel() { initialAlignmentCancelled = true; if (travel !== null) cancelAnimationFrame(travel); travel = null; }
+  function destinationFor(target, id) {
+    const offset = (document.querySelector('.site-header')?.getBoundingClientRect().height || 76) + 26;
+    return id === 'top' ? 0 : Math.max(0, Math.min(document.documentElement.scrollHeight-innerHeight, scrollY+target.getBoundingClientRect().top-offset));
+  }
+  // Initial hash positioning follows the inline filter controls and all deferred setup.
+  // A real user gesture always takes precedence over this one-time correction.
+  function alignInitialHash() {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if (initialAlignmentCancelled || !location.hash) return;
+      let id;
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { return; }
+      const target = document.getElementById(id);
+      if (target && !target.hidden) scrollTo(0,destinationFor(target,id));
+    }));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',alignInitialHash,{once:true});
+  else alignInitialHash();
   ['wheel','touchstart','pointerdown'].forEach(type => addEventListener(type, stopTravel, { passive:true }));
   addEventListener('keydown', event => {
     if (['ArrowUp','ArrowDown','PageUp','PageDown','Home','End','Escape',' '].includes(event.key)) stopTravel();
@@ -21,8 +39,7 @@
     event.preventDefault();
     stopTravel();
     const start = scrollY;
-    const offset = (document.querySelector('.site-header')?.getBoundingClientRect().height || 76) + 26;
-    const end = id === 'top' ? 0 : Math.max(0, Math.min(document.documentElement.scrollHeight-innerHeight, start+target.getBoundingClientRect().top-offset));
+    const end = destinationFor(target,id);
     if (location.hash !== hash) history.pushState(null, '', hash);
     function focusTarget() {
       const added = !target.hasAttribute('tabindex');
@@ -96,7 +113,7 @@
   document.querySelectorAll('.paper-card,.project-card,.portrait-card').forEach(card => {
     card.classList.add('has-spotlight');
     card.addEventListener('pointerenter', event => {
-      if(!finePointer.matches||reduce.matches) return;
+      if(!finePointer.matches||reduce.matches||document.documentElement.dataset.theme==='light') return;
       stopLight();
       spotlight=card;
       const r=card.getBoundingClientRect();

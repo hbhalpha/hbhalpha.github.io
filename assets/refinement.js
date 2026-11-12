@@ -16,6 +16,8 @@
     if (animated.has(element)) return;
     animated.add(element);
     element.classList.add('is-in-view');
+    // The daylight edition reveals decorative ink rather than moving reading rows.
+    if (document.documentElement.dataset.theme === 'light') return;
     if (element.getBoundingClientRect().top < innerHeight - 12) return;
     play(element, [{ translate: '0 12px' }, { translate: '0 0' }],
       { duration: 1150, easing: ease, delay, fill: 'backwards' });

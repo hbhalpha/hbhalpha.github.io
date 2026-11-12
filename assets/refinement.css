@@ -158,7 +158,7 @@
 .paper-thumb img { position: absolute; inset: 0; }
 img.original-asset[data-image-state] { transition: opacity 760ms cubic-bezier(.25,.46,.45,.94), transform 1100ms var(--ease-out); }
 img.original-asset[data-image-state="loading"],
-img.original-asset[data-image-state="error"] { opacity: 0; }
+img.original-asset[data-image-state="error"] { opacity: 0; transition: none; }
 .paper-thumb[data-image-state="loading"]::before,
 .paper-thumb[data-image-state="error"]::before {
   position: absolute; inset: 0; display: grid; place-items: center;
