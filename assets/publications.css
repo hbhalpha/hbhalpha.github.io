@@ -40,8 +40,9 @@
   }
   html[data-theme] #publications #topic-filters {
     grid-area: topics; min-width: 0;
-    display: flex; flex-wrap: nowrap; align-items: center;
-    overflow-x: auto; gap: 10px; padding: 2px 0 4px;
+    display: grid;
+    grid-template-columns: max-content max-content repeat(4,minmax(0,1fr));
+    align-items: stretch; overflow-x: auto; gap: 10px; padding: 2px 0 4px;
     scrollbar-width: none;
   }
   html[data-theme] #publications .filter-button {
@@ -53,6 +54,12 @@
   html[data-theme] #publications .filter-button[aria-pressed="true"] {
     color: var(--publication-control-text); border-color: var(--publication-control-bg); background: var(--publication-control-bg);
   }
+  html[data-theme] #publications .cv-topic-filter {
+    display: grid; grid-template-columns: 5px minmax(0,1fr) auto;
+    gap: 8px; padding: 10px 12px; text-align: left; line-height: 1.4;
+    white-space: normal;
+  }
+  html[data-theme] #publications .filter-name { min-width: 0; }
   html[data-theme] #publications .filter-button:hover { color: var(--accent); }
   html[data-theme] #publications .filter-count { font-size: .9rem; font-weight: 650; color: inherit; }
   html[data-theme] #publications .authorship-filters {
@@ -142,6 +149,10 @@
     box-shadow: none; transform: none;
   }
   html[data-theme] #publications .paper-card .paper-thumb img { transform: none; }
+  @media (max-width: 1150px) {
+    html[data-theme] #publications #topic-filters { display: flex; }
+    html[data-theme] #publications .cv-topic-filter { width: 260px; }
+  }
   @media (max-width: 1100px) {
     html[data-theme] #publications .pub-controls {
       grid-template-columns: minmax(0,1fr) 215px;
