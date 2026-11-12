@@ -1,0 +1,53 @@
+@font-face{font-family:'Bohan Kai';src:url('./fonts/bohan-kai.woff2') format('woff2');font-weight:400;font-display:swap;unicode-range:U+4FAF,U+535A,U+6DB5}
+.cn-name{font-family:'Bohan Kai',KaiTi,STKaiti,cursive}
+.shore-plate,.chapter-proof{display:none}
+@media screen {
+ html[data-theme="light"] .hero{--deep:#143561;grid-template-columns:minmax(0,1.16fr) minmax(0,.95fr);align-items:center;gap:clamp(28px,5vw,76px);padding:clamp(26px,4vw,62px) 0 clamp(26px,3vw,46px);border-bottom:1px solid #819cba;background:#fff}
+ html[data-theme="light"] .hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(3.6rem,6.4vw,6.25rem);font-weight:400;line-height:.98;letter-spacing:-.073em;color:var(--deep)}
+ html[data-theme="light"] .folio-surname{font-style:italic;letter-spacing:-.085em}
+ html[data-theme="light"] .cn-name{font-size:clamp(1.7rem,2.45vw,2.35rem);margin-top:15px;letter-spacing:.15em;transform:none;font-synthesis:none}
+ html[data-theme="light"] .eyebrow{margin-bottom:20px}
+ html[data-theme="light"] .hero .subtitle{font-size:clamp(1rem,1.38vw,1.16rem);max-width:43ch;line-height:1.65}
+ html[data-theme="light"] .portrait-card{display:grid;grid-template-columns:88px minmax(0,1fr);width:100%;max-width:unset;gap:14px 18px;align-items:center;align-self:center;padding:0;border:0;box-shadow:none;background:transparent;transform:none;animation:none}
+ html[data-theme="light"] .shore-plate{display:block;grid-column:1/-1;margin:0;padding:0;border:0}
+ html[data-theme="light"] .shore-plate img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+ html[data-theme="light"] .shore-plate figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:7px 0 14px;color:#36546f;border-bottom:1px solid #c3d1df}
+ .shore-plate figcaption i{font:italic 1rem/1.3 Georgia,serif}.shore-plate figcaption span{font:500 .65rem/1.5 system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+ html[data-theme="light"] .portrait-visual{width:88px;height:96px;aspect-ratio:auto;border-radius:0}
+ html[data-theme="light"] .portrait-visual img{object-position:50% 36%}
+ html[data-theme="light"] .quick-meta{padding:0}.selected-research a{white-space:nowrap}
+ html[data-theme="light"] .selected-research{padding:14px 0;gap:8px clamp(12px,2vw,29px)}
+ html[data-theme="light"] .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(100px,22%);align-items:center;gap:2px 16px;padding-bottom:14px;border-bottom:1px solid #bccddd;isolation:isolate}
+ html[data-theme="light"] .section-head>div{grid-column:1;grid-row:1}
+ html[data-theme="light"] .section-note{grid-column:1;grid-row:2;text-align:left;max-width:none}
+ html[data-theme="light"] .section-head h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.95rem,3.1vw,2.9rem);font-weight:400;letter-spacing:-.048em;line-height:1.12;color:#143561}
+ html[data-theme="light"] .section-head::after{content:none}
+ html[data-theme="light"] .chapter-proof{display:block;grid-column:2;grid-row:1/span 2;position:relative;isolation:isolate;overflow:hidden;align-self:center;width:100%;height:clamp(36px,4vw,56px);background:#fff url('./shoreline.webp') var(--cut-x,50%) var(--cut-y,65%)/190% auto no-repeat}
+ #bio{--cut-x:5%;--cut-y:53%}#education{--cut-x:83%;--cut-y:39%}#experience{--cut-x:50%;--cut-y:61%}#publications{--cut-x:30%;--cut-y:72%}#projects{--cut-x:72%;--cut-y:81%}#misc{--cut-x:96%;--cut-y:50%}
+ .chapter-proof>span{position:absolute;inset:-1px;pointer-events:none;background:linear-gradient(90deg,transparent 0,rgba(23,53,89,.13) 4%,#fff 9%,#fff);transform:translateX(105%)}
+ html[data-theme="light"] .paper-card.lead-author{border-inline-start:4px solid #245398;background:linear-gradient(105deg,#edf4ff,#fff 82%)}
+ html[data-theme="light"] .paper-card.lead-author .authorship-badge{color:#fff;background:#164789;border:1px solid #164789;font-weight:750;box-shadow:none}
+ html[data-theme="light"] .paper-card.lead-author[data-author-role="first"] .authorship-badge{background:#102d51;border-color:#102d51}
+ html[data-theme="light"] .lead-author :is(.authors,.author-summary,.author-full) strong{color:#122f58;background:#d8e8ff;border-bottom:2px solid #4370a9;padding:0 3px;font-weight:750}
+ html[data-theme="light"] .lead-author .paper-role{color:#184580;font-weight:700}
+ html[data-theme="light"] .leadership-badge{color:#143b75;border:1px solid #577eaf;background:#fff}
+ html[data-theme="light"] .paper-card .pinned-badge{color:#4c6180;border-color:#b5c7dc;background:transparent}
+ html[data-theme="light"] .paper-card:not(.lead-author) :is(.authors,.author-summary) strong{background:none;color:inherit}
+ @media(max-width:920px) {
+  html[data-theme="light"] .hero{grid-template-columns:minmax(0,1.12fr) minmax(0,.9fr);gap:24px}
+  html[data-theme="light"] .hero h1{font-size:clamp(3.1rem,7vw,4.4rem)}
+  html[data-theme="light"] .affiliations{flex-wrap:wrap}
+ }
+ @media(max-width:680px) {
+  html[data-theme="light"] .hero{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px 0}
+  html[data-theme="light"] .hero h1{font-size:clamp(3.4rem,13vw,4.6rem)}
+  html[data-theme="light"] .hero .subtitle{max-width:42ch}
+  html[data-theme="light"] .portrait-card{grid-template-columns:70px 1fr;gap:10px 14px}
+  html[data-theme="light"] .portrait-visual{width:70px;height:76px}
+  html[data-theme="light"] .shore-plate figcaption{padding-bottom:8px}
+  html[data-theme="light"] .chapter-proof{height:34px}
+  html[data-theme="light"] .selected-research{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+  html[data-theme="light"] .selected-research>span{grid-column:1/-1}
+  html[data-theme="light"] .selected-research>a{padding:5px 0}
+ }
+}

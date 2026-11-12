@@ -1,6 +1,6 @@
-/* Daylight edition: blue and white, modernist geometry, and broad ink reveals.
+/* Daylight edition: blue and white, modernist geometry, and printed waterfront studies.
    Visual changes are scoped to light mode. Original figures retain their colors. */
-.daylight-composition, .paper-lift { display: none; }
+.paper-lift { display: none; }
 .pinned-badge {
   display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px;
   font-size: .7rem; line-height: 1.55; font-weight: 650;
@@ -98,12 +98,6 @@
   html[data-theme="light"] .quick-meta-label { color: var(--accent); font-size: .65rem; letter-spacing: .08em; }
   html[data-theme="light"] .quick-meta strong { color: var(--ink); font-size: .875rem; }
   html[data-theme="light"] .quick-meta p { font-size: .75rem; }
-  html[data-theme="light"] .daylight-composition {
-    display: block; position: absolute; right: 92px; bottom: -12px;
-    width: 49%; height: auto; max-height: 390px; color: var(--paper-ink); pointer-events: none; z-index: 0;
-  }
-  html[data-theme="light"] .daylight-rule { opacity: .15; }
-  html[data-theme="light"] .daylight-cinnabar { color: var(--accent); opacity: .78; }
   html[data-theme="light"] .updates { margin-top: 23px; padding: 0 24px; gap: 26px; }
   html[data-theme="light"] .selected-research { margin-top: 0; padding: 14px 24px; border-color: #d1dff4; }
   html[data-theme="light"] .selected-research > span { color: var(--muted); }
@@ -190,12 +184,7 @@
     transform: scale(.6); opacity: .7;
     transition: transform 850ms var(--paper-ease), opacity 500ms ease;
   }
-  html[data-theme="light"] .paper-card::after {
-    content: ''; position: absolute; top: 0; left: 0; width: min(420px,65%); height: 110px; z-index: -1;
-    pointer-events: none; background: #1555cc; opacity: 0;
-    clip-path: polygon(0 13%,22% 0,47% 11%,66% 4%,85% 22%,100% 12%,98% 61%,79% 71%,62% 52%,43% 83%,19% 66%,0 100%);
-    transform-origin: 0 32%;
-  }
+
 
   html[data-theme="light"] .has-spotlight::before { display: none; }
   html[data-theme="light"] .pub-controls { border-bottom-color: #cfddf1; }
@@ -222,17 +211,10 @@
     html[data-theme="light"] .paper-thumb:hover .paper-lift { transform: scale(1) skew(-7deg,-7deg); opacity: 1; }
     html[data-theme="light"] .paper-card:hover .authorship-badge::after { animation: none; }
   }
-  @media (prefers-reduced-motion:no-preference) {
 
-    html[data-theme="light"] .portrait-card { animation: paper-cover-open 1600ms var(--paper-ease) both; }
-
-    html[data-theme="light"] .daylight-cinnabar { animation: ink-seal 1450ms 500ms var(--paper-ease) backwards; }
-
-  }
   @media (max-width:1040px) {
     html[data-theme="light"] .hero { gap: 32px; padding: 36px 24px; grid-template-columns: minmax(0,1fr) 210px; }
     html[data-theme="light"] .hero h1 { font-size: clamp(3rem,6.5vw,4.5rem); }
-    html[data-theme="light"] .daylight-composition { width: 60%; right: -44px; }
   }
   @media (max-width:760px) {
     html[data-theme="light"] .hero { grid-template-columns: minmax(0,1fr) 180px; gap: 24px; padding: 32px 8px; }
@@ -253,7 +235,6 @@
     html[data-theme="light"] .portrait-card { display: grid; grid-template-columns: 92px minmax(0,1fr); gap: 14px; padding: 7px; max-width: 340px; width: 100%; }
     html[data-theme="light"] .portrait-visual { width: auto; aspect-ratio: 1; height: auto; }
     html[data-theme="light"] .quick-meta { padding: 4px 5px 4px 0; }
-    html[data-theme="light"] .daylight-composition { width: 78%; height: 210px; right: -36px; bottom: -22px; opacity: .7; }
     html[data-theme="light"] .hero-copy { padding-bottom: 0; }
     html[data-theme="light"] .affiliation + .affiliation { padding-left: 0; border-left: 0; }
     html[data-theme="light"] section:not(.hero) { margin-top: 44px; }
@@ -273,27 +254,12 @@
     html[data-theme="light"] .simple-card { padding: 20px 16px; }
   }
 }
-@keyframes ink-field-open {
-  0% { clip-path: polygon(0 71%,0 50%,0 50%,0 92%); }
-  48% { clip-path: polygon(0 71%,52% 6%,56% 70%,0 92%); }
-  100% { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
-}
-@keyframes ink-seal { from { opacity: 0; transform: translate(0,5px) scaleY(.7); } to { opacity: .78; transform: none; } }
-@keyframes paper-copy-settle { from { translate: 0 8px; } to { translate: 0 0; } }
-@keyframes paper-cover-open { from { transform: perspective(1000px) rotateY(-17deg) rotateZ(.7deg); } to { transform: none; } }
-/* Separate the entry's rotate/translate from the hover's transform. */
-@keyframes paper-sheet-settle { from { rotate: 0 1 0 -7deg; translate: 4px 0; } to { rotate: 0 1 0 0deg; translate: 0 0; } }
-@keyframes paper-ink-spread {
-  0% { opacity: 0; transform: scale(.06,.18) rotate(-2deg); }
-  40% { opacity: .055; }
-  100% { opacity: .035; transform: scale(1,1) rotate(0); }
-}
 @media (prefers-reduced-motion:reduce) {
   html[data-theme="light"] .paper-card.ink-arrived::after { animation: none; opacity: .025; transform: none; }
   html[data-theme="light"] .paper-thumb:hover,
   html[data-theme="light"] .paper-thumb:hover .paper-lift { transform: none; }
 }
 @media print {
-  .daylight-composition, .paper-lift { display: none !important; }
+  .paper-lift { display: none !important; }
   .pinned-badge { color: #222; border-color: #999; }
 }
